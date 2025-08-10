@@ -109,24 +109,20 @@ Let see why this approach works. If $DRCC_{r,c_i,c_j}=\{0,1\}$.
     <td>$1\leq 8 +9\cdot DRCC_{r,c_i,c_j}\leq8$</td>
     <td> $1\leq 1 +9\cdot DRCC_{r,c_i,c_j}\leq8$ </td>
     <td>
-
 $$
 \begin{cases}
 Max\to DRCC_{r,c_i,c_j}=0 \\ 
 Min\to DRCC_{r,c_i,c_j}=0 
 \end{cases}
 $$
-
     </td>
   </tr>
 </table>
 
-$$
-\begin{cases}
-Max\to DRCC_{r,c_i,c_j}=\varnothing \\
-Min\to DRCC_{r,c_i,c_j}=\varnothing
-\end{cases}
-$$
+| Case | MaxDifference | MinDifference | Implication |
+|------|---------------|---------------|-------------|
+| $S_{r,c_i} > S_{r,c_j}$ | $1 \leq 8 + 9\cdot DRCC_{r,c_i,c_j} \leq 8$ | $1 \leq 1 + 9\cdot DRCC_{r,c_i,c_j} \leq 8$ | $\begin{cases} \text{Max} \to DRCC_{r,c_i,c_j} = 0 \\ \text{Min} \to DRCC_{r,c_i,c_j} = 0 \end{cases}$ |
+
 
 ## In this folder:
 This folder contains one class and one package that defines the structures required for solving the problem.
