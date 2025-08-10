@@ -108,11 +108,14 @@ Let see why this approach works. If $DRCC_{r,c_i,c_j}=\{0,1\}$.
     <td>$S_{r,c_i}> S_{r,c_j}$</td>
     <td>$1\leq 8 +9\cdot DRCC_{r,c_i,c_j}\leq8$</td>
     <td> $1\leq 1 +9\cdot DRCC_{r,c_i,c_j}\leq8$ </td>
-    <td> 
-$$\begin{cases}
+    <td>
+
+$$
+\begin{cases}
 Max\to DRCC_{r,c_i,c_j}=0 \\ 
 Min\to DRCC_{r,c_i,c_j}=0 
-\end{cases}$$
+\end{cases}
+$$
     </td>
   </tr>
 </table>
