@@ -1,0 +1,28 @@
+plugins {
+    id 'java'
+    id "io.freefair.lombok" version "6.6.1"
+}
+
+group = 'org.soyaga.examples'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.projectlombok:lombok:1.18.26'
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    implementation project(':OptimizationLib')
+    implementation("org.seleniumhq.selenium:selenium-java:4.34.0")
+    implementation 'com.google.ortools:ortools-java:9.7.2996'
+    implementation("net.sourceforge.tess4j:tess4j:5.16.0")
+    implementation 'org.slf4j:slf4j-nop:2.0.17'
+    implementation 'org.openpnp:opencv:4.9.0-0'
+}
+
+test {
+    useJUnitPlatform()
+}

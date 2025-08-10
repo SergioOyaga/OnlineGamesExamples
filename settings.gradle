@@ -1,0 +1,3 @@
+rootProject.name = 'OnlineGamesExamples'
+include 'OptimizationLib'
+project(':OptimizationLib').projectDir= file('../OptimizationLib')
