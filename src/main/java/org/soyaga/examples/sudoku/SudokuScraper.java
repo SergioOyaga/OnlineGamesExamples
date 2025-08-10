@@ -212,6 +212,7 @@ public class SudokuScraper {
             } else {
                 System.out.println("Optimal solution not found.");
             }
+            Thread.sleep(4000);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
