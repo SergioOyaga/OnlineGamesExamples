@@ -2,7 +2,7 @@
 For this https://sudoku.com/ Sudoku problem, we use MIP to formulate and solve a linear problem.
 In the [mathematical formulation](#mathematical-formulation) we can see how the problem sets, parameters, variables and constraints are defined.
 
-<img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/main/src/out/Sudoku/Sudoku.gif"  title="Sudoku example" alt="Sudoku example"/>
+<img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/Sudoku/Sudoku.gif"  title="Sudoku example" alt="Sudoku example"/>
 
 ## Mathematical formulation:
 We have to represent the problem using lineal mathematical expressions.

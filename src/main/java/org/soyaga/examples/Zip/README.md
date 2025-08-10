@@ -7,7 +7,7 @@ In the [mathematical formulation](#mathematical-formulation) we can see how the 
 
 In the [ACO-representation](#aco-representation) we can see the graph design.
 
-<img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/main/src/out/Zip/Zip.gif"  title="Zip example" alt="Zip example"/>
+<img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/Zip/Zip.gif"  title="Zip example" alt="Zip example"/>
 
 ## Mathematical formulation:
 We have to represent the problem using lineal mathematical expressions.

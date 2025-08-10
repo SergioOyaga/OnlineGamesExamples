@@ -3,7 +3,7 @@ For this LinkedIn Tango problem, we use MIP to formulate and solve a linear prob
 In the [mathematical formulation](#mathematical-formulation) we can see how the problem sets, parameters, variables and 
 constraints are defined.
 
-<img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/main/src/out/Tango/Tango.gif"  title="Tango example" alt="Tango example"/>
+<img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/Tango/Tango.gif"  title="Tango example" alt="Tango example"/>
 
 ## Mathematical formulation:
 We have to represent the problem using lineal mathematical expressions.
