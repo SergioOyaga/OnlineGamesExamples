@@ -116,6 +116,7 @@ Max\to DRCC_{r,c_i,c_j}=0 \\
 Min\to DRCC_{r,c_i,c_j}=0 
 \end{cases}
 $$
+
     </td>
   </tr>
 </table>
