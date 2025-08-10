@@ -138,22 +138,50 @@ We have to represent the problem using lineal mathematical expressions.
 The graph looks like:
 ````mermaid
 block-beta
-    columns 3
+    columns 5
 
-    Node1 Node2 Node3
-    Node4 Node5 Node6
-    Node7 Node8 Node9
+    Node1(("&emsp;Node1&emsp;")) space Node2(("&emsp;Node2&emsp;")) space Node3(("&emsp;Node3&emsp;"))
+    space space space space space
+    Node4(("&emsp;Node4&emsp;")) space Node5(("&emsp;Node5&emsp;")) space Node6(("&emsp;Node6&emsp;"))
+    space space space space space
+    Node7(("&emsp;Node7&emsp;")) space Node8(("&emsp;Node8&emsp;")) space Node9(("&emsp;Node9&emsp;"))
 
-    Node1<--->Node2
-    Node1<--->Node4
-    Node2<--->Node3
-    Node2<--->Node5
-    Node3<--->Node6
-    Node4<--->Node5
-    Node4<--->Node7
-    Node5<--->Node6
-    Node5<--->Node8
-    Node6<--->Node9
+    Node1 <---> Node2
+    Node2 <---> Node1
+    
+    Node1 <---> Node4
+    Node4 <---> Node1
+    
+    Node2 <---> Node3
+    Node3 <---> Node2
+    
+    Node2 <---> Node5
+    Node5 <---> Node2
+    
+    Node3 <---> Node6
+    Node6 <---> Node3
+    
+    Node4 <---> Node5
+    Node5 <---> Node4
+    
+    Node4 <---> Node7
+    Node7 <---> Node4
+    
+    Node5 <---> Node6
+    Node6 <---> Node5
+    
+    Node5 <---> Node8
+    Node8 <---> Node5
+    
+    Node6 <---> Node9
+    Node9 <---> Node6
+    
+    Node7 <---> Node8
+    Node8 <---> Node7
+    
+    Node8 <---> Node9
+    Node9 <---> Node8
+    
 ````
 The Ants build solutions by moving through the Graph edges. A solution is an Array of Nodes, that is a valid solution when:
 1. Start and end Nodes are the first and last priority nodes.
