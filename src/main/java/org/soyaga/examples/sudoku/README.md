@@ -19,8 +19,8 @@ We have to represent the problem using lineal mathematical expressions.
             <li>$\textcolor{blue}{R_{fv}} =$ Row associated with a fixed value.</li>
             <li>$\textcolor{blue}{C} =$ Column numbers in the board.</li>
             <li>$\textcolor{blue}{C_{fv}} =$ Column associated with a fixed value.</li>
-            <li>$\textcolor{blue}{FV}} =$ FixedValues cells in the board.</li>
-            <li>$\textcolor{blue}{S}} =\{0,2,...,8\}$ Square group numbers.</li>
+            <li>$\textcolor{blue}{FV} =$ FixedValues cells in the board.</li>
+            <li>$\textcolor{blue}{S} =\{0,2,...,8\}$ Square group numbers.</li>
          </ul>
       </td>
       <td rowspan="3">
@@ -37,7 +37,7 @@ We have to represent the problem using lineal mathematical expressions.
    </tr>
     <tr>
       <td>
-        \textcolor{magenta}{CV_{fv}} \in \{1,2,...,9\} \forall fv \in \textcolor{blue}{FV}$ CellValue by fixed value cells.
+        $\textcolor{magenta}{CV_{fv}} \in \{1,2,...,9\} \forall fv \in \textcolor{blue}{FV}$ CellValue by fixed value cells.
       </td>
     </tr>
 </table>
@@ -53,25 +53,25 @@ We have to represent the problem using lineal mathematical expressions.
   </tr>
   <tr>
     <td><b>AllDifferentInRow</b></td>
-    <td>$$ S_{r,c_i} \neq S{r,c_j},\; \forall r \in \textcolor{blue}{R},\; \forall c_i \in \textcolor{blue}{C},\; \forall c_j \in \textcolor{blue}{C} \| c_j>c_i$$</td>
+    <td>$S_{r,c_i} \neq S{r,c_j},\; \forall r \in \textcolor{blue}{R},\; \forall c_i \in \textcolor{blue}{C},\; \forall c_j \in \textcolor{blue}{C} \| c_j>c_i$</td>
     <td> $|\textcolor{blue}{R} \cdot \textcolor{blue}{C} \cdot \frac{\textcolor{blue}{C} \cdot(\textcolor{blue}{C} -1))}{2}|$ </td>
     <td> Each row element has to be different with the rest of the row elements.</td>
   </tr>
   <tr>
     <td><b>AllDifferentInCol</b></td>
-    <td>$$ S_{r_i,c} \neq S{r_j,c},\; \forall r_i \in \textcolor{blue}{R},\; \forall r_j \in \textcolor{blue}{R},\; \forall c \in \textcolor{blue}{C} \| r_j>r_i$$</td>
+    <td>$S_{r_i,c} \neq S{r_j,c},\; \forall r_i \in \textcolor{blue}{R},\; \forall r_j \in \textcolor{blue}{R},\; \forall c \in \textcolor{blue}{C} \| r_j>r_i$</td>
     <td> $|\textcolor{blue}{C} \cdot \textcolor{blue}{R} \cdot \frac{\textcolor{blue}{R} \cdot(\textcolor{blue}{R} -1))}{2}|$ </td>
     <td> Each colum element has to be different with the rest of the column elements.</td>
   </tr>
   <tr>
     <td><b>AllDifferentInSquare</b></td>
-    <td>$$ S_{r,c} \neq S{r_s,c_s},\; \forall r \in \textcolor{blue}{R},\; \forall c \in \textcolor{blue}{C},\; \forall s \in \textcolor{blue}{S}$$</td>
+    <td>$S_{r,c} \neq S{r_s,c_s},\; \forall r \in \textcolor{blue}{R},\; \forall c \in \textcolor{blue}{C},\; \forall s \in \textcolor{blue}{S}$</td>
     <td> $|\textcolor{blue}{R} \cdot \textcolor{blue}{C} \cdot \frac{\textcolor{blue}{S} \cdot(\textcolor{blue}{S} -1))}{2}|$ </td>
     <td> Each element has to be different with the rest of the square elements.</td>
   </tr>
   <tr>
     <td><b>ForceAssignations</b></td>
-    <td>$$ S_{r_{fv},c_{fv}} == \textcolor{magenta}{CV_{fv}},\; \forall fv \in \textcolor{blue}{FV}$$</td>
+    <td>$S_{r_{fv},c_{fv}} == \textcolor{magenta}{CV_{fv}},\; \forall fv \in \textcolor{blue}{FV}$</td>
     <td> $|\textcolor{blue}{FV}|$ </td>
     <td> Force assignation of fixed cell values.</td>
   </tr>
@@ -98,7 +98,7 @@ Let see why this approach works. If $DRCC_{r,c_i,c_j}=\{0,1\}$.
 | $S_{r,c_i}< S_{r,c_j}$ | $1\leq -1 +9\cdot DRCC_{r,c_i,c_j}\leq8$ | $1\leq -8 +9\cdot DRCC_{r,c_i,c_j}\leq8$ | $\begin{cases}Max\to DRCC_{r,c_i,c_j}=1 \\ Min\to DRCC_{r,c_i,c_j}=1 \end{cases}$                     |
 | $S_{r,c_i}= S_{r,c_j}$ | $1\leq 0 +9\cdot DRCC_{r,c_i,c_j}\leq8$  | $1\leq 0 +9\cdot DRCC_{r,c_i,c_j}\leq8$  | $\begin{cases}Max\to DRCC_{r,c_i,c_j}=\varnothing \\ Min\to DRCC_{r,c_i,c_j}=\varnothing \end{cases}$ |
 
-
+$\begin{cases}a&(a\geqq b)\\b&(a\lt b)\end{cases}$
 ## In this folder:
 This folder contains one class and one package that defines the structures required for solving the problem.
 
