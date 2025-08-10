@@ -116,12 +116,14 @@ Min\to DRCC_{r,c_i,c_j}=0
     </td>
   </tr>
 </table>
+
 $$
 \begin{cases}
 Max\to DRCC_{r,c_i,c_j}=\varnothing \\
 Min\to DRCC_{r,c_i,c_j}=\varnothing
 \end{cases}
 $$
+
 ## In this folder:
 This folder contains one class and one package that defines the structures required for solving the problem.
 
