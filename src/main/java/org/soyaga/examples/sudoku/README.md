@@ -92,36 +92,11 @@ The inequality can be expressed as:
 
 Let see why this approach works. If $DRCC_{r,c_i,c_j}=\{0,1\}$.
 
-| Case                   | MaxDifference                              | MinDifference                            | Implication                                                                                             |
-|------------------------|------------------------------------------|------------------------------------------|---------------------------------------------------------------------------------------------------------|
-| $S_{r,c_i}> S_{r,c_j}$ | $1\leq 8 +9\cdot DRCC_{r,c_i,c_j}\leq8$  | $1\leq 1 +9\cdot DRCC_{r,c_i,c_j}\leq8$  | $$\begin{cases}Max\to DRCC_{r,c_i,c_j}=0 \\ Min\to DRCC_{r,c_i,c_j}=0 \end{cases}$$                     |          
-| $S_{r,c_i}< S_{r,c_j}$ | $1\leq -1 +9\cdot DRCC_{r,c_i,c_j}\leq8$ | $1\leq -8 +9\cdot DRCC_{r,c_i,c_j}\leq8$ | $$\begin{cases}Max\to DRCC_{r,c_i,c_j}=1 \\ Min\to DRCC_{r,c_i,c_j}=1 \end{cases}$$                     |
-| $S_{r,c_i}= S_{r,c_j}$ | $1\leq 0 +9\cdot DRCC_{r,c_i,c_j}\leq8$  | $1\leq 0 +9\cdot DRCC_{r,c_i,c_j}\leq8$  | $$\begin{cases}Max\to DRCC_{r,c_i,c_j}=\varnothing \\ Min\to DRCC_{r,c_i,c_j}=\varnothing \end{cases}$$ |
-<table>
-  <tr>
-    <th>Case</th>
-    <th>MaxDifference</th>
-    <th>MinDifference</th>
-    <th>Implication</th>
-  </tr>
-  <tr>
-    <td>$S_{r,c_i}> S_{r,c_j}$</td>
-    <td>$1\leq 8 +9\cdot DRCC_{r,c_i,c_j}\leq8$</td>
-    <td> $1\leq 1 +9\cdot DRCC_{r,c_i,c_j}\leq8$ </td>
-    <td>
-$$
-\begin{cases}
-Max\to DRCC_{r,c_i,c_j}=0 \\ 
-Min\to DRCC_{r,c_i,c_j}=0 
-\end{cases}
-$$
-    </td>
-  </tr>
-</table>
-
-| Case | MaxDifference | MinDifference | Implication |
-|------|---------------|---------------|-------------|
-| $S_{r,c_i} > S_{r,c_j}$ | $1 \leq 8 + 9\cdot DRCC_{r,c_i,c_j} \leq 8$ | $1 \leq 1 + 9\cdot DRCC_{r,c_i,c_j} \leq 8$ | $\begin{cases} \text{Max} \to DRCC_{r,c_i,c_j} = 0 \\ \text{Min} \to DRCC_{r,c_i,c_j} = 0 \end{cases}$ |
+| Case                   | MaxDifference                              | MinDifference                            | Implication                                                                   |
+|------------------------|------------------------------------------|------------------------------------------|-------------------------------------------------------------------------------|
+| $S_{r,c_i}> S_{r,c_j}$ | $1\leq 8 +9\cdot DRCC_{r,c_i,c_j}\leq8$  | $1\leq 1 +9\cdot DRCC_{r,c_i,c_j}\leq8$  | $Max\to DRCC_{r,c_i,c_j}=0$ <br/>$Min\to DRCC_{r,c_i,c_j}=0$ |          
+| $S_{r,c_i}< S_{r,c_j}$ | $1\leq -1 +9\cdot DRCC_{r,c_i,c_j}\leq8$ | $1\leq -8 +9\cdot DRCC_{r,c_i,c_j}\leq8$ | $Max\to DRCC_{r,c_i,c_j}=1$ <br/>$Min\to DRCC_{r,c_i,c_j}=1$ |
+| $S_{r,c_i}= S_{r,c_j}$ | $1\leq 0 +9\cdot DRCC_{r,c_i,c_j}\leq8$  | $1\leq 0 +9\cdot DRCC_{r,c_i,c_j}\leq8$  | $Max\to DRCC_{r,c_i,c_j}=\varnothing$ <br/>$Min\to DRCC_{r,c_i,c_j}=\varnothing $ |
 
 
 ## In this folder:
