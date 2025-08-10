@@ -16,26 +16,28 @@ This repository contains various Web-games optimization problems solved using th
       <td>1</td>
       <td><a href="https://github.com/SergioOyaga/LinkedCheats/tree/master/src/main/java/org/soyaga/examples/Queens/">Queens</a></td>
       <td>1</td>
-      <td rowspan="3"><img src="https://github.com/SergioOyaga/LinkedCheats/blob/master/src/out/Linked_Cheats.gif" title="Queens example" alt="Queens example"/></td>
+      <td ><img src="https://github.com/SergioOyaga/LinkedCheats/blob/master/src/out/Queens/Queens.gif" title="Queens example" alt="Queens example"/></td>
       <td>LinkedIn Queens using Mathematical Modeling.</td>
     </tr>
     <tr>
       <td>2</td>
       <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Tango">Tango</a></td>
       <td>1</td>
+      <td ><img src="https://github.com/SergioOyaga/LinkedCheats/blob/master/src/out/Tango/Tango.gif" title="Tango example" alt="Tango example"/></td>
       <td>LinkedIn Tango using Mathematical Modeling.</td>
     </tr>
     <tr>
       <td>3</td>
       <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Zip">Zip</a></td>
       <td>3</td>
+      <td ><img src="https://github.com/SergioOyaga/LinkedCheats/blob/master/src/out/Zip/Zip.gif" title="Zip example" alt="Zip example"/></td>
       <td>LinkedIn Zip using Mathematical Modeling and Ant Colony Optimization.</td>
     </tr>
     <tr>
       <td>4</td>
       <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/sudoku/">Sudoku</a></td>
-      <td>1</td>
-      <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/Sudoku.gif" title="Sudoku example" alt="Sudoku example"/></td>
+      <td>2</td>
+      <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/Sudoku/Sudoku.gif" title="Sudoku example" alt="Sudoku example"/></td>
       <td>Web sudoku using Mathematical Modeling.</td>
     </tr>
   </tbody>
