@@ -1,0 +1,48 @@
+# OptimizationLib Web-Games Examples
+This repository contains various Web-games optimization problems solved using the OptimizationLib framework. The programs interact directly with the game web page, scrapping the required information and interacting with the web elements to introduce the correct solution. The examples serve as templates for readers, enabling them to understand and develop their own optimization problems by following the structures used in these examples.
+
+<table>
+  <thead>
+    <tr>
+      <th>n</th>
+      <th>Package</th>
+      <th>Difficulty [1→5]</th>
+      <th>Example</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td><a href="https://github.com/SergioOyaga/LinkedCheats/tree/master/src/main/java/org/soyaga/examples/Queens/">Queens</a></td>
+      <td>1</td>
+      <td rowspan="3"><img src="https://github.com/SergioOyaga/LinkedCheats/blob/master/src/out/Linked_Cheats.gif" title="Queens example" alt="Queens example"/></td>
+      <td>LinkedIn Queens using Mathematical Modeling.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Tango">Tango</a></td>
+      <td>1</td>
+      <td>LinkedIn Tango using Mathematical Modeling.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Zip">Zip</a></td>
+      <td>3</td>
+      <td>LinkedIn Zip using Mathematical Modeling and Ant Colony Optimization.</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/sudoku/">Sudoku</a></td>
+      <td>1</td>
+      <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/Sudoku.gif" title="Sudoku example" alt="Sudoku example"/></td>
+      <td>Web sudoku using Mathematical Modeling.</td>
+    </tr>
+  </tbody>
+</table>
+
+
+The difficulty level ranges from a minimum of (1) to a maximum of (5) in this repository.
+
+## Comment:
+The examples in this repository illustrate the power and versatility of the OptimizationLib framework. Remember, these examples serve as templates that you can adapt for your specific optimization problems.
