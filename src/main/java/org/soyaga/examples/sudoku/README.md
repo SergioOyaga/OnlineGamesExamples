@@ -98,7 +98,12 @@ Let see why this approach works. If $DRCC_{r,c_i,c_j}=\{0,1\}$.
 | $S_{r,c_i}< S_{r,c_j}$ | $1\leq -1 +9\cdot DRCC_{r,c_i,c_j}\leq8$ | $1\leq -8 +9\cdot DRCC_{r,c_i,c_j}\leq8$ | $$\begin{cases}Max\to DRCC_{r,c_i,c_j}=1 \\ Min\to DRCC_{r,c_i,c_j}=1 \end{cases}$$                     |
 | $S_{r,c_i}= S_{r,c_j}$ | $1\leq 0 +9\cdot DRCC_{r,c_i,c_j}\leq8$  | $1\leq 0 +9\cdot DRCC_{r,c_i,c_j}\leq8$  | $$\begin{cases}Max\to DRCC_{r,c_i,c_j}=\varnothing \\ Min\to DRCC_{r,c_i,c_j}=\varnothing \end{cases}$$ |
 
-$$\begin{cases}a&(a\geqq b) \\ b&(a\lt b)\end{cases}$$
+$$
+\begin{cases}
+a & \text{if } a \ge b \\
+b & \text{if } a < b
+\end{cases}
+$$
 ## In this folder:
 This folder contains one class and one package that defines the structures required for solving the problem.
 
