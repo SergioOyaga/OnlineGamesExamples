@@ -47,6 +47,13 @@ This repository contains various Web-games optimization problems solved using th
       <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/Sudoku/Sudoku.gif" title="Sudoku example" alt="Sudoku example"/></td>
       <td>Web sudoku using Mathematical Modeling.</td>
     </tr>
+    <tr>
+      <td>6</td>
+      <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Maze/">Maze</a></td>
+      <td>1</td>
+      <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/Maze/Maze.gif" title="Maze example" alt="Maze example"/></td>
+      <td>Web maze using Ant colony.</td>
+    </tr>
   </tbody>
 </table>
 
