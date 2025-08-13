@@ -37,10 +37,10 @@ We have to represent the problem using lineal mathematical expressions.
    </tr>
     <tr>
       <td>
-        $\textcolor{magenta}{Max} = \max(\mid\textcolor{blue}{R}\mid, \mid\textcolor{blue}{C}\mid)$ Maximum value in the sudoku.
-      </td>
-      <td>
-        $\textcolor{magenta}{CV_{fv}} \in \{1,2,...,\textcolor{magenta}{Max}\} \forall fv \in \textcolor{blue}{FV}$ CellValue by fixed value cells.
+        <ul>
+           <li> $\textcolor{magenta}{Max} = \max(\mid\textcolor{blue}{R}\mid, \mid\textcolor{blue}{C}\mid)$ Maximum value in the sudoku.</li>
+            <li>$\textcolor{magenta}{CV_{fv}} \in \{1,2,...,\textcolor{magenta}{Max}\} \forall fv \in \textcolor{blue}{FV}$ CellValue by fixed value cells.</li>
+        </ul>
       </td>
     </tr>
 </table>
