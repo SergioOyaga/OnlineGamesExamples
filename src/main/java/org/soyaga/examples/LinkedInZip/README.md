@@ -217,7 +217,7 @@ flowchart LR
 ## In this folder:
 This folder contains one class and two packages that define the structures required for solving the problem.
 
-1. [LinkedInZipScraper](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/LinkedInZip/LinkedInSipScraper.java): Web Scrapper using Selenium and flow controller.
+1. [LinkedInZipScraper](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/LinkedInZip/LinkedInZipScraper.java): Web Scrapper using Selenium and flow controller.
     - Scrapes the necessary information from LinkedIn-web application.
     - Manages the flow of the program.
     - Instantiates the ZipMathModel and ZipACO.
