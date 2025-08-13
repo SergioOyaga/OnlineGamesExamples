@@ -36,7 +36,7 @@ This repository contains various Web-games optimization problems solved using th
     <tr>
       <td>4</td>
       <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInSudoku">LinkedInSudoku</a></td>
-      <td>3</td>
+      <td>1</td>
       <td ><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/LinkedInSudoku/LinkedInSudoku.gif" title="Sudoku example" alt="Sudoku example"/></td>
       <td>LinkedIn Sudoku using Mathematical Modeling.</td>
     </tr>
