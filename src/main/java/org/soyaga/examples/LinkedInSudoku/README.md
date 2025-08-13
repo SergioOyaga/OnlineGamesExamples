@@ -33,7 +33,7 @@ We have to represent the problem using lineal mathematical expressions.
       </td>
    </tr>
    <tr>
-        <th> Variables </th>
+        <th> Parameters </th>
    </tr>
     <tr>
       <td>
