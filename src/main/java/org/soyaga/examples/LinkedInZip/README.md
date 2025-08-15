@@ -228,7 +228,7 @@ This folder contains one class and two packages that define the structures requi
 3. [ZipMMInitializer](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/LinkedInZip/MathModel/ZipMMInitializer.java): Class that initializes the ZipMathModel using problem specific information.
     - Create variables.
     - Create constraints.
-4. [ZipZCO](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/LinkedInZip/ACO/ZipZCO.java): Class that implements the required OptimizationLib interface and represents an Ant Colony Optimization program.
+4. [ZipACO](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/LinkedInZip/ACO/ZipACO.java): Class that implements the required OptimizationLib interface and represents an Ant Colony Optimization program.
    - Defines its parameters.
 5. [ZipFeasibilityFunction](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/LinkedInZip/ACO/Evaluable/ZipFeasibilityFunction.java): Class that Represents the feasibility function of the problem.
 6. [MaxSolFitnessProportionalGlobalBestAddPheromonePolicy](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/LinkedInZip/ACO/UpdatePheromonePolicy/AddPheromonePolicy/MaxSolFitnessProportionalGlobalBestAddPheromonePolicy.java): Class implements a custom AddPheromonePolicy.
