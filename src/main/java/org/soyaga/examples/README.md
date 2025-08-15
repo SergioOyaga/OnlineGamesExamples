@@ -9,11 +9,12 @@ This repository contains various online games optimization problems solved using
 | 4 | [LinkedInSudoku](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInSudoku) | 1                     | LinkedIn Sudoku using Mathematical Modeling                                                |
 | 5 | [Sudoku](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Sudoku)                 | 2                     | Online sudoku game https://sudoku.com/ using Mathematical Modeling                         |
 | 6 | [Maze](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Maze)                     | 1                     | Online maze game https://www.mathsisfun.com/measure/mazes.html using Mathematical Modeling |
+| 7 | [AllOut](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/AllOut)                   | 2                     | Online All-Out game https://www.mathsisfun.com/games/allout.html using Genetic Algorithm.  |
 
 The difficulty level ranges from a minimum of (1) to a maximum of (5) in this repository.
 
 ## In This Folder
-This folder contains 5 online game solved using the OptimizationLib:
+This folder contains 7 online game solved using the OptimizationLib:
 
 1. [LinkedInQueens](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInQueens):
    This problem involves placing N queens on an NxN chessboard such that each row, column and color only contains one Queen, and two queens cannot touch each other, not even diagonally.
@@ -31,7 +32,10 @@ This problem involves placing numbers 1&rarr;M in a MxM grid, in such a way  tha
    This problem involves placing numbers 1&rarr;9 in a 9x9 grid, in such a way  that all numbers are present in each row, each column and each of the 9 3x3 predefined blocks.
 
 6. [Maze](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Maze):
-   This problem involves searching the path that connects two points in a maze..
+   This problem involves searching the path that connects two points in a maze.
+
+7. [AllOut](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/AllOut):
+   This problem involves turning off all the lights on a board grid. When you switch a light all surrounding (North, East, South & West) lights also switch.
 
 ## Comment:
 The examples in this repository illustrate the power and versatility of the OptimizationLib framework. Remember, these examples serve as templates that you can adapt for your specific optimization problems.

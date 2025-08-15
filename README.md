@@ -1,5 +1,5 @@
 # OptimizationLib Web-Games Examples
-This repository contains various Web-games optimization problems solved using the OptimizationLib framework. The programs interact directly with the game web page, scrapping the required information and interacting with the web elements to introduce the correct solution. The examples serve as templates for readers, enabling them to understand and develop their own optimization problems by following the structures used in these examples.
+This repository contains various Web-games optimization problems solved using the OptimizationLib framework. The programs interact directly with the game web pages, scrapping the required information and interacting with the web elements to introduce the correct solution. The examples serve as templates for readers, enabling them to understand and develop their own optimization problems by following the structures used in these examples.
 
 <table>
   <thead>
@@ -52,7 +52,14 @@ This repository contains various Web-games optimization problems solved using th
       <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Maze/">Maze</a></td>
       <td>1</td>
       <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/Maze/Maze.gif" title="Maze example" alt="Maze example"/></td>
-      <td>Web maze using Ant colony.</td>
+      <td>Web maze using Ant Colonies.</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/AllOut/">Maze</a></td>
+      <td>1</td>
+      <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/AllOut/AllOut.gif" title="AllOut example" alt="AllOut example"/></td>
+      <td>Web all-out using Genetic Algorithms.</td>
     </tr>
   </tbody>
 </table>
