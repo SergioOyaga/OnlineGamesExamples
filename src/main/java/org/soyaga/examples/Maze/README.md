@@ -85,9 +85,9 @@ flowchart LR
 This folder contains one class and a packages that define the structures required for solving the problem.
 
 1. [MazeScraper](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Maze/MazeScraper.java): Web Scrapper using Selenium and flow controller.
-    - Scrapes the necessary information from LinkedIn-web application.
+    - Scrapes the necessary information from maze-web application.
     - Manages the flow of the program.
-    - Instantiates the ZipMathModel and ZipACO.
+    - Instantiates the MAzeACO.
     - Introduces the solution in the web app.
 2. [MazeACO](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Maze/ACO/MazeACO.java): Class that implements the required OptimizationLib interface and represents a Ant Colony Optimization program.
     - Instantiates all its components.
