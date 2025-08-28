@@ -1,20 +1,21 @@
 # OptimizationLib Online Games Examples
 This repository contains various online games optimization problems solved using the OptimizationLib framework. The examples serve as templates for readers, enabling them to understand and develop their own optimization problems by following the structures used in these examples.
 
-| n | Package                                                                                                                           | Difficulty [1&rarr;5] | Comment                                                                                    |
-|---|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|--------------------------------------------------------------------------------------------|
-| 1 | [LinkedInQueens](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInQueens) | 1                     | LinkedIn Queens using Mathematical Modeling.                                               |
-| 2 | [LinkedInTango](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInTango)   | 1                     | LinkedIn Tango using Mathematical Modeling.                                                |
-| 3 | [LinkedInZip](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInZip)       | 3                     | LinkedIn Zip using Ant Colony Optimization and Mathematical Modeling                       |
-| 4 | [LinkedInSudoku](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInSudoku) | 1                     | LinkedIn Sudoku using Mathematical Modeling                                                |
-| 5 | [Sudoku](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Sudoku)                 | 2                     | Online sudoku game https://sudoku.com/ using Mathematical Modeling                         |
-| 6 | [Maze](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Maze)                     | 1                     | Online maze game https://www.mathsisfun.com/measure/mazes.html using Mathematical Modeling |
-| 7 | [AllOut](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/AllOut)                   | 2                     | Online All-Out game https://www.mathsisfun.com/games/allout.html using Genetic Algorithm.  |
+| n | Package                                                                                                                           | Difficulty [1&rarr;5] | Comment                                                                                      |
+|---|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|----------------------------------------------------------------------------------------------|
+| 1 | [LinkedInQueens](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInQueens) | 1                     | LinkedIn Queens using Mathematical Modeling.                                                 |
+| 2 | [LinkedInTango](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInTango)   | 1                     | LinkedIn Tango using Mathematical Modeling.                                                  |
+| 3 | [LinkedInZip](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInZip)       | 3                     | LinkedIn Zip using Ant Colony Optimization and Mathematical Modeling                         |
+| 4 | [LinkedInSudoku](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInSudoku) | 1                     | LinkedIn Sudoku using Mathematical Modeling                                                  |
+| 5 | [Sudoku](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Sudoku)                 | 2                     | Online sudoku game https://sudoku.com/ using Mathematical Modeling                           |
+| 6 | [Maze](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Maze)                     | 1                     | Online maze game https://www.mathsisfun.com/measure/mazes.html using Mathematical Modeling   |
+| 7 | [AllOut](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/AllOut)                 | 2                     | Online All-Out game https://www.mathsisfun.com/games/allout.html using Genetic Algorithm.    |
+| 8 | [MadVirus](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/MadVirus)             | 1                     | Online All-Out game https://www.mathsisfun.com/games/mad-virus.html using Genetic Algorithm. |
 
 The difficulty level ranges from a minimum of (1) to a maximum of (5) in this repository.
 
 ## In This Folder
-This folder contains 7 online game solved using the OptimizationLib:
+This folder contains 8 online game solved using the OptimizationLib:
 
 1. [LinkedInQueens](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInQueens):
    This problem involves placing N queens on an NxN chessboard such that each row, column and color only contains one Queen, and two queens cannot touch each other, not even diagonally.
@@ -36,6 +37,9 @@ This problem involves placing numbers 1&rarr;M in a MxM grid, in such a way  tha
 
 7. [AllOut](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/AllOut):
    This problem involves turning off all the lights on a board grid. When you switch a light all surrounding (North, East, South & West) lights also switch.
+
+8. [MadVirus](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/MadVirus):
+   This problem involves infecting all the grid cells on a board before we run out of turns. A virus starts on a cell. It can infect surrounding cells by selecting a color to infect. When you choose a color, all cells of that color that are in contact with the virus are infected and become the virus.
 
 ## Comment:
 The examples in this repository illustrate the power and versatility of the OptimizationLib framework. Remember, these examples serve as templates that you can adapt for your specific optimization problems.

@@ -57,9 +57,16 @@ This repository contains various Web-games optimization problems solved using th
     <tr>
       <td>7</td>
       <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/AllOut/">AllOut</a></td>
-      <td>1</td>
+      <td>2</td>
       <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/AllOut/AllOut.gif" title="AllOut example" alt="AllOut example"/></td>
       <td>Web all-out using Genetic Algorithms.</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/MadVirus/">MadVirus</a></td>
+      <td>1</td>
+      <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/MadVirus/MadVirus.gif" title="MadVirus example" alt="MadVirus example"/></td>
+      <td>Web mad-virus using Genetic Algorithms.</td>
     </tr>
   </tbody>
 </table>
