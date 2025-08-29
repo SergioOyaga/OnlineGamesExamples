@@ -29,8 +29,8 @@ public class ZipACO extends StatsAntColonyAlgorithm implements Callable<Object> 
                                 1.                                                  //Double, max pheromones.
                         ),
                         new MinPercentageEvaporatePheromonePolicy(                  //EvaporatePheromonePolicy, percentage persistence:
-                                0.6,                                                 //Double, persistence.
-                                0.1                                                // Double, min pheromone.
+                                .7,                                                 //Double, persistence.
+                                .1                                                // Double, min pheromone.
                         )
                 ),
                 new NIterationsStatsRetrievalPolicy(                                //Stats retrieval policy, every n iterations:

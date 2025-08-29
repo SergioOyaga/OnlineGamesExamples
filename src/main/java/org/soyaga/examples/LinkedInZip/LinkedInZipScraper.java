@@ -8,13 +8,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.soyaga.Initializer.ACOInitializer;
 import org.soyaga.aco.Ant.EdgeSelector.RandomProportionalEdgeSelector;
-import org.soyaga.aco.Ant.SimpleMemoryAnt;
 import org.soyaga.aco.BuilderEvaluator.AllNodesLineBuilderEvaluator;
 import org.soyaga.aco.Colony;
 import org.soyaga.aco.Solution;
 import org.soyaga.aco.world.GenericWorld;
 import org.soyaga.aco.world.Graph.Elements.Node;
 import org.soyaga.aco.world.Graph.GenericGraph;
+import org.soyaga.examples.LinkedInZip.ACO.Ant.IntelligentMemoryAnt;
 import org.soyaga.examples.LinkedInZip.ACO.Evaluable.ZipFeasibilityFunction;
 import org.soyaga.examples.LinkedInZip.ACO.ZipACO;
 import org.soyaga.examples.LinkedInZip.MathModel.ZipMathModel;
@@ -331,7 +331,7 @@ public class LinkedInZipScraper {
                     colony,
                     world,
                     new ACOInitializer(
-                            new SimpleMemoryAnt(
+                            new IntelligentMemoryAnt(
                                     new Solution(
                                             null,
                                             new ZipFeasibilityFunction(
@@ -352,7 +352,8 @@ public class LinkedInZipScraper {
                                             1.5,                                        //Double with the ants' Alpha (>0) parameter (importance of the edges pheromones against the edges "distances").
                                             .5                                         //Double with the ants' Beta (>0) parameter (importance of the edges "distances" against the edges pheromones).
                                     ),                                                 //
-                                    1.                                               //Double with the amount of pheromone each ant can deposit in its track (same order of the problem optimal fitness).
+                                    1.,                                               //Double with the amount of pheromone each ant can deposit in its track (same order of the problem optimal fitness).
+                                    priorityByNode
                             ),
                             rows*cols                                                         //Integer with the initial number of ants.
                     )
