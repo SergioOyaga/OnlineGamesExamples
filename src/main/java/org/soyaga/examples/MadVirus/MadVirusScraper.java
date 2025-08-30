@@ -26,10 +26,7 @@ import java.awt.image.DataBufferByte;
 import java.awt.image.WritableRaster;
 import java.io.File;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class MadVirusScraper {
     static int buttonsWidth = 90;
@@ -363,6 +360,13 @@ public class MadVirusScraper {
             System.out.println("Loading https://www.mathsisfun.com/games/mad-virus.html: ...");
             driver.get("https://www.mathsisfun.com/games/mad-virus.html");
             System.out.println("Loaded.");
+
+            // Get all window handles
+            Set<String> windowHandles = driver.getWindowHandles();
+            ArrayList<String> tabs = new ArrayList<>(windowHandles);
+
+            // Switch to the new tab (assuming it's the second tab)
+            driver.switchTo().window(tabs.get(tabs.size()-1));
 
             System.out.println("Accepting cookies...");
             try {
