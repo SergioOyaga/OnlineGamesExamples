@@ -2,7 +2,6 @@ package org.soyaga.examples.LinkedInSudoku;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.soyaga.examples.LinkedInSudoku.MathModel.SudokuMathModel;
@@ -59,16 +58,18 @@ public class LinkedInSudokuScraper {
             System.out.println("Loading sudoku: ...");
             // Wait/load, then navigate to the game
             Thread.sleep(2000);
-            driver.get("https://www.linkedin.com/games/sudoku/");
-            longWait.until(ExpectedConditions.urlToBe("https://www.linkedin.com/games/sudoku/"));
+            driver.get("https://www.linkedin.com/games/mini-sudoku/");
+            longWait.until(ExpectedConditions.urlToBe("https://www.linkedin.com/games/mini-sudoku/"));
             System.out.println("Loaded.");
 
 
             // try to run directly the optimization
             try {
                 // Wait for the grid to appear
-                WebElement grid = driver.findElement(
-                        By.xpath("//div[contains(@class,'sudoku-grid') and contains(@class,'grid-game-board')]")
+                WebElement grid =sortWait.until(
+                        ExpectedConditions.presenceOfElementLocated(
+                            By.xpath("//div[contains(@class,'sudoku-grid') and contains(@class,'grid-game-board')]")
+                        )
                 );
 
                 //Compute the dimensions
@@ -121,7 +122,9 @@ public class LinkedInSudokuScraper {
             if (rows==0) {
                 // Bypass the human test
                 try {
-                    WebElement checkButton = driver.findElement(By.xpath("//button[text()='Start Puzzle']"));
+                    WebElement checkButton = sortWait.until(
+                            ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Start Puzzle']"))
+                    );
                     checkButton.click();
                 }
                 catch (Exception e) {
@@ -268,7 +271,6 @@ public class LinkedInSudokuScraper {
 
             System.out.println("Introducing solution...");
             assert gridButtons != null;
-            Actions actions = new Actions(driver);
             if (resultText.startsWith("MPSOLVER_OPTIMAL")) {
                 for(int row = 0;row< rows; row++){
                     for(int col = 0; col< cols; col++){
