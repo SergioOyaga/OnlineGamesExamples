@@ -34,8 +34,8 @@ We have to represent the problem using lineal mathematical expressions.
       <td>
          <ul>
             <li>$\textcolor{blue}{BIS_{r,c}} =$ Board Initial State by row anc column.</li>
-            <li>$\textcolor{blue}{R}= $ Rows.</li>
-            <li>$\textcolor{blue}{C}= $ Cols.</li>
+            <li>$\textcolor{blue}{R} =$ Rows.</li>
+            <li>$\textcolor{blue}{C} =$ Cols.</li>
          </ul>
       </td>
       <td>
@@ -64,7 +64,7 @@ We have to represent the problem using lineal mathematical expressions.
   </tr>
   <tr>
     <td><b>RelateActionWithState</b></td>
-    <td>$$BA_{r-1, c}+BA_{r, c-1}+BA_{r+1, c}+BA_{r, c+1}-BA_{r, c}==\textcolor{blue}{BIS_{r,c}},\; \forall r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
+    <td>$$BA_{r-1, c}+BA_{r, c-1}+BA_{r+1, c}+BA_{r, c+1}+BA_{r, c}-BS_{r, c}==\textcolor{blue}{BIS_{r,c}},\; \forall r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
     <td> $|\textcolor{blue}{C} \cdot \textcolor{blue}{R}|$ </td>
     <td> Apply actions to the initial board state.</td>
   </tr>
