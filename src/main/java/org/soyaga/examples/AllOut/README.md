@@ -95,7 +95,8 @@ This folder contains one class and a packages that define the structures require
 
 ## Results
 For the GA, the set of parameters used are in the AllOutGA file.
-MM parameters ar in AllOutMathModel.
+
+MM parameters are in AllOutMathModel.
 
 The output looks like:
 `````
