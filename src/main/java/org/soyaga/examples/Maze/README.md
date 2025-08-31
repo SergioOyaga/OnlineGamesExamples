@@ -87,7 +87,7 @@ This folder contains one class and a packages that define the structures require
 1. [MazeScraper](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Maze/MazeScraper.java): Web Scrapper using Selenium and flow controller.
     - Scrapes the necessary information from maze-web application.
     - Manages the flow of the program.
-    - Instantiates the MAzeACO.
+    - Instantiates the MazeACO.
     - Introduces the solution in the web app.
 2. [MazeACO](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Maze/ACO/MazeACO.java): Class that implements the required OptimizationLib interface and represents a Ant Colony Optimization program.
     - Instantiates all its components.
