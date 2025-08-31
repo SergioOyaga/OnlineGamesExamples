@@ -9,7 +9,10 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.soyaga.aco.Solution;
+import org.soyaga.aco.world.Graph.Elements.Node;
 import org.soyaga.examples.AllOut.GA.AllOutGA;
+import org.soyaga.examples.AllOut.MathModel.AllOutMathModel;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -18,7 +21,9 @@ import java.awt.image.DataBufferByte;
 import java.io.File;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.*;
 
 public class AllOutScraper {
     static int rows=5;
@@ -173,28 +178,38 @@ public class AllOutScraper {
                     System.out.println("Buttons not mapped.");
                 }
 
+                System.out.println("Building MM...");
+                AllOutMathModel mathModel = new AllOutMathModel("AllOutMM", imageGrid, rows, cols);
+                System.out.println("MM built.");
+
                 System.out.println("Building GA...");
                 AllOutGA model = new AllOutGA("AllOutGA", rows, cols, imageGrid);
                 System.out.println("GA built.");
 
-                System.out.println("Running GA...");
-                model.optimize();
-                System.out.println("GA run.");
+                ExecutorService executor = Executors.newFixedThreadPool(2);
+                CompletionService<Object> completionService = new ExecutorCompletionService<>(executor);
 
-                System.out.println("Gathering result...");
-                Object[] results = (Object[]) model.getResult();
-                String resultText = (String) results[0];
-                ArrayList<ArrayList<Boolean>> result = (ArrayList<ArrayList<Boolean>>) results[1];
-                System.out.println("Result gathered.");
+                Future<Object> future1 = completionService.submit(mathModel);
+                Future<Object> future2 = completionService.submit(model);
 
-                System.out.println("Introducing solution...");
-                if (resultText.startsWith("GA_Optimal")) {
+                Object results_object = completionService.take().get();
+
+                if (!future1.isDone()) future1.cancel(true);
+                if (!future2.isDone()) future2.cancel(true);
+
+                Object[] results = (Object[])results_object;
+
+                executor.shutdown();
+
+                if("GA_Optimal".equals(results[0]) || "MM_Optimal".equals(results[0])){
+                    ArrayList<ArrayList<Boolean>> result = (ArrayList<ArrayList<Boolean>>) results[1];
                     for(int row=0; row<rows; row++){
                         for(int col=0; col<cols;col++){
                             if(result.get(row).get(col)) elementGrid[row][col].click();
                         }
                     }
-                    System.out.println("Solution introduced.");
+                    if("GA_Optimal".equals(results[0])) System.out.println("GA optimal introduced.");
+                    else System.out.println("MM optimal introduced.");
                 }
                 else {
                     System.out.println("Optimal solution not found.");
