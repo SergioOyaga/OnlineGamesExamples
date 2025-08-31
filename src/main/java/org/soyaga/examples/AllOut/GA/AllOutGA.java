@@ -22,11 +22,12 @@ import org.soyaga.ga.StatsRetrievalPolicy.Stat.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.Callable;
 
 /**
  * Extends StatsGeneticAlgorithm and defines how we gather the results.
  */
-public class AllOutGA extends StatsGeneticAlgorithm {
+public class AllOutGA extends StatsGeneticAlgorithm implements Callable<Object> {
     /**
      * Constructor that matches its super constructor.
      *
@@ -66,7 +67,7 @@ public class AllOutGA extends StatsGeneticAlgorithm {
                         cols
                 ),
                 new NIterationsStatsRetrievalPolicy(
-                        100,
+                        10000,
                         new ArrayList<>(){{                         // Array of stats.
                             add(new CurrentMinFitnessStat(4));      // Min Fitness Stat.
                             add(new CurrentMaxFitnessStat(4));      // Max Fitness Stat.
@@ -147,5 +148,19 @@ public class AllOutGA extends StatsGeneticAlgorithm {
             }
         }
         return new Object [] {"GA_Optimal", solution};
+    }
+
+
+    /**
+     * Runs this operation.
+     */
+    @Override
+    public Object call() {
+        try {
+            this.optimize();
+            return this.getResult();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
