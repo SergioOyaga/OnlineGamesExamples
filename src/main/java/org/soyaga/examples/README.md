@@ -11,6 +11,7 @@ This repository contains various online games optimization problems solved using
 | 6 | [Maze](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Maze)                     | 1                     | Online maze game https://www.mathsisfun.com/measure/mazes.html using Mathematical Modeling   |
 | 7 | [AllOut](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/AllOut)                 | 2                     | Online All-Out game https://www.mathsisfun.com/games/allout.html using Genetic Algorithm.    |
 | 8 | [MadVirus](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/MadVirus)             | 1                     | Online All-Out game https://www.mathsisfun.com/games/mad-virus.html using Genetic Algorithm. |
+| 9 | [LongCat](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LongCat)               | 1                     | Online Long-Cat game https://poki.com/en/g/longcat using Genetic Algorithm.                  |
 
 The difficulty level ranges from a minimum of (1) to a maximum of (5) in this repository.
 
@@ -40,6 +41,9 @@ This problem involves placing numbers 1&rarr;M in a MxM grid, in such a way  tha
 
 8. [MadVirus](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/MadVirus):
    This problem involves infecting all the grid cells on a board before we run out of turns. A virus starts on a cell. It can infect surrounding cells by selecting a color to infect. When you choose a color, all cells of that color that are in contact with the virus are infected and become the virus.
+
+9. [LongCat](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LongCat):
+   This problem involves visiting all nodes on a board. You start from a node and decide in which direction to move. The movement in that direction continues until you hit a wall, the board end, or your previous path.
 
 ## Comment:
 The examples in this repository illustrate the power and versatility of the OptimizationLib framework. Remember, these examples serve as templates that you can adapt for your specific optimization problems.

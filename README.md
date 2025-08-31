@@ -68,6 +68,13 @@ This repository contains various Web-games optimization problems solved using th
       <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/MadVirus/MadVirus.gif" title="MadVirus example" alt="MadVirus example"/></td>
       <td>Web mad-virus using Genetic Algorithms.</td>
     </tr>
+    <tr>
+      <td>9</td>
+      <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LongCat/">LongCat</a></td>
+      <td>1</td>
+      <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/LongCat/LongCat.gif" title="LongCat example" alt="LongCat example"/></td>
+      <td>Web long-cat using Genetic Algorithms.</td>
+    </tr>
   </tbody>
 </table>
 
