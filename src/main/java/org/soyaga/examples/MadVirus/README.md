@@ -2,7 +2,7 @@
 For this https://www.mathsisfun.com/games/mad-virus.html mad virus problem, we use an GA to solve a decision sequence represented as a genome.
 In the [GA-representation](#ga-representation) we can see the genome representation.
 
-<img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/MAdVirus/MaadVirus.gif"  title="MadVirus example" alt="MadVirus example"/>
+<img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/MadVirus/MadVirus.gif"  title="MadVirus example" alt="MadVirus example"/>
 
 ## Problem Graph
 The problem is represented as a connected graph. the game is a grid of hexagons filling a rectangular shape. Some hexagons are missing leaving spaces.
