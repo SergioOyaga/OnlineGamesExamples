@@ -75,9 +75,15 @@ This repository contains various Web-games optimization problems solved using th
       <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/LongCat/LongCat.gif" title="LongCat example" alt="LongCat example"/></td>
       <td>Web long-cat using Genetic Algorithms.</td>
     </tr>
+    <tr>
+      <td>10</td>
+      <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/JellyDoods/">JellyDoods</a></td>
+      <td>1</td>
+      <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/JellyDoods/jellyDoods.gif" title="JellyDoods example" alt="JellyDoods example"/></td>
+      <td>Web jelly-doods using Genetic Algorithms.</td>
+    </tr>
   </tbody>
 </table>
-
 
 The difficulty level ranges from a minimum of (1) to a maximum of (5) in this repository.
 
