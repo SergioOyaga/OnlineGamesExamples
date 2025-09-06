@@ -268,5 +268,5 @@ As you see in the output example, the GA finds the mad_virus solution very fast,
 ## Comment:
 This problem is just a guide that the user can follow to build its own problems.
 
-In this example, we didn't conduct an extensive optimization of the variables and constraints created. Nor the ACO parameters.
+In this example, we didn't conduct an extensive optimization of the variables and constraints created. Nor the GA parameters.
 Nevertheless, we were able to get in a pretty sort time the solutions for the scenario. :smirk_cat:
