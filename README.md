@@ -79,7 +79,7 @@ This repository contains various Web-games optimization problems solved using th
       <td>10</td>
       <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/JellyDoods/">JellyDoods</a></td>
       <td>1</td>
-      <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/JellyDoods/jellyDoods.gif" title="JellyDoods example" alt="JellyDoods example"/></td>
+      <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/JellyDoods/JellyDoods.gif" title="JellyDoods example" alt="JellyDoods example"/></td>
       <td>Web jelly-doods using Genetic Algorithms.</td>
     </tr>
   </tbody>
