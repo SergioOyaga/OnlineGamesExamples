@@ -15,10 +15,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class JellyDoodsScraper {
-    static final int cellXStart = 255;
-    static final int cellYStart = 60;
-    static int cellXSize = 58;
-    static int cellYSize = 58;
+    static final double cellXStart = -0.2243;
+    static final double cellYStart = -0.384615;
+    static final double cellXSize = 0.062702;
+    static final double cellYSize = 0.111538;
 
 
     public static void main(String[] args) {
@@ -85,8 +85,7 @@ public class JellyDoodsScraper {
                 container.click();
                 container.click();
                 Thread.sleep(1000);
-                actions.moveToElement(container, 270-container.getSize().width/2, 70-container.getSize().height/2).click().perform();
-                System.out.println("Centered and clicked.");
+                actions.moveToElement(container, (int)(-0.208108*container.getSize().width),  (int)(-0.365384*container.getSize().height)).click().perform();System.out.println("Centered and clicked.");
             }
             catch (Exception ex){
                 System.out.println("Not centered and clicked.");
@@ -144,42 +143,42 @@ public class JellyDoodsScraper {
 
                 System.out.println("Introducing solution...");
                 Thread.sleep(1000);
+                assert container != null;
                 if (resultText.startsWith("GA_Optimal")) {
                     for(Object[] resultObject:result){
                         int[] cell= (int[]) resultObject[0];
                         String direction = (String) resultObject[1];
-                        int yLocation = cellYStart + cellYSize*cell[0];
-                        int xLocation = cellXStart + cellXSize*cell[1];
-                        assert container!=null;
+                        int yLocation = (int)((cellYStart + cellYSize*cell[0])*container.getSize().height);
+                        int xLocation = (int)((cellXStart + cellXSize*cell[1])*container.getSize().width);
                         switch(direction){
                             case "N":{
-                                actions.moveToElement(container, xLocation-container.getSize().width/2, yLocation-container.getSize().height/2)
+                                actions.moveToElement(container, xLocation, yLocation)
                                         .clickAndHold()
-                                        .moveByOffset(0,-cellYSize)
+                                        .moveByOffset(0,-(int)(cellYSize*container.getSize().height))
                                         .release()
                                         .perform();
                                 break;
                             }
                             case "E":{
-                                actions.moveToElement(container, xLocation-container.getSize().width/2, yLocation-container.getSize().height/2)
+                                actions.moveToElement(container, xLocation, yLocation)
                                         .clickAndHold()
-                                        .moveByOffset(cellXSize,0)
+                                        .moveByOffset((int)(cellXSize*container.getSize().width),0)
                                         .release()
                                         .perform();
                                 break;
                             }
                             case "S":{
-                                actions.moveToElement(container, xLocation-container.getSize().width/2, yLocation-container.getSize().height/2)
+                                actions.moveToElement(container, xLocation, yLocation)
                                         .clickAndHold()
-                                        .moveByOffset(0,cellYSize)
+                                        .moveByOffset(0,(int)(cellYSize*container.getSize().height))
                                         .release()
                                         .perform();
                                 break;
                             }
                             case "W":{
-                                actions.moveToElement(container, xLocation-container.getSize().width/2, yLocation-container.getSize().height/2)
+                                actions.moveToElement(container, xLocation, yLocation)
                                         .clickAndHold()
-                                        .moveByOffset(-cellXSize,0)
+                                        .moveByOffset(-(int)(cellXSize*container.getSize().width),0)
                                         .release()
                                         .perform();
                                 break;
@@ -197,7 +196,7 @@ public class JellyDoodsScraper {
                 assert container!=null;
                 try {
                     Thread.sleep(700);
-                    actions.moveToElement(container, 600-container.getSize().width/2, 350-container.getSize().height/2).click().perform();
+                    actions.moveToElement(container, (int)(0.148648*container.getSize().width), (int)(0.173076*container.getSize().height)).click().perform();
                     System.out.println("Game continued.");
                 }
                 catch (Exception ex){
@@ -206,8 +205,9 @@ public class JellyDoodsScraper {
 
                 System.out.println("Clicking...");
                 try {
+                    Thread.sleep(1000);
+                    actions.moveToElement(container, (int)(0.170270*container.getSize().width), (int)(-0.163461*container.getSize().height)).click().perform();
                     Thread.sleep(500);
-                    actions.moveToElement(container, 620-container.getSize().width/2, 175-container.getSize().height/2).click().perform();
                     System.out.println("Clicked.");
                 }
                 catch (Exception ex){
