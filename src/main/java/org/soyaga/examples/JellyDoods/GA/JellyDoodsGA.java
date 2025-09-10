@@ -22,6 +22,7 @@ import org.soyaga.ga.StatsRetrievalPolicy.Stat.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Extends StatsGeneticAlgorithm and defines how we gather the results.
@@ -138,6 +139,7 @@ public class JellyDoodsGA extends StatsGeneticAlgorithm {
     @Override
     public Object getResult(Object... resultArgs) {
         ArrayList<String[]> genomeContainer = (ArrayList<String[]>) this.population.getBestIndividual().getGenome().getGeneticInformation();
+        genomeContainer = this.optimizeSolution(genomeContainer);
         ArrayList<Object[]> solutionList = new ArrayList<>(); //ArrayList([[row,col],"move"])
         Board board = new Board(this.level);
         for(int i = 0;i<this.maxMoves; i++){
@@ -183,5 +185,124 @@ public class JellyDoodsGA extends StatsGeneticAlgorithm {
             if(board.solutionDistance()==0)break;
         }
         return new Object [] {"GA_Optimal",  solutionList};
+    }
+
+    private ArrayList<String[]> optimizeSolution(ArrayList<String[]> genomeContainer) {
+        ArrayList<String[]> optimizedGenomeContainer = removeLoops(genomeContainer);
+        optimizedGenomeContainer = removeUnnecessaryMoves(optimizedGenomeContainer);
+        return optimizedGenomeContainer;
+    }
+
+    private String[][] createState(Board board) {
+        Cell[][] grid = board.getBoardGrid();
+        String[][] state = new String[grid.length][grid[0].length];
+        for(int row=0; row<grid.length; row++){
+            for(int col=0; col<grid[row].length; col++){
+                Piece piece = grid[row][col].getPiece();
+                state[row][col] = piece==null? null: piece.getId();
+            }
+        }
+        return state;
+    }
+
+    private ArrayList<String[]> removeLoops(ArrayList<String[]> genomeContainer){
+        ArrayList<String[]> optimizedGenomeContainer = new ArrayList<>();
+        ArrayList<String[][]> states = new ArrayList<>();
+        Board board = new Board(this.level);
+        states.add(this.createState(board));
+        for(int i = 0;i<this.maxMoves; i++) {
+            String[] chromosome = genomeContainer.get(i);
+            String pieceId = chromosome[0];
+            Piece piece = board.getJelliesById().get(pieceId);
+            if (piece == null) continue;
+            String move = chromosome[1];
+            switch (move) {
+                case "N": {
+                    if (board.computeMovementDistance(piece, "N") == 0) continue;
+                    board.movePiece(piece, "N");
+                    break;
+                }
+                case "E": {
+                    if (board.computeMovementDistance(piece, "E") == 0) continue;
+                    board.movePiece(piece, "E");
+                    break;
+                }
+                case "S": {
+                    if (board.computeMovementDistance(piece, "S") == 0) continue;
+                    board.movePiece(piece, "S");
+                    break;
+                }
+                case "W": {
+                    if (board.computeMovementDistance(piece, "W") == 0) continue;
+                    board.movePiece(piece, "W");
+                    break;
+                }
+            }
+            String[][] state = this.createState(board);
+            int indexFrom = 0;
+            boolean contains = false;
+            for (String[][] el : states) {
+                if (Arrays.deepEquals(el, state)) {
+                    contains = true;
+                    break;
+                }
+                indexFrom++;
+            }
+            if (contains) {
+                optimizedGenomeContainer.subList(indexFrom, optimizedGenomeContainer.size()).clear();
+            }
+            optimizedGenomeContainer.add(chromosome);
+            states.add(state);
+            if (board.solutionDistance() == 0) break;
+        }
+        return optimizedGenomeContainer;
+    }
+
+    private ArrayList<String[]> removeUnnecessaryMoves(ArrayList<String[]> genomeContainer) {
+        ArrayList<String[]> optimizedGenomeContainer = new ArrayList<>(genomeContainer);
+        int indexToRemove = 0;
+        for(int i = 0;i<this.maxMoves; i++) {
+            Board board = new Board(this.level);
+            ArrayList<String[]> optimizedGenomeContainerClon = new ArrayList<>(optimizedGenomeContainer);
+            if(indexToRemove>=optimizedGenomeContainerClon.size())break;
+            optimizedGenomeContainerClon.remove(indexToRemove);
+            for(int j = 0;j<this.maxMoves; j++) {
+                if(j>=optimizedGenomeContainerClon.size())break;
+                String[] chromosome = optimizedGenomeContainerClon.get(j);
+                String pieceId = chromosome[0];
+                Piece piece = board.getJelliesById().get(pieceId);
+                if (piece == null) continue;
+                String move = chromosome[1];
+                switch (move) {
+                    case "N": {
+                        if (board.computeMovementDistance(piece, "N") == 0) continue;
+                        board.movePiece(piece, "N");
+                        break;
+                    }
+                    case "E": {
+                        if (board.computeMovementDistance(piece, "E") == 0) continue;
+                        board.movePiece(piece, "E");
+                        break;
+                    }
+                    case "S": {
+                        if (board.computeMovementDistance(piece, "S") == 0) continue;
+                        board.movePiece(piece, "S");
+                        break;
+                    }
+                    case "W": {
+                        if (board.computeMovementDistance(piece, "W") == 0) continue;
+                        board.movePiece(piece, "W");
+                        break;
+                    }
+                }
+                if (board.solutionDistance() == 0) break;
+            }
+            if(board.solutionDistance() == 0) {
+                optimizedGenomeContainer = optimizedGenomeContainerClon;
+                indexToRemove--;
+            }
+            indexToRemove++;
+        }
+        return optimizedGenomeContainer;
     }
 }

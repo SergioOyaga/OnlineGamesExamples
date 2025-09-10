@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 public class Board {
     private final int rows;
     private final int cols;
-
+    @Getter
     private final Cell [][] boardGrid;
     @Getter
     private final LinkedHashMap<String, Piece> jelliesById;
