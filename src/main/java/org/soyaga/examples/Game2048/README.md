@@ -117,7 +117,7 @@ To actually decide the movement, we compute how good in average the individuals 
 - Avoid north movements (we want to keep our highest numbers in the bottom).
 - Try to keep the biggest number in the board in one corner.
 
-At the end of the day wi will have a population that has built several fictional solutions to the problem. Then we compute which direction is best and decide our actual movement based on that information.
+At the end of the day, we will have a population that has built several fictional solutions to the problem. Then we compute which direction is best and decide our actual movement based on that information.
 
 The cycle repeats for each new movement. At the beginning, the decisions are not much conditioned by the current state of the board, but after some turns, the board becomes relevant and the game rules come to play.
 
