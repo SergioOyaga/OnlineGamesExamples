@@ -136,7 +136,7 @@ This folder contains one class and a packages that define the structures require
    - Genome length. We want to be able to keep doing movements.
    - How close to a "snake" configuration is the solution.
 4. [Game2048Initializer](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Game2048/GA/Initializer/Game2048Initializer.java): Class that initializes an individual.
-5. [Board](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Game2048/Board/Boar.java): Class that represent any board status. Contains methods to get information about the current board status and the building rules.
+5. [Board](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Game2048/Board/Board.java): Class that represent any board status. Contains methods to get information about the current board status and the building rules.
 
 ## Results
 For the GA, the set of parameters used are in the Game2048GA file.
