@@ -144,8 +144,6 @@ For the GA, the set of parameters used are in the Game2048GA file.
 The output looks like:
 `````
 Loading 2048: ...
-Sep 13, 2025 8:48:58 PM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
-WARNING: Unable to find an exact match for CDP version 140, returning the closest version; found: 138; Please update to a Selenium version that supports CDP version 140
 2048 loaded.
 Refreshing in case it did not load...
 Refreshed.
