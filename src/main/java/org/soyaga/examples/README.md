@@ -13,11 +13,12 @@ This repository contains various online games optimization problems solved using
 | 8  | [MadVirus](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/MadVirus)             | 1                     | Online All-Out game https://www.mathsisfun.com/games/mad-virus.html using Genetic Algorithm.           |
 | 9  | [LongCat](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LongCat)               | 1                     | Online Long-Cat game https://poki.com/en/g/longcat using Genetic Algorithm.                            |
 | 10 | [LongCat](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/JellyDoods)            | 1                     | Online Jelly-Doods game https://www.mathplayground.com/logic_jelly_doods.html using Genetic Algorithm. |
+| 11 | [Game2048](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Game2048)             | 3                     | Online 2048 game https://www.2048.org/ using Genetic Algorithm.                                        |
 
 The difficulty level ranges from a minimum of (1) to a maximum of (5) in this repository.
 
 ## In This Folder
-This folder contains 8 online game solved using the OptimizationLib:
+This folder contains 11 online games solved using the OptimizationLib:
 
 1. [LinkedInQueens](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInQueens):
    This problem involves placing N queens on an NxN chessboard such that each row, column and color only contains one Queen, and two queens cannot touch each other, not even diagonally.
@@ -48,6 +49,11 @@ This problem involves placing numbers 1&rarr;M in a MxM grid, in such a way  tha
 
 10. [JellyDoods](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/JellyDoods):
    This problem involves merging all same color jellies on a board. You decide in which direction to move each jelly. The movement in that direction continues until you hit a wall, or other jelly. When you hit a jelly of the same color, the two jellies merge. You have a limited number of movements.
+11. [Game2048](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Game2048):
+    The purpose of the game is to dictate a sequence of arrow movements on a 4x4 board with the purpose of reaching the 2048 value on the board. Each arrow movement:
+    - triggers numbers on the board to move in that direction should free space be available.
+    - merges two numbers of the same value into their sum when they are on consecutive positions aligned with the arrow's direction.
+    - triggers new values of 2 or 4 to appear randomly on the board.
 
 ## Comment:
 The examples in this repository illustrate the power and versatility of the OptimizationLib framework. Remember, these examples serve as templates that you can adapt for your specific optimization problems.

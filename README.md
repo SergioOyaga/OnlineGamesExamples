@@ -82,6 +82,13 @@ This repository contains various Web-games optimization problems solved using th
       <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/JellyDoods/JellyDoods.gif" title="JellyDoods example" alt="JellyDoods example"/></td>
       <td>Web jelly-doods using Genetic Algorithms.</td>
     </tr>
+    <tr>
+      <td>11</td>
+      <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Game2048/">Game2048</a></td>
+      <td>3</td>
+      <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/Game2048/Game2048.gif" title="Game2048 example" alt="Game2048 example"/></td>
+      <td>Web 2048 game using Genetic Algorithms.</td>
+    </tr>
   </tbody>
 </table>
 
