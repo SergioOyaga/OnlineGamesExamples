@@ -26,6 +26,7 @@ public class Game2048Scraper {
 
         //Controller
         boolean canContinue = true;
+        boolean reached2048 = false;
 
         // Set path to your ChromeDriver executable
         System.setProperty("webdriver.edge.driver", seleniumPath);
@@ -35,7 +36,7 @@ public class Game2048Scraper {
 
         try {
             // Waiter
-            WebDriverWait longWait = new WebDriverWait(driver, Duration.ofMillis(2000));
+            WebDriverWait longWait = new WebDriverWait(driver, Duration.ofMillis(4000));
             WebDriverWait sortWait = new WebDriverWait(driver, Duration.ofMillis(10));
 
             System.out.println("Loading 2048: ...");
@@ -120,7 +121,7 @@ public class Game2048Scraper {
 
             while(canContinue){
                 System.out.println("Creating GA...");
-                Game2048GA model = new Game2048GA("MainGA", gridNumber,100,2000);
+                Game2048GA model = new Game2048GA("MainGA", gridNumber,200,2000);
                 System.out.println("GA created.");
 
                 System.out.println("Optimizing GA...");
@@ -180,10 +181,17 @@ public class Game2048Scraper {
                     int col = Integer.parseInt(classLocationSplit[2])-1;
                     int value = Integer.parseInt(element.getText().trim());
                     gridNumber[row][col]= value;
-                    if(value ==2048) canContinue=false;
+                    if(value ==2048 && !reached2048) {
+                        reached2048=true;
+                        System.out.println("Continue after winning...");
+                        WebElement continueButton = longWait.until(
+                                ExpectedConditions.elementToBeClickable(By.className("keep-playing-button"))
+                        );
+                        continueButton.click();
+                        System.out.println("Continued after won.");
+                    }
+                    System.out.println("Grid retrieved.");
                 }
-                System.out.println("Grid retrieved.");
-
                 System.out.println("Checking canContinue...");
                 Board b = new Board(gridNumber);
                 if(b.getAvailableMovements().isEmpty()) canContinue=false;

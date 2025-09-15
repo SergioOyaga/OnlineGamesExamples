@@ -32,12 +32,17 @@ public class Board {
         for(int col=0; col<this.cols;col++){
             if(col==0) {
                 if (this.boardGrid[this.rows - 1][col] == null) cantMixLastRowEast = true;
+                else if(this.boardGrid[this.rows - 1][col].equals( this.boardGrid[this.rows - 1][col+1])){
+                    cantMixLastRowEast = true;
+                    cantMixLastRowWest = true;
+                }
             }
             else if(col==this.cols-1) {
                 if (this.boardGrid[this.rows - 1][col] == null) cantMixLastRowWest = true;
             }
             else {
-                if (this.boardGrid[this.rows - 1][col] == null) {
+                if ((this.boardGrid[this.rows - 1][col] == null) ||
+                (this.boardGrid[this.rows - 1][col].equals(this.boardGrid[this.rows - 1][col+1]))){
                     cantMixLastRowEast = true;
                     cantMixLastRowWest = true;
                 }
