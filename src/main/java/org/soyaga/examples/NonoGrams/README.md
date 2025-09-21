@@ -26,8 +26,8 @@ We have to represent the problem using lineal mathematical expressions.
       </td>
       <td>
         <ul>
-            <li>$\textcolor{magenta}{PCl_{p}} /in /{1, ..., N_{Colors}/}$ Colors by piece represented as an integer.</li>
-            <li>$\textcolor{magenta}{PS_{p}} /in \mathbb{Z}$ Size by piece.</li>
+            <li>$\textcolor{magenta}{PCl_{p}} \in \{1,  ..., N_{Colors}\}$ Colors by piece represented as an integer.</li>
+            <li>$\textcolor{magenta}{PS_{p}} \in \mathbb{Z}$ Size by piece.</li>
         </ul>
       </td>
    </tr>
@@ -111,13 +111,13 @@ We have to represent the problem using lineal mathematical expressions.
   </tr>
   <tr>
     <td><b>RowToBoard</b></td>
-    <td>$$B_{r, c} - \sum_{p \in \textcolor{blue}{RP_{r}} \textcolor{magenta}{PCl_{p}} \cdot CPX_{p, c}== 0,\; \forall r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
+    <td>$$B_{r, c} - \sum_{p \in \textcolor{blue}{RP_{r}}} \textcolor{magenta}{PCl_{p}} \cdot CPX_{p, c}== 0,\; \forall r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
     <td> $|\textcolor{blue}{R} \cdot \textcolor{blue}{C}|$ </td>
     <td> Relation to board from row pieces.</td>
   </tr>
   <tr>
-    <td><b>RowToBoard</b></td>
-    <td>$$B_{r, c} - \sum_{p \in \textcolor{blue}{CP_{c}} \textcolor{magenta}{PCl_{p}} \cdot RPX_{p, r}== 0,\; \forall r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
+    <td><b>ColToBoard</b></td>
+    <td>$$B_{r, c} - \sum_{p \in \textcolor{blue}{CP_{c}}} \textcolor{magenta}{PCl_{p}} \cdot RPX_{p, r}== 0,\; \forall r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
     <td> $|\textcolor{blue}{R} \cdot \textcolor{blue}{C}|$ </td>
     <td> Relation to board from column pieces.</td>
   </tr>
