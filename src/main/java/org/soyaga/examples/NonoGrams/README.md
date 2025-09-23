@@ -41,12 +41,12 @@ We have to represent the problem using lineal mathematical expressions.
    <tr>
       <td>
         <ul>
-           <li>$RPS_{p} \in \{0,\textcolor{blue}{C}\}, \; \forall p \in \textcolor{blue}{RP_{r}}=$ (RowPieceStart) Column number where the row-piece starts.</li>
-           <li>$RPE_{p} \in \{0,\textcolor{blue}{C}\}, \; \forall p \in \textcolor{blue}{RP_{r}}=$ (RowPieceEnd) Column number where the row-piece ends.</li>
-           <li>$CPS_{p} \in \{0,\textcolor{blue}{R}\}, \; \forall p \in \textcolor{blue}{CP_{c}}=$ (ColPieceStart) Row number where the column-piece starts.</li>
-           <li>$CPE_{p} \in \{0,\textcolor{blue}{R}\}, \; \forall p \in \textcolor{blue}{CP_{c}}=$ (ColPieceEnd) Row number where the column-piece ends.</li>
-           <li>$RPX_{p, c} \in \mathbb{Z}:\{0,1\}, \; \forall p \in \textcolor{blue}{RP_{r}}, \; c \in \textcolor{blue}{C} =$ (RowPieceX) Assignation of a row-piece to columns. 1 assigned, 0 not assigned.</li>
-           <li>$CPX_{p, r} \in \mathbb{Z}:\{0,1\}, \; \forall p \in \textcolor{blue}{CP_{c}}, \; r \in \textcolor{blue}{R} =$ (ColPieceX) Assignation of a column-piece to rows. 1 assigned, 0 not assigned.</li>
+           <li>$RPS_{r,p} \in \{0,\textcolor{blue}{C}\}, \; \forall r \in \textcolor{blue}{R}, \; p \in \textcolor{blue}{RP_{r}}=$ (RowPieceStart) Column number where the row-piece starts.</li>
+           <li>$RPE_{r,p} \in \{0,\textcolor{blue}{C}\}, \; \forall r \in \textcolor{blue}{R}, \; p \in \textcolor{blue}{RP_{r}}=$ (RowPieceEnd) Column number where the row-piece ends.</li>
+           <li>$CPS_{c,p} \in \{0,\textcolor{blue}{R}\}, \; \forall c \in \textcolor{blue}{C}, \; p \in \textcolor{blue}{CP_{c}}=$ (ColPieceStart) Row number where the column-piece starts.</li>
+           <li>$CPE_{c,p} \in \{0,\textcolor{blue}{R}\}, \; \forall c \in \textcolor{blue}{C}, \; p \in \textcolor{blue}{CP_{c}}=$ (ColPieceEnd) Row number where the column-piece ends.</li>
+           <li>$RPX_{r,p, c} \in \mathbb{Z}:\{0,1\}, \; \forall r \in \textcolor{blue}{R}, \; p \in \textcolor{blue}{RP_{r}}, \; c \in \textcolor{blue}{C} =$ (RowPieceX) Assignation of a row-piece to columns. 1 assigned, 0 not assigned.</li>
+           <li>$CPX_{c,p, r} \in \mathbb{Z}:\{0,1\}, \; \forall c \in \textcolor{blue}{C}, \; p \in \textcolor{blue}{CP_{c}}, \; r \in \textcolor{blue}{R} =$ (ColPieceX) Assignation of a column-piece to rows. 1 assigned, 0 not assigned.</li>
            <li>$B_{r, c} \in \mathbb{Z}:\{0,\textcolor{blue}{Cl}\}, \; \forall r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C} =$ (Board) Board result of assigning pieces.</li>
         </ul>
       </td>
@@ -63,73 +63,73 @@ We have to represent the problem using lineal mathematical expressions.
   </tr>
   <tr>
     <td><b>RowPieceSize</b></td>
-    <td>$$RPE_{p} - RPS_{p} == \textcolor{magenta}{PS_{p}} ,\; \forall p \in \textcolor{blue}{RP_{r}}, \; r \in \textcolor{blue}{R}$$</td>
+    <td>$$RPE_{r,p} - RPS_{r,p} == \textcolor{magenta}{PS_{p}} ,\; \forall r \in \textcolor{blue}{R}, \; p \in \textcolor{blue}{RP_{r}}$$</td>
     <td> $|\sum_{r \in \textcolor{blue}{R}}\textcolor{blue}{RP_{r}}|$ </td>
     <td> Forces rowPiece size.</td>
   </tr>
   <tr>
     <td><b>ColPieceSize</b></td>
-    <td>$$CPE_{p} - CPS_{p} == \textcolor{magenta}{PS_{p}} ,\; \forall p \in \textcolor{blue}{CP_{c}}, \; c \in \textcolor{blue}{C}$$</td>
+    <td>$$CPE_{c,p} - CPS_{c,p} == \textcolor{magenta}{PS_{p}} ,\; \forall c \in \textcolor{blue}{C}, \; p \in \textcolor{blue}{CP_{c}}$$</td>
     <td> $|\sum_{c \in \textcolor{blue}{C}}\textcolor{blue}{CP_{c}}|$ </td>
     <td> Forces colPiece size.</td>
   </tr> 
   <tr>
     <td><b>RowPieceStartXLink</b></td>
-    <td>$$RPS_{p}-Big \cdot (1-RPX_{p, c}) \leq c,\; \forall p \in \textcolor{blue}{RP_{r}}, \; c \in \textcolor{blue}{C}$$</td>
-    <td> $|\textcolor{blue}{RP_{r}} \cdot \textcolor{blue}{C}|$ </td>
+    <td>$$RPS_{r,p}-Big \cdot (1-RPX_{r,p, c}) \leq c,\; \forall r \in \textcolor{blue}{R}, \; p \in \textcolor{blue}{RP_{r}}, \; c \in \textcolor{blue}{C}$$</td>
+    <td> $|\sum_{r \in \textcolor{blue}{R}}\textcolor{blue}{RP_{r}} \cdot \textcolor{blue}{C}|$ </td>
     <td> Relates RowPiece start with assignation.</td>
   </tr>
   <tr>
     <td><b>RowPieceEndXLink</b></td>
-    <td>$$RPE_{p}-Big \cdot (1-RPX_{p, c}) > c,\; \forall p \in \textcolor{blue}{RP_{r}}, \; c \in \textcolor{blue}{C}$$</td>
-    <td> $|\textcolor{blue}{RP_{r}} \cdot \textcolor{blue}{C}|$ </td>
+    <td>$$RPE_{r,p}-Big \cdot (1-RPX_{r,p, c}) > c,\; \forall r \in \textcolor{blue}{R}, \; p \in \textcolor{blue}{RP_{r}}, \; c \in \textcolor{blue}{C}$$</td>
+    <td> $|\sum_{r \in \textcolor{blue}{R}}\textcolor{blue}{RP_{r}} \cdot \textcolor{blue}{C}|$ </td>
     <td> Relates RowPiece end with assignation.</td>
   </tr>
   <tr>
     <td><b>ColPieceStartXLink</b></td>
-    <td>$$CPS_{p}-Big \cdot (1-CPX_{p, r}) \leq r,\; \forall p \in \textcolor{blue}{CP_{c}}, \; r \in \textcolor{blue}{R}$$</td>
-    <td> $|\textcolor{blue}{CP_{c}} \cdot \textcolor{blue}{R}|$ </td>
+    <td>$$CPS_{c,p}-Big \cdot (1-CPX_{c,p, r}) \leq r,\; \forall c \in \textcolor{blue}{C}, \; p \in \textcolor{blue}{CP_{c}}, \; r \in \textcolor{blue}{R}$$</td>
+    <td> $|\sum_{c \in \textcolor{blue}{C}}\textcolor{blue}{CP_{r}} \cdot \textcolor{blue}{R}|$ </td>
     <td> Relates ColPiece start with assignation.</td>
   </tr>
   <tr>
     <td><b>ColPieceEndXLink</b></td>
-    <td>$$CPE_{p}-Big \cdot (1-CPX_{p, r}) > r,\; \forall p \in \textcolor{blue}{CP_{c}}, \; r \in \textcolor{blue}{R}$$</td>
-    <td> $|\textcolor{blue}{CP_{c}} \cdot \textcolor{blue}{R}|$ </td>
+    <td>$$CPE_{c,p}-Big \cdot (1-CPX_{c,p, r}) > r,\; \forall c \in \textcolor{blue}{C}, \; p \in \textcolor{blue}{CP_{c}}, \; r \in \textcolor{blue}{R}$$</td>
+    <td> $|\sum_{c \in \textcolor{blue}{C}}\textcolor{blue}{CP_{r}} \cdot \textcolor{blue}{R}|$ </td>
     <td> Relates ColPiece end with assignation.</td>
   </tr>
   <tr>
     <td><b>ForceRowAssignationSize</b></td>
-    <td>$$\sum_{c \in \textcolor{blue}{C}} RPX_{p, c}== \textcolor{magenta}{PS_{p}},\; \forall p \in \textcolor{blue}{RP_{r}}$$</td>
-    <td> $|\textcolor{blue}{RP_{r}}|$ </td>
+    <td>$$\sum_{c \in \textcolor{blue}{C}} RPX_{r, p, c}== \textcolor{magenta}{PS_{p}},\; \forall r \in \textcolor{blue}{R}, \; p \in \textcolor{blue}{RP_{r}}$$</td>
+    <td> $|\sum_{r \in \textcolor{blue}{R}}\textcolor{blue}{RP_{r}}|$ </td>
     <td> RowPiece assignation size.</td>
   </tr>
   <tr>
     <td><b>ForceColAssignationSize</b></td>
-    <td>$$\sum_{r \in \textcolor{blue}{R}} CPX_{p, r}== \textcolor{magenta}{PS_{p}},\; \forall p \in \textcolor{blue}{CP_{c}}$$</td>
-    <td> $|\textcolor{blue}{CP_{c}}|$ </td>
+    <td>$$\sum_{r \in \textcolor{blue}{R}} CPX_{c, p, r}== \textcolor{magenta}{PS_{p}},\; \forall c \in \textcolor{blue}{C}, \; p \in \textcolor{blue}{CP_{c}}$$</td>
+    <td> $|\sum_{c \in \textcolor{blue}{C}}\textcolor{blue}{CP_{r}}|$ </td>
     <td> ColPiece assignation size.</td>
   </tr>
   <tr>
     <td><b>RowToBoard</b></td>
-    <td>$$B_{r, c} - \sum_{p \in \textcolor{blue}{RP_{r}}} \textcolor{magenta}{PCl_{p}} \cdot CPX_{p, c}== 0,\; \forall r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
+    <td>$$B_{r, c} - \sum_{p \in \textcolor{blue}{RP_{r}}} \textcolor{magenta}{PCl_{p}} \cdot CPX_{r, p, c}== 0,\; \forall r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
     <td> $|\textcolor{blue}{R} \cdot \textcolor{blue}{C}|$ </td>
     <td> Relation to board from row pieces.</td>
   </tr>
   <tr>
     <td><b>ColToBoard</b></td>
-    <td>$$B_{r, c} - \sum_{p \in \textcolor{blue}{CP_{c}}} \textcolor{magenta}{PCl_{p}} \cdot RPX_{p, r}== 0,\; \forall r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
+    <td>$$B_{r, c} - \sum_{p \in \textcolor{blue}{CP_{c}}} \textcolor{magenta}{PCl_{p}} \cdot RPX_{c, p, r}== 0,\; \forall r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
     <td> $|\textcolor{blue}{R} \cdot \textcolor{blue}{C}|$ </td>
     <td> Relation to board from column pieces.</td>
   </tr>
   <tr>
     <td><b>RowPieceOrder</b></td>
-    <td>$$RPE_{p1} - RPS_{p2}> 0,\; \forall p1 \in \textcolor{blue}{RPPr_{r,pr}},\; r \in \textcolor{blue}{R}, \; pr \in \textcolor{blue}{PR-1} \mid p2= \textcolor{blue}{RPPr_{r,pr+1}}$$</td>
+    <td>$$RPE_{r,p1} - RPS_{r,p2}> 0,\; \forall p1 \in \textcolor{blue}{RPPr_{r,pr}},\; r \in \textcolor{blue}{R}, \; pr \in \textcolor{blue}{PR-1} \mid p2= \textcolor{blue}{RPPr_{r,pr+1}}$$</td>
     <td> $|\textcolor{blue}{R} \cdot \textcolor{blue}{PR-1}|$ </td>
     <td> Priority row piece relation.</td>
   </tr>
   <tr>
     <td><b>ColPieceOrder</b></td>
-    <td>$$CPE_{p1} - CPS_{p2}> 0,\; \forall p1 \in \textcolor{blue}{CPPr_{c,pr}},\; c \in \textcolor{blue}{C}, \; pr \in \textcolor{blue}{PR-1} \mid p2= \textcolor{blue}{CPPr_{c,pr+1}}$$</td>
+    <td>$$CPE_{c,p1} - CPS_{c,p2}> 0,\; \forall p1 \in \textcolor{blue}{CPPr_{c,pr}},\; c \in \textcolor{blue}{C}, \; pr \in \textcolor{blue}{PR-1} \mid p2= \textcolor{blue}{CPPr_{c,pr+1}}$$</td>
     <td> $|\textcolor{blue}{C} \cdot \textcolor{blue}{PR-1}|$ </td>
     <td> Priority col piece relation.</td>
   </tr>
