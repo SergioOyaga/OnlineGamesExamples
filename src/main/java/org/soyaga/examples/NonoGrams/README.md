@@ -81,7 +81,7 @@ We have to represent the problem using lineal mathematical expressions.
   </tr>
   <tr>
     <td><b>RowPieceEndXLink</b></td>
-    <td>$$RPE_{r,p}-Big \cdot (1-RPX_{r,p, c}) > c,\; \forall r \in \textcolor{blue}{R}, \; p \in \textcolor{blue}{RP_{r}}, \; c \in \textcolor{blue}{C}$$</td>
+    <td>$$RPE_{r,p}+Big \cdot (1-RPX_{r,p, c}) \geq c,\; \forall r \in \textcolor{blue}{R}, \; p \in \textcolor{blue}{RP_{r}}, \; c \in \textcolor{blue}{C}$$</td>
     <td> $|\sum_{r \in \textcolor{blue}{R}}\textcolor{blue}{RP_{r}} \cdot \textcolor{blue}{C}|$ </td>
     <td> Relates RowPiece end with assignation.</td>
   </tr>
@@ -93,7 +93,7 @@ We have to represent the problem using lineal mathematical expressions.
   </tr>
   <tr>
     <td><b>ColPieceEndXLink</b></td>
-    <td>$$CPE_{c,p}-Big \cdot (1-CPX_{c,p, r}) > r,\; \forall c \in \textcolor{blue}{C}, \; p \in \textcolor{blue}{CP_{c}}, \; r \in \textcolor{blue}{R}$$</td>
+    <td>$$CPE_{c,p}+Big \cdot (1-CPX_{c,p, r}) \geq r,\; \forall c \in \textcolor{blue}{C}, \; p \in \textcolor{blue}{CP_{c}}, \; r \in \textcolor{blue}{R}$$</td>
     <td> $|\sum_{c \in \textcolor{blue}{C}}\textcolor{blue}{CP_{r}} \cdot \textcolor{blue}{R}|$ </td>
     <td> Relates ColPiece end with assignation.</td>
   </tr>
