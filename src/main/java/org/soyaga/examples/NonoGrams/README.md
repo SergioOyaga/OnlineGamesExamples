@@ -146,7 +146,7 @@ This folder contains one class and a packages that define the structures require
 2. [NonoGramsMathModel](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/NonoGrams/MathModel/NonoGramsMathModel.java): Class that implements the required OptimizationLib interface and represents a Constraint Programming Mathematical Modeling Optimization program.
     - Instantiates all its components.
     - Implements callable.
-3. [NonoGramsInitializer](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/NonoGrams/MathModel/Initializer/NonoGramsInitializer.java): Initializes the Mathematical Model:
+3. [NonoGramsMMInitializer](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/NonoGrams/MathModel/Initializer/NonoGramsMMInitializer.java): Initializes the Mathematical Model:
     - Creates Variables.
     - Creates constraints.
 
@@ -154,10 +154,195 @@ This folder contains one class and a packages that define the structures require
 ## Results
 For the MathModel, the set of parameters used are in the NonoGramsMathModel file.
 
-MM parameters are in NonoGramsMathModel.
-
 The output looks like:
 `````
+Loading nonogram: ...
+Nonograms loaded.
+Refreshing in case it did not load...
+Refreshed.
+Selecting random nonogram...
+Nonogram selected.
+Scaling image...
+Image scaled.
+Retrieving size...
+Size retrieved.
+Computing colors...
+Colors computed.
+Retrieving board
+    Retrieving cells...
+    Cells retrieved.
+    Retrieving row constraints...
+    Row constraints retrieved.
+    Retrieving col constraints...
+    Col constraints retrieved.
+Hiding details...
+Details hidden.
+Creating MathModel SAT...
+MathModel SAT created.
+Computing CP...
+
+Starting CP-SAT solver v9.7.2996
+Parameters: max_time_in_seconds: 600 log_search_progress: true log_to_stdout: true
+Setting number of workers to 16
+
+Initial satisfaction model 'NonoSATModelProto': (model_fingerprint: 0x682c22af160bfee5)
+#Variables: 74'732
+  - 69'532 Booleans in [0,1]
+  - 2'300 in [0,5]
+  - 1'484 in [0,45]
+  - 1'416 in [0,49]
+#kLinear2: 142'060
+#kLinearN: 5'858 (#terms: 143'280)
+
+Starting presolve at 0.07s
+[ExtractEncodingFromLinear] #potential_supersets=1301 #potential_subsets=3216 #at_most_one_encodings=0 #exactly_one_encodings=0 #unique_terms=0 #multiple_terms=0 #literals=0 time=0.00378079s
+[Symmetry] Graph for symmetry has 171916 nodes and 220840 arcs.
+[Symmetry] Symmetry computation done. time: 0.0174033 dtime: 0.0339457
+[Probing] implications and bool_or (work_done=106446).
+[DetectDuplicateConstraints] #duplicates=0 #without_enforcements=0 time=0.00503266s
+[DetectDominatedLinearConstraints] #relevant_constraints=0 #work_done=0 #num_inclusions=0 #num_redundant=0 time=0.00177322s
+[ProcessSetPPC] #relevant_constraints=0 #num_inclusions=0 work=0 time=0.0036982s
+[FindBigHorizontalLinearOverlap] #blocks=0 #saved_nz=0 #linears=0 #work_done=0/1e+09 time=0.0019026s
+[FindBigVerticalLinearOverlap] #blocks=0 #nz_reduction=0 #work_done=0 time=0.00129176s
+[MergeClauses] #num_collisions=0 #num_merges=0 #num_saved_literals=0 work=0/100000000 time=0.00195732s
+[Symmetry] Graph for symmetry has 74744 nodes and 0 arcs.
+[Symmetry] Symmetry computation done. time: 0.00266986 dtime: 0.00448464
+[DetectDuplicateConstraints] #duplicates=0 #without_enforcements=0 time=0.00497433s
+[DetectDominatedLinearConstraints] #relevant_constraints=0 #work_done=0 #num_inclusions=0 #num_redundant=0 time=0.00161296s
+[ProcessSetPPC] #relevant_constraints=0 #num_inclusions=0 work=0 time=0.00362048s
+[FindBigHorizontalLinearOverlap] #blocks=0 #saved_nz=0 #linears=0 #work_done=0/1e+09 time=0.00166238s
+[FindBigVerticalLinearOverlap] #blocks=0 #nz_reduction=0 #work_done=0 time=0.00127416s
+[MergeClauses] #num_collisions=0 #num_merges=0 #num_saved_literals=0 work=0/100000000 time=0.00191399s
+
+Presolve summary:
+  - 1896 affine relations were detected.
+  - rule 'TODO variables: only used in linear1.' was applied 4 times.
+  - rule 'affine: new relation' was applied 1896 times.
+  - rule 'at_most_one: empty or all false' was applied 1946 times.
+  - rule 'at_most_one: removed literals' was applied 1946 times.
+  - rule 'at_most_one: satisfied' was applied 1018 times.
+  - rule 'bool_or: only one literal' was applied 34048 times.
+  - rule 'deductions: 57578 stored' was applied 1 time.
+  - rule 'enforcement: false literal' was applied 60298 times.
+  - rule 'enforcement: true literal' was applied 3615 times.
+  - rule 'exactly_one: removed literals' was applied 5997 times.
+  - rule 'exactly_one: satisfied' was applied 1301 times.
+  - rule 'exactly_one: size two' was applied 45 times.
+  - rule 'linear1: without enforcement' was applied 2429 times.
+  - rule 'linear2: contains a Boolean.' was applied 122149 times.
+  - rule 'linear: always true' was applied 44614 times.
+  - rule 'linear: divide by GCD' was applied 13 times.
+  - rule 'linear: extracted at most one (max).' was applied 1513 times.
+  - rule 'linear: extracted at most one (min).' was applied 1451 times.
+  - rule 'linear: fixed or dup variables' was applied 22253 times.
+  - rule 'linear: infeasible' was applied 34048 times.
+  - rule 'linear: negative equal one' was applied 99 times.
+  - rule 'linear: only two odd Booleans in equality' was applied 1 time.
+  - rule 'linear: positive equal one' was applied 1247 times.
+  - rule 'linear: reduced variable domains' was applied 18101 times.
+  - rule 'linear: remapped using affine relations' was applied 68801 times.
+  - rule 'linear: simplified rhs' was applied 476594 times.
+  - rule 'linear: variable substitution 1' was applied 445 times.
+  - rule 'presolve: 72403 unused variables removed.' was applied 1 time.
+  - rule 'presolve: iteration' was applied 2 times.
+  - rule 'variables: canonicalize affine domain' was applied 12 times.
+  - rule 'variables: detect half reified value encoding' was applied 31779 times.
+
+Presolved satisfaction model 'NonoSATModelProto': (model_fingerprint: 0xa5b85c5e198ed849)
+#Variables: 0
+
+
+Preloading model.
+[Symmetry] Graph for symmetry has 0 nodes and 0 arcs.
+#Model   3.06s var:0/0 constraints:0/0
+
+Starting search at 3.06s with 16 workers.
+6 full problem subsolvers: [default_lp, less_encoding, max_lp, no_lp, quick_restart, quick_restart_no_lp]
+8 first solution subsolvers: [jump, jump_decay_perturb, jump_decay_rnd_on_rst, jump_no_rst, random(2), random_quick_restart(2)]
+2 incomplete subsolvers: [feasibility_pump, rins/rens]
+2 helper subsolvers: [neighborhood_helper, synchronization_agent]
+#1       3.06s default_lp fixed_bools:0/0
+#2       3.06s jump(batch:1 #lin_moves:0/0 #weight_updates:1)
+#3       3.06s jump_decay_perturb(batch:1 #lin_moves:0/0 #weight_updates:1)
+#4       3.06s jump_decay_rnd_on_rst(batch:1 #lin_moves:0/0 #weight_updates:1)
+#5       3.06s jump_no_rst(batch:1 #lin_moves:0/0 #weight_updates:1)
+
+Task timing                        n [     min,      max]      avg      dev     time         n [     min,      max]      avg      dev    dtime
+  'synchronization_agent':         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+    'neighborhood_helper':         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+             'default_lp':         1 [168.67us, 168.67us] 168.67us   0.00ns 168.67us         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+          'less_encoding':         1 [ 48.97us,  48.97us]  48.97us   0.00ns  48.97us         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+                  'no_lp':         1 [ 20.32us,  20.32us]  20.32us   0.00ns  20.32us         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+                 'max_lp':         1 [ 30.96us,  30.96us]  30.96us   0.00ns  30.96us         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+          'quick_restart':         1 [ 15.44us,  15.44us]  15.44us   0.00ns  15.44us         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+    'quick_restart_no_lp':         1 [ 18.26us,  18.26us]  18.26us   0.00ns  18.26us         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+       'feasibility_pump':         1 [  3.11us,   3.11us]   3.11us   0.00ns   3.11us         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+              'rins/rens':         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+
+Search stats              Bools  Conflicts  Branches  Restarts  BoolPropag  IntegerPropag
+           'default_lp':      0          0         0         0           0              0
+        'less_encoding':      0          0         0         0           0              0
+                'no_lp':      0          0         0         0           0              0
+               'max_lp':      0          0         0         0           0              0
+        'quick_restart':      0          0         0         0           0              0
+  'quick_restart_no_lp':      0          0         0         0           0              0
+
+LNS stats       Improv/Calls  Closed  Difficulty  TimeLimit
+  'rins/rens':           0/0      0%        0.50       0.10
+
+Solution repositories    Added  Queried  Ignored  Synchro
+  'feasible solutions':      5        0        0        5
+        'lp solutions':      0        0        0        0
+                'pump':      0        0
+
+CpSolverResponse summary:
+status: OPTIMAL
+objective: NA
+best_bound: NA
+integers: 0
+booleans: 0
+conflicts: 0
+branches: 0
+propagations: 0
+integer_propagations: 0
+restarts: 0
+lp_iterations: 0
+walltime: 3.07626
+usertime: 3.07626
+deterministic_time: 0.70942
+gap_integral: 0
+solution_fingerprint: 0xd9fbce807a16246e
+
+CP computed.
+Introducing solution...
+    Selecting color...
+    Color selected.
+    Clicking cells...
+    Cells clicked.
+    Selecting color...
+    Color selected.
+    Clicking cells...
+    Cells clicked.
+    Selecting color...
+    Color selected.
+    Clicking cells...
+    Cells clicked.
+    Selecting color...
+    Color selected.
+    Clicking cells...
+    Cells clicked.
+    Selecting color...
+    Color selected.
+    Clicking cells...
+    Cells clicked.
+Solution introduced.
+Clicking OK...
+OK clicked.
+Unhiding back details...
+Details Unhidden.
+Scaling image...
+Image scaled.
+Game loop finalized.
 `````
 As you see in the output example, the MathModel finds the solution pretty fast.
 
