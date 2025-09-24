@@ -123,13 +123,13 @@ We have to represent the problem using lineal mathematical expressions.
   </tr>
   <tr>
     <td><b>RowPieceOrder</b></td>
-    <td>$$RPE_{r,p1} - RPS_{r,p2}> 0,\; \forall p1 \in \textcolor{blue}{RPPr_{r,pr}},\; r \in \textcolor{blue}{R}, \; pr \in \textcolor{blue}{PR-1} \mid p2= \textcolor{blue}{RPPr_{r,pr+1}}$$</td>
+    <td>$$RPS_{r,p2} - RPE_{r,p1} > 0,\; \forall p1 \in \textcolor{blue}{RPPr_{r,pr}},\; r \in \textcolor{blue}{R}, \; pr \in \textcolor{blue}{PR-1} \mid p2= \textcolor{blue}{RPPr_{r,pr+1}}$$</td>
     <td> $|\textcolor{blue}{R} \cdot \textcolor{blue}{PR-1}|$ </td>
     <td> Priority row piece relation.</td>
   </tr>
   <tr>
     <td><b>ColPieceOrder</b></td>
-    <td>$$CPE_{c,p1} - CPS_{c,p2}> 0,\; \forall p1 \in \textcolor{blue}{CPPr_{c,pr}},\; c \in \textcolor{blue}{C}, \; pr \in \textcolor{blue}{PR-1} \mid p2= \textcolor{blue}{CPPr_{c,pr+1}}$$</td>
+    <td>$$CPS_{c,p2} - CPE_{c,p1} > 0,\; \forall p1 \in \textcolor{blue}{CPPr_{c,pr}},\; c \in \textcolor{blue}{C}, \; pr \in \textcolor{blue}{PR-1} \mid p2= \textcolor{blue}{CPPr_{c,pr+1}}$$</td>
     <td> $|\textcolor{blue}{C} \cdot \textcolor{blue}{PR-1}|$ </td>
     <td> Priority col piece relation.</td>
   </tr>
