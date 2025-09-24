@@ -63,13 +63,13 @@ We have to represent the problem using lineal mathematical expressions.
   </tr>
   <tr>
     <td><b>RowPieceSize</b></td>
-    <td>$$RPE_{r,p} - RPS_{r,p} == \textcolor{magenta}{PS_{p}} ,\; \forall r \in \textcolor{blue}{R}, \; p \in \textcolor{blue}{RP_{r}}$$</td>
+    <td>$$RPE_{r,p} - RPS_{r,p} == \textcolor{magenta}{PS_{p}}-1 ,\; \forall r \in \textcolor{blue}{R}, \; p \in \textcolor{blue}{RP_{r}}$$</td>
     <td> $|\sum_{r \in \textcolor{blue}{R}}\textcolor{blue}{RP_{r}}|$ </td>
     <td> Forces rowPiece size.</td>
   </tr>
   <tr>
     <td><b>ColPieceSize</b></td>
-    <td>$$CPE_{c,p} - CPS_{c,p} == \textcolor{magenta}{PS_{p}} ,\; \forall c \in \textcolor{blue}{C}, \; p \in \textcolor{blue}{CP_{c}}$$</td>
+    <td>$$CPE_{c,p} - CPS_{c,p} == \textcolor{magenta}{PS_{p}}-1 ,\; \forall c \in \textcolor{blue}{C}, \; p \in \textcolor{blue}{CP_{c}}$$</td>
     <td> $|\sum_{c \in \textcolor{blue}{C}}\textcolor{blue}{CP_{c}}|$ </td>
     <td> Forces colPiece size.</td>
   </tr> 
