@@ -14,7 +14,7 @@ This repository contains various online games optimization problems solved using
 | 9  | [LongCat](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LongCat)               | 1                     | Online Long-Cat game https://poki.com/en/g/longcat using Genetic Algorithm.                                            |
 | 10 | [LongCat](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/JellyDoods)            | 1                     | Online Jelly-Doods game https://www.mathplayground.com/logic_jelly_doods.html using Genetic Algorithm.                 |
 | 11 | [Game2048](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Game2048)             | 3                     | Online 2048 game https://www.2048.org/ using Genetic Algorithm.                                                        |
-| 12 | [NonoGrams](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Nonograms)           | 3                     | Online NonoGrams puzzle https://www.nonograms.org using Mathematical Modeling, Constrained Programming and SAT solver. |
+| 12 | [NonoGrams](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/NonoGrams)           | 3                     | Online NonoGrams puzzle https://www.nonograms.org using Mathematical Modeling, Constrained Programming and SAT solver. |
 
 The difficulty level ranges from a minimum of (1) to a maximum of (5) in this repository.
 
@@ -55,7 +55,7 @@ This problem involves placing numbers 1&rarr;M in a MxM grid, in such a way  tha
     - triggers numbers on the board to move in that direction should free space be available.
     - merges two numbers of the same value into their sum when they are on consecutive positions aligned with the arrow's direction.
     - triggers new values of 2 or 4 to appear randomly on the board.
-12. [NanoGrams](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/NanoGrams):
+12. [NonoGrams](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/NonoGrams):
    This problem involves coloring a grid using column and row constraints. Each constraint identifies a coloring block in a row/column. It also determines the order in which the colors must appear. If two consecutive constraints are for the same color, then, they are separated in the row/colum. 
 
 ## Comment:

@@ -91,7 +91,7 @@ This repository contains various Web-games optimization problems solved using th
     </tr>
     <tr>
       <td>12</td>
-      <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/NonGrams/">NonoGrams</a></td>
+      <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/NonoGrams/">NonoGrams</a></td>
       <td>3</td>
       <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/NonoGrams/NonoGrams.gif" title="NonoGrams example" alt="NonoGrams example"/></td>
       <td>Japanese NonoGrams crossword using Constrained Programming SAT.</td>
