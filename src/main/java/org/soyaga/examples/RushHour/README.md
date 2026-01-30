@@ -66,12 +66,12 @@ block-beta
   %% Make this column narrow by using smaller labels.
   block:OUT[" "]:1
     columns 1
-    o1["<br/>&nbsp;"]
-    o2["<br/>&nbsp;"]
-    o3["<br/>&nbsp;"]
-    o4["<br/>&nbsp;"]
-    o5["<br/>&nbsp;"]
-    o6["<br/>&nbsp;"]
+    o1[" "]
+    o2[" "]
+    o3[" "]
+    o4[" "]
+    o5[" "]
+    o6[" "]
   end
 
   %% --- Frame styling ---
