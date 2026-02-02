@@ -96,6 +96,13 @@ This repository contains various Web-games optimization problems solved using th
       <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/NonoGrams/NonoGrams.gif" title="NonoGrams example" alt="NonoGrams example"/></td>
       <td>Japanese NonoGrams crossword using Constrained Programming SAT.</td>
     </tr>
+    <tr>
+      <td>13</td>
+      <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/RushHour/">RushHour</a></td>
+      <td>1</td>
+      <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/RushHour/RushHour.gif" title="RushHour example" alt="RushHour example"/></td>
+      <td>Web version of the classic Rush Hour game using Genetic Algorithms.</td>
+    </tr>
   </tbody>
 </table>
 
