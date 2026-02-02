@@ -17,7 +17,7 @@ import java.util.*;
 
 public class RushHourScraper {
 
-    public static  int zoom = 90;
+    public static int cellSize = 0;
 
     public static void main(String[] args) {
         //Selenium driver path
@@ -39,28 +39,25 @@ public class RushHourScraper {
             // Get all window handles
             Set<String> windowHandles = driver.getWindowHandles();
             ArrayList<String> tabs = new ArrayList<>(windowHandles);
+            Robot robot = new Robot();
 
             // Switch to the new tab (assuming it's the second tab)
             driver.switchTo().window(tabs.get(tabs.size() - 1));
 
             System.out.println("Refreshing in case it did not load...");
+            driver.manage().window().setSize(new Dimension(600, 800));
+            driver.manage().window().setPosition(new Point(0,0));
+            Thread.sleep(500);
             driver.navigate().refresh();
-            driver.manage().window().maximize();
-            driver.executeScript(String.format("document.body.style.zoom='%d%%'",zoom));
             System.out.println("Refreshed.");
 
-            System.out.println("Retrieving board...");
-            WebElement board=null;
-            int cellSize = 0;
+            System.out.println("Retrieving cell size...");
             try {
-                board = longWait.until(
-                        ExpectedConditions.presenceOfElementLocated(By.className("css-1scmc8o"))
-                );
-                cellSize = board.findElement(By.id("cell-0")).getSize().getWidth();
-                System.out.println("Board retrieved.");
+                cellSize = driver.findElement(By.id("cell-0")).getSize().getWidth();
+                System.out.println("Cell size retrieved.");
             }
             catch (Exception ex){
-                System.out.println("Board not retrieved");
+                    System.out.println("Cell size not retrieved");
             }
 
             for(int loop=0; loop<2; loop++){
@@ -68,7 +65,7 @@ public class RushHourScraper {
                 System.out.println("Getting vehicle elements...");
                 LinkedHashMap<String, WebElement> vehiclesById = new LinkedHashMap<>();
                 try {
-                    vehiclesById = findVehiclesElementsByID(board);
+                    vehiclesById = findVehiclesElementsByID(driver);
                     System.out.println("Vehicle elements got.");
                 }
                 catch (Exception ex){
@@ -79,7 +76,7 @@ public class RushHourScraper {
                 LinkedHashMap<String, Object[]> vehiclesInfo = new LinkedHashMap<>();
 
                 try {
-                    vehiclesInfo= findVehiclesInfoByID(vehiclesById, cellSize);
+                    vehiclesInfo= findVehiclesInfoByID(vehiclesById);
                     System.out.println("Level info got.");
                 }
                 catch (Exception ex){
@@ -103,7 +100,6 @@ public class RushHourScraper {
 
                 System.out.println("Introducing solution...");
                 if (resultText.startsWith("GA_Optimal")) {
-                    Robot robot = new Robot();
                     result.remove(result.size()-1);
                     for(Movement movement:result){
                         WebElement vehicle = vehiclesById.get(movement.vehicleID);
@@ -117,8 +113,7 @@ public class RushHourScraper {
 
                 System.out.println("Continuing game...");
                 try {
-                    WebElement input = longWait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("span.css-l0iewn input")));
-                    input.sendKeys("GA");
+                    actions.sendKeys("GA").perform();
                     WebElement nextButton = longWait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//button[normalize-space()='Next']")));
                     nextButton.click();
                     Thread.sleep(2000);
@@ -141,10 +136,9 @@ public class RushHourScraper {
         }
     }
 
-    private static LinkedHashMap<String, WebElement> findVehiclesElementsByID(WebElement board){
+    private static LinkedHashMap<String, WebElement> findVehiclesElementsByID(EdgeDriver driver){
         LinkedHashMap<String, WebElement> vehiclesElementByID = new LinkedHashMap<>();
-        for (WebElement vehicle : board.findElements(By.cssSelector("div.car"))) {
-
+        for (WebElement vehicle : driver.findElements(By.cssSelector("div.car"))) {
             String imageStyle = vehicle.findElement(By.cssSelector("div.w-full")).getAttribute("style");
             String color = imageStyle
                     .replaceAll(".*media/", "")
@@ -158,7 +152,7 @@ public class RushHourScraper {
         return vehiclesElementByID;
     }
 
-    private static LinkedHashMap<String, Object[]> findVehiclesInfoByID(LinkedHashMap<String, WebElement> vehicleElements, int cellSize){
+    private static LinkedHashMap<String, Object[]> findVehiclesInfoByID(LinkedHashMap<String, WebElement> vehicleElements){
         LinkedHashMap<String, Object[]> vehiclesInfoByID = new LinkedHashMap<>();
         for (Map.Entry<String,WebElement> vehicleEntry : vehicleElements.entrySet()) {
             WebElement vehicle = vehicleEntry.getValue();
@@ -173,6 +167,8 @@ public class RushHourScraper {
             Dimension d = vehicle.getSize();
             int w = d.getWidth();
             int h = d.getHeight();
+
+            cellSize = Math.min(w,h);
 
             int row = translateY / cellSize;
             int col = translateX / cellSize;
@@ -207,7 +203,7 @@ public class RushHourScraper {
     }
 
     private static Point computeTarget(Point start, String direction, int distance, int cellSize) {
-        int pixels = (int)((distance) * cellSize);
+        int pixels = distance * cellSize;
 
         int x = start.getX();
         int y = start.getY();
