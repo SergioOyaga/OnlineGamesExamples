@@ -83,7 +83,7 @@ This folder contains one class and a package that define the structures required
 2. [SlitherLinkACO](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/SlitherLink/ACO/SlitherLinkACO.java): Class that implements the required OptimizationLib interface and represents a Ant Colony Optimization program.
     - Instantiates all its components.
     - Implements runnable.
-3. [DistanceObjectiveFunction](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/SlitherLink/ACO/Evaluable/SlitherLinkObjectiveFunction.java): Class that evaluates how much of the grid it has been covered.
+3. [DistanceObjectiveFunction](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/SlitherLink/ACO/Evaluable/DistanceObjectiveFunction.java): Class that evaluates how much of the grid it has been covered.
 4. [Constraints](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/SlitherLink/ACO/Evaluable/Constraints/): Package that contains the constraints.
    - StartEndConstraint: Constraint for the route to be circular.
    - SlitherLinkConstraint: Constraint for each of the numbers in the grid.
