@@ -103,6 +103,13 @@ This repository contains various Web-games optimization problems solved using th
       <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/RushHour/RushHour.gif" title="RushHour example" alt="RushHour example"/></td>
       <td>Web version of the classic Rush Hour game using Genetic Algorithms.</td>
     </tr>
+    <tr>
+      <td>14</td>
+      <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/SlitherLink/">SlitherLink</a></td>
+      <td>3</td>
+      <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/SlitherLink/SlitherLink.gif" title="SlitherLink example" alt="SlitherLink example"/></td>
+      <td>SlitherLink / Loop-Puzzle game using Ant Colony Optimization.</td>
+    </tr>
   </tbody>
 </table>
 

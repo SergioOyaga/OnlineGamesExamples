@@ -5,10 +5,10 @@ This repository contains various online games optimization problems solved using
 |----|-----------------------------------------------------------------------------------------------------------------------------------|-----------------------|------------------------------------------------------------------------------------------------------------------------|
 | 1  | [LinkedInQueens](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInQueens) | 1                     | LinkedIn Queens using Mathematical Modeling.                                                                           |
 | 2  | [LinkedInTango](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInTango)   | 1                     | LinkedIn Tango using Mathematical Modeling.                                                                            |
-| 3  | [LinkedInZip](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInZip)       | 3                     | LinkedIn Zip using Ant Colony Optimization and Mathematical Modeling                                                   |
-| 4  | [LinkedInSudoku](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInSudoku) | 1                     | LinkedIn Sudoku using Mathematical Modeling                                                                            |
-| 5  | [Sudoku](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Sudoku)                 | 2                     | Online sudoku game https://sudoku.com/ using Mathematical Modeling                                                     |
-| 6  | [Maze](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Maze)                     | 1                     | Online maze game https://www.mathsisfun.com/measure/mazes.html using Mathematical Modeling                             |
+| 3  | [LinkedInZip](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInZip)       | 3                     | LinkedIn Zip using Ant Colony Optimization and Mathematical Modeling.                                                  |
+| 4  | [LinkedInSudoku](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInSudoku) | 1                     | LinkedIn Sudoku using Mathematical Modeling.                                                                           |
+| 5  | [Sudoku](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Sudoku)                 | 2                     | Online sudoku game https://sudoku.com/ using Mathematical Modeling.                                                    |
+| 6  | [Maze](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Maze)                     | 1                     | Online maze game https://www.mathsisfun.com/measure/mazes.html using Ant Colony Optimization.                          |
 | 7  | [AllOut](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/AllOut)                 | 2                     | Online All-Out game https://www.mathsisfun.com/games/allout.html using Genetic Algorithm.                              |
 | 8  | [MadVirus](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/MadVirus)             | 1                     | Online All-Out game https://www.mathsisfun.com/games/mad-virus.html using Genetic Algorithm.                           |
 | 9  | [LongCat](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LongCat)               | 1                     | Online Long-Cat game https://poki.com/en/g/longcat using Genetic Algorithm.                                            |
@@ -16,11 +16,12 @@ This repository contains various online games optimization problems solved using
 | 11 | [Game2048](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Game2048)             | 3                     | Online 2048 game https://www.2048.org/ using Genetic Algorithm.                                                        |
 | 12 | [NonoGrams](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/NonoGrams)           | 3                     | Online NonoGrams puzzle https://www.nonograms.org using Mathematical Modeling, Constrained Programming and SAT solver. |
 | 13 | [RushHour](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/RushHour)             | 1                     | Online RushHour puzzle https://rushhourgame.thinkfun.com/ using Genetic Algorithm.                                     |
+| 14 | [SlitherLink](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/SlitherLink)       | 3                     | Online SlitherLink/ loop-puzzle https://www.puzzle-loop.com using Ant Colony Optimization.                             |
 
 The difficulty level ranges from a minimum of (1) to a maximum of (5) in this repository.
 
 ## In This Folder
-This folder contains 13 online games solved using the OptimizationLib:
+This folder contains 14 online games solved using the OptimizationLib:
 
 1. [LinkedInQueens](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInQueens):
    This problem involves placing N queens on an NxN chessboard such that each row, column and color only contains one Queen, and two queens cannot touch each other, not even diagonally.
@@ -63,6 +64,9 @@ This problem involves placing numbers 1&rarr;M in a MxM grid, in such a way  tha
 
 13. [RushHour](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/RushHour):
     The goal of the game is to get only the red car out through the exit of the board by moving the other vehicles out of its way.
+
+14. [SlitherLink](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/SlitherLink):
+    The goal of the game is to draw lines between the dots to form a single loop without crossings or branches. The numbers indicate how many lines surround it.
 
 ## Comment:
 The examples in this repository illustrate the power and versatility of the OptimizationLib framework. Remember, these examples serve as templates that you can adapt for your specific optimization problems.
