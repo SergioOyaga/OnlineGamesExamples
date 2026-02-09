@@ -83,7 +83,7 @@ For the MathModel, the set of parameters used are in the MinesweeperMathModel fi
 The output looks like:
 `````
 Sorry, but I don't have the outputs... My IP got shadowbanned and I don't have a VPN available right now...
-So an advice, If you are going to use any of my optimization examples to cheat ad games, please don't. Thats not the intend of this. 
+So an advice, If you are going to use any of my optimization examples to cheat at games, please don't. That's not the intend of this. 
 `````
 As you see in the output example, the MathModel finds the solution strategy step by step pretty fast.
 
