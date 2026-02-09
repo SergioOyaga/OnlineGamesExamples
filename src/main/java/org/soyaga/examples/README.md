@@ -17,11 +17,12 @@ This repository contains various online games optimization problems solved using
 | 12 | [NonoGrams](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/NonoGrams)           | 3                     | Online NonoGrams puzzle https://www.nonograms.org using Mathematical Modeling, Constrained Programming and SAT solver. |
 | 13 | [RushHour](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/RushHour)             | 1                     | Online RushHour puzzle https://rushhourgame.thinkfun.com/ using Genetic Algorithm.                                     |
 | 14 | [SlitherLink](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/SlitherLink)       | 3                     | Online SlitherLink/ loop-puzzle https://www.puzzle-loop.com using Ant Colony Optimization.                             |
+| 15 | [Minesweeper](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Minesweeper)       | 1                     | Online Minesweeper https://minesweeper.online using Mathematical Modeling, Constrained Programming and SAT solver.     |
 
 The difficulty level ranges from a minimum of (1) to a maximum of (5) in this repository.
 
 ## In This Folder
-This folder contains 14 online games solved using the OptimizationLib:
+This folder contains 15 online games solved using the OptimizationLib:
 
 1. [LinkedInQueens](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInQueens):
    This problem involves placing N queens on an NxN chessboard such that each row, column and color only contains one Queen, and two queens cannot touch each other, not even diagonally.
@@ -67,6 +68,9 @@ This problem involves placing numbers 1&rarr;M in a MxM grid, in such a way  tha
 
 14. [SlitherLink](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/SlitherLink):
     The goal of the game is to draw lines between the dots to form a single loop without crossings or branches. The numbers indicate how many lines surround it.
+
+15. [Minesweeper](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Minesweeper):
+    The objective is to clear a board with hidden mines, without detonating any of them, with help from clues about the number of neighboring mines in each field.
 
 ## Comment:
 The examples in this repository illustrate the power and versatility of the OptimizationLib framework. Remember, these examples serve as templates that you can adapt for your specific optimization problems.
