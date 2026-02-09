@@ -17,7 +17,7 @@ This repository contains various online games optimization problems solved using
 | 12 | [NonoGrams](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/NonoGrams)           | 3                     | Online NonoGrams puzzle https://www.nonograms.org using Mathematical Modeling, Constrained Programming and SAT solver. |
 | 13 | [RushHour](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/RushHour)             | 1                     | Online RushHour puzzle https://rushhourgame.thinkfun.com/ using Genetic Algorithm.                                     |
 | 14 | [SlitherLink](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/SlitherLink)       | 3                     | Online SlitherLink/ loop-puzzle https://www.puzzle-loop.com using Ant Colony Optimization.                             |
-| 15 | [Minesweeper](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Minesweeper)       | 1                     | Online Minesweeper https://minesweeper.online using Mathematical Modeling, Constrained Programming and SAT solver.     |
+| 15 | [Minesweeper](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Minesweeper)       | 2                     | Online Minesweeper https://minesweeper.online using Mathematical Modeling, Constrained Programming and SAT solver.     |
 
 The difficulty level ranges from a minimum of (1) to a maximum of (5) in this repository.
 

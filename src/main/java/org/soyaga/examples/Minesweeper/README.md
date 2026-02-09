@@ -60,6 +60,18 @@ We have to represent the problem using lineal mathematical expressions.
   </tr>
 </table>
 
+### Uncertainty:
+To measure the uncertainty we follow these steps:
+1. Store all feasible solutions found by the SAT solver.
+2. Compute how certain a bomb is in each cell, by adding the variable value of each solution and dividing it by the number of solutions found. E.j: 
+   - Cell_0_0 = 0.0 implies it is completely safe, in al solutions found is always a 0
+   - Cell_1_1 = 1.0 implies it is for sure a bomb, in al solutions found is always a 1
+   - Cell_2_2 = 0.3 implies it is statistically safe, but there are solutions where it is a bomb, for example 3 solutions where it is a bomb and 7 solutions where it is not.
+3. Introduce only certain values if available.
+4. If not certain values are available, then we compute the average solution bomb. That is, how many bombs are being used in all the solutions by average.
+5. We compute the risk of the cells that are not in the problem as remaining_bombs/remaining_cells.
+6. We select the less probable to be bombs and click in a random one of those.
+
 ## In this folder:
 This folder contains one class and a packages that define the structures required for solving the problem.
 

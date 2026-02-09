@@ -113,7 +113,7 @@ This repository contains various Web-games optimization problems solved using th
     <tr>
       <td>15</td>
       <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Minesweeper/">Minesweeper</a></td>
-      <td>1</td>
+      <td>2</td>
       <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/Minesweeper/Minesweeper.gif" title="Minesweeper example" alt="Minesweeper example"/></td>
       <td>Minesweeper using Constrained Programming SAT.</td>
     </tr>
