@@ -102,12 +102,12 @@ This folder contains one class and a packages that define the structures require
 2. [BridgesMathModel](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Bridges/MathModel/BridgesMathModel.java): Class that implements the required OptimizationLib interface and represents a Constraint Programming Mathematical Modeling Optimization program.
     - Instantiates all its components.
     - Includes ConnectedSolutionsCallback, to exit when the right solution is found.
-3. [BridgesMMInitializer](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Bridges/MathModel/Initializer/BridgesMMInitializer.java): Initializes the Mathematical Model:
+3. [BridgesMMInitializer](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Bridges/MathModel/BridgesMMInitializer.java): Initializes the Mathematical Model:
     - Creates Variables.
     - Creates Constraints.
-4. [ConnectedSolutionCallBack](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Bridges/MathModel/Initializer/CallBack/ConnectedSolutionCallBack.java): Callback that stops the search once the solution is fully connected.
-5. [Bridge](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Bridges/Graph/Bridge.Bridge): Object that represents a Bridges bridge.
-6. [Rule](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Bridges/Graph/Rule.Bridge): Object that represents a numbered rule of connected bridges.
+4. [ConnectedSolutionCallBack](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Bridges/MathModel/CallBack/ConnectedSolutionCallBack.java): Callback that stops the search once the solution is fully connected.
+5. [Bridge](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Bridges/Graph/Bridge.java): Object that represents a Bridges bridge.
+6. [Rule](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Bridges/Graph/Rule.java): Object that represents a numbered rule of connected bridges.
 
 
 ## Results
