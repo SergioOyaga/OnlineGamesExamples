@@ -21,7 +21,7 @@ We have to represent the problem using lineal mathematical expressions.
                     <li>
                         $\textcolor{blue}{HB} =$ Horizontal Bridges.
                         <ul>
-                            <li>$\textcolor{blue}{HB_{vb} =$ Horizontal Bridges by Vertical Bridges that cross.</li>
+                            <li>$\textcolor{blue}{HB_{vb}} =$ Horizontal Bridges by Vertical Bridges that cross.</li>
                         </ul>
                     </li>
                 </ul>
