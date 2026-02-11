@@ -76,7 +76,7 @@ We have to represent the problem using lineal mathematical expressions.
   </tr>
   <tr>
     <td><b>Crossing</b></td>
-    <td>$$ 0 \leq BU_{vb} + BU_{hb} \leq 1,\; \forall vb \in \textcolor{blue}{VB}, hb \in \textcolor{blue}{HB_{vb}}$$</td>
+    <td>$$0 \leq BU_{vb} + BU_{hb} \leq 1,\; \forall vb \in \textcolor{blue}{VB}, hb \in \textcolor{blue}{HB_{vb}}$$</td>
     <td> $|\sum_{vb \in \textcolor{blue}{VB}} \cdot \sum_{hb \in \textcolor{blue}{HB_{vb}}}|$ </td>
     <td> Make sure crossing  bridges are not selected simultaneously. </td>
   </tr>
