@@ -13,7 +13,7 @@ We have to represent the problem using lineal mathematical expressions.
    <tr>
       <td>
          <ul>
-            <li>$\textcolor{blue}{R} =$ Rulls.</li>
+            <li>$\textcolor{blue}{R} =$ Rules.</li>
             <li>
                 $\textcolor{blue}{C} =$ Cells.
                 <ul>
