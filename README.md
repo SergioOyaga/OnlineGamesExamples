@@ -117,6 +117,13 @@ This repository contains various Web-games optimization problems solved using th
       <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/Minesweeper/Minesweeper.gif" title="Minesweeper example" alt="Minesweeper example"/></td>
       <td>Minesweeper using Constrained Programming SAT.</td>
     </tr>
+    <tr>
+      <td>16</td>
+      <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Bridges/">Bridges</a></td>
+      <td>3</td>
+      <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/Bridges/Bridges.gif" title="Bridges example" alt="Bridges example"/></td>
+      <td>Bridges using Constrained Programming SAT.</td>
+    </tr>
   </tbody>
 </table>
 
