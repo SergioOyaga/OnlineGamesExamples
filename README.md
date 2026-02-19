@@ -124,6 +124,13 @@ This repository contains various Web-games optimization problems solved using th
       <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/Bridges/Bridges.gif" title="Bridges example" alt="Bridges example"/></td>
       <td>Bridges using Constrained Programming SAT.</td>
     </tr>
+    <tr>
+      <td>17</td>
+      <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Tetris/">Tetris</a></td>
+      <td>5</td>
+      <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/Tetris/Tetris.gif" title="Tetris example" alt="Tetris example"/></td>
+      <td>Tetris using a Player trained using GA.</td>
+    </tr>
   </tbody>
 </table>
 

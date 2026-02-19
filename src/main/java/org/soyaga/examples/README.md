@@ -19,11 +19,12 @@ This repository contains various online games optimization problems solved using
 | 14 | [SlitherLink](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/SlitherLink)       | 3                     | Online SlitherLink/ loop-puzzle https://www.puzzle-loop.com using Ant Colony Optimization.                             |
 | 15 | [Minesweeper](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Minesweeper)       | 2                     | Online Minesweeper https://minesweeper.online using Mathematical Modeling, Constrained Programming and SAT solver.     |
 | 16 | [Bridges](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Bridges)               | 3                     | Online Bridges https://www.puzzle-bridges.com/ using Mathematical Modeling, Constrained Programming and SAT solver.    |
+| 17 | [Tetris](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Tetris)                 | 5                     | Online Tetris https://play.tetris.com/ using Genetic Algorithm to train a player.                                      |
 
 The difficulty level ranges from a minimum of (1) to a maximum of (5) in this repository.
 
 ## In This Folder
-This folder contains 16 online games solved using the OptimizationLib:
+This folder contains 17 online games solved using the OptimizationLib:
 
 1. [LinkedInQueens](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInQueens):
    This problem involves placing N queens on an NxN chessboard such that each row, column and color only contains one Queen, and two queens cannot touch each other, not even diagonally.
@@ -75,6 +76,9 @@ This problem involves placing numbers 1&rarr;M in a MxM grid, in such a way  tha
 
 16. [Bridges](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Bridges):
     The goal is to connect all the islands into a single connected group by drawing a series of bridges between the islands. The bridges must begin and end at distinct islands; They must not cross any other bridges or islands; They may only run orthogonally; At most two bridges connect a pair of islands; and The number of bridges connected to each island must match the number on that island.
+
+17. [Tetris](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Tetris):
+    In Tetris, falling tetromino shapes must be neatly sorted into a pile. Once a horizontal line of the game board is filled in, it disappears, granting points and preventing the pile from overflowing.
 
 ## Comment:
 The examples in this repository illustrate the power and versatility of the OptimizationLib framework. Remember, these examples serve as templates that you can adapt for your specific optimization problems.
