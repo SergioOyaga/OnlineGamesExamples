@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.soyaga.examples.Tetris.Board.Board;
 import org.soyaga.examples.Tetris.Board.Pieces.*;
 import org.soyaga.examples.Tetris.Player.Movement;
-import org.soyaga.examples.Tetris.Player.Player;
+import org.soyaga.examples.Tetris.Player.Players.NoobPlayer;
 
 import java.awt.Color;
 import java.awt.AWTException;
@@ -88,9 +88,9 @@ public class TetrisScraper {
                 System.out.println("Not switched");
             }
 
-            System.out.println("Loading Player..");
-            Player player = (Player) loadObject("src/out/Tetris/player_Tanh_2.dat");
-            System.out.println("Player loaded");
+            System.out.println("Loading NoobPlayer..");
+            NoobPlayer noobPlayer = (NoobPlayer) loadObject("src/out/Tetris/player_Tanh_2.dat");
+            System.out.println("NoobPlayer loaded");
 
             System.out.println("Creating Board...");
             Board board = new Board();
@@ -154,12 +154,15 @@ public class TetrisScraper {
             Thread.sleep(2850);
             Color pieceColor = robot.getPixelColor(440,270);
             Color nextPieceColor = robot.getPixelColor(440,320);
-             Piece piece = piecesMap.get(pieceColor);
+            Color nextSecondPieceColor = robot.getPixelColor(440,370);
+            Piece piece = piecesMap.get(pieceColor);
+            Piece firstPiece = piecesMap.get(pieceColor);
+            ArrayList<Piece> pieces = new ArrayList<>(){{add(firstPiece);}};
             System.out.println("First piece retrieved");
 
             System.out.println("Solving first move..");
             System.out.println(board);
-            Movement move = player.movePiece(board,piece);
+            Movement move = noobPlayer.movePiece(board,pieces);
             System.out.println("First move solved");
 
             System.out.println(board);
@@ -174,11 +177,19 @@ public class TetrisScraper {
                     pieceColor = robot.getPixelColor(440,270);
                 }
                 nextPieceColor = robot.getPixelColor(440,320);
+                nextSecondPieceColor = robot.getPixelColor(440,370);
                 Piece nextPiece = piecesMap.get(pieceColor);
+                Piece nextSecondPiece = piecesMap.get(nextPieceColor);
+                Piece nextThirdPiece = piecesMap.get(nextSecondPieceColor);
+                ArrayList<Piece> nextPieces = new ArrayList<>(){{
+                    add(nextPiece);
+                    add(nextSecondPiece);
+                    add(nextThirdPiece);
+                }};
                 System.out.println("Next piece retrieved");
 
                 System.out.println("Solving next move...");
-                Movement nextMove = player.movePiece(board,nextPiece);
+                Movement nextMove = noobPlayer.movePiece(board,nextPieces);
                 System.out.println("Next move solved");
 
                 System.out.println("Introducing move...");

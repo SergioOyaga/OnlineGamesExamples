@@ -2,7 +2,7 @@ package org.soyaga.examples.Tetris;
 
 import org.soyaga.examples.Tetris.Board.Board;
 import org.soyaga.examples.Tetris.Board.Pieces.*;
-import org.soyaga.examples.Tetris.Player.Player;
+import org.soyaga.examples.Tetris.Player.Players.NoobPlayer;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,10 +14,10 @@ public class TestPlayer {
     public static void main(String[] args) throws IOException {
         String filePath = "src/out/Tetris/";
 
-        Player tanhP1 = (Player) loadObject(filePath+"player_Tanh_1.dat");
-        Player tanhP2 = (Player) loadObject(filePath+"player_Tanh_2.dat");
-        Player linP3 = (Player) loadObject(filePath+"player_Linear_1.dat");
-        Player linP4 = (Player) loadObject(filePath+"player_Linearsoft_1.dat");
+        NoobPlayer tanhP1 = (NoobPlayer) loadObject(filePath+"player_Tanh_1.dat");
+        NoobPlayer tanhP2 = (NoobPlayer) loadObject(filePath+"player_Tanh_2.dat");
+        NoobPlayer linP3 = (NoobPlayer) loadObject(filePath+"player.dat");
+        NoobPlayer linP4 = (NoobPlayer) loadObject(filePath+"player_Linearsoft_1.dat");
         Board bP1 = new Board();
         Board bP2 = new Board();
         Board bP3 = new Board();
@@ -33,7 +33,7 @@ public class TestPlayer {
         }};
         Random random = new Random();
         for(int iter=0;iter<2000; iter++){
-            Piece selectedPiece = pieces.get(random.nextInt(7));
+            ArrayList<Piece> selectedPiece = new ArrayList<>(){{add(pieces.get(random.nextInt(7)));}};
             tanhP1.movePiece(bP1,selectedPiece);
             tanhP2.movePiece(bP2,selectedPiece);
             linP3.movePiece(bP3,selectedPiece);

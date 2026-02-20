@@ -8,7 +8,7 @@ import static org.soyaga.examples.Tetris.Utils.saveObject;
 
 public class TetrisGATrain {
     public static void main(String[] args) throws IOException {
-        String filePath = "src/out/Tetris/player.dat";
+        String filePath = "src/out/Tetris/Player_Brain.dat";
 
         long startTime = System.nanoTime();
         TetrisGA ga = new TetrisGA("TrainTetrisGA", 50, 50);

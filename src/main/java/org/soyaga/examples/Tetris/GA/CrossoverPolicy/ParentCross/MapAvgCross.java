@@ -26,7 +26,7 @@ public class MapAvgCross implements Crossover {
         TetrisIndividual tetrisP1 = (TetrisIndividual) parent1;
         TetrisIndividual tetrisP2 = (TetrisIndividual) parent2;
         HashMapGenome<Object,Number> genome = new HashMapGenome<>();
-        Individual newIndividual = new TetrisIndividual(genome, tetrisP1.getPenalization(), tetrisP1.getMaxIterations(), ((TetrisIndividual) parent1).getPlayer().getEvaluationFunction());
+        Individual newIndividual = new TetrisIndividual(genome, tetrisP1.getPenalization(), tetrisP1.getMaxIterations(), ((TetrisIndividual) parent1).getPlayer());
         HashMapGenome<Object,Number> parent1Genome = (HashMapGenome<Object,Number>)tetrisP1.getGenome();
         HashMapGenome<Object,Number> parent2Genome = (HashMapGenome<Object,Number>)tetrisP2.getGenome();
         for(Map.Entry<Object,Number> parent1Entry:parent1Genome.getGeneticInformation()){

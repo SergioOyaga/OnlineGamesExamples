@@ -7,8 +7,7 @@ import org.soyaga.examples.Tetris.GA.CrossoverPolicy.TetrisCrossoverPolicy;
 import org.soyaga.examples.Tetris.GA.Initializer.TetrisInitializer;
 import org.soyaga.examples.Tetris.GA.Mutations.TetrisBrownianMovement;
 import org.soyaga.examples.Tetris.Player.BoardEvaluationFunction.LinearBoardEvaluationFunction;
-import org.soyaga.examples.Tetris.Player.BoardEvaluationFunction.LinearSoftBoardEvaluationFunction;
-import org.soyaga.examples.Tetris.Player.BoardEvaluationFunction.TanhBoardEvaluationFunction;
+import org.soyaga.examples.Tetris.Player.Players.NoobPlayer;
 import org.soyaga.ga.CrossoverPolicy.ParentSelection.BlockWheelSelection;
 import org.soyaga.ga.ElitismPolicy.FixedElitismPolicy;
 import org.soyaga.ga.GeneticAlgorithm.StatsGeneticAlgorithm;
@@ -55,7 +54,10 @@ public class TetrisGA extends StatsGeneticAlgorithm {
                 new FixedElitismPolicy((int)(populationSize*0.1)),
                 new FixedNewbornPolicy((int)(populationSize*0.1)),
                 new TetrisInitializer(
-                        new TanhBoardEvaluationFunction()
+                        new NoobPlayer(
+                                new LinearBoardEvaluationFunction()
+                        )
+
                 ),
                 new NIterationsStatsRetrievalPolicy(
                         1,
@@ -88,6 +90,6 @@ public class TetrisGA extends StatsGeneticAlgorithm {
      */
     @Override
     public Object[] getResult(Object... resultArgs) {
-        return new Object [] {"GA_Optimal",  ((TetrisIndividual)this.population.getBestIndividual()).getPlayer()};
+        return new Object [] {"GA_Optimal",  ((TetrisIndividual)this.population.getBestIndividual()).getPlayer().getEvaluationFunction()};
     }
 }

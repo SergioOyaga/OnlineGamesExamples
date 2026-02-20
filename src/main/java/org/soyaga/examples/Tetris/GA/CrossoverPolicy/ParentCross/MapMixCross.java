@@ -28,7 +28,7 @@ public class MapMixCross implements Crossover {
         TetrisIndividual tetrisP1 = (TetrisIndividual) parent1;
         TetrisIndividual tetrisP2 = (TetrisIndividual) parent2;
         HashMapGenome<Object,Object> genome = new HashMapGenome<>();
-        Individual newIndividual = new TetrisIndividual(genome, tetrisP1.getPenalization(), tetrisP1.getMaxIterations(), ((TetrisIndividual) parent1).getPlayer().getEvaluationFunction());
+        Individual newIndividual = new TetrisIndividual(genome, tetrisP1.getPenalization(), tetrisP1.getMaxIterations(), ((TetrisIndividual) parent1).getPlayer());
         HashMapGenome<Object,?> parent1Genome = (HashMapGenome<Object,?>)tetrisP1.getGenome();
         HashMapGenome<Object,?> parent2Genome = (HashMapGenome<Object,?>)tetrisP2.getGenome();
         Random random = new Random();

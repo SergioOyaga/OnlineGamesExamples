@@ -3,10 +3,7 @@ package org.soyaga.examples.Tetris.GA;
 import lombok.Getter;
 import org.soyaga.examples.Tetris.Board.Board;
 import org.soyaga.examples.Tetris.Board.Pieces.*;
-import org.soyaga.examples.Tetris.Player.BoardEvaluationFunction.BoardEvaluationFunction;
 import org.soyaga.examples.Tetris.Player.Player;
-import org.soyaga.ga.Evaluable.Feasibility.FeasibilityFunction;
-import org.soyaga.ga.Evaluable.Objective.ObjectiveFunction;
 import org.soyaga.ga.GeneticInformationContainer.Genome.Genome;
 import org.soyaga.ga.GeneticInformationContainer.Genome.HashMapGenome;
 import org.soyaga.ga.Individual;
@@ -35,11 +32,10 @@ public class TetrisIndividual extends Individual {
      * @param genome              Genome of the individual. Has to be a Genome instance
      * @param penalization        Double with the penalization for infeasibility.
      */
-    public TetrisIndividual(Genome<?> genome, Double penalization, int maxIterations, BoardEvaluationFunction evalFunction) {
+    public TetrisIndividual(Genome<?> genome, Double penalization, int maxIterations, Player player) {
         super(genome, null, null, penalization);
         this.maxIterations = maxIterations;
-        this.player = new Player();
-        this.player.setEvaluationFunction(evalFunction.newInstance());
+        this.player = player.newInstance();
     }
     /**
      * This function evaluates the feasibility, objective function and fitness of the
@@ -78,7 +74,7 @@ public class TetrisIndividual extends Individual {
         for(int i=0;i<this.maxIterations; i++){
             if(!board.isActive()) break;
             Piece selectedPiece = pieces.get(random.nextInt(pieces.size()));
-            this.player.movePiece(board,selectedPiece);
+            this.player.movePiece(board,new ArrayList<>(){{add(selectedPiece);}});
         }
         return board;
     }
