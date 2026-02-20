@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.soyaga.examples.Tetris.Board.Board;
 import org.soyaga.examples.Tetris.Board.Pieces.*;
+import org.soyaga.examples.Tetris.Player.BoardEvaluationFunction.BoardEvaluationFunction;
 import org.soyaga.examples.Tetris.Player.Movement;
 import org.soyaga.examples.Tetris.Player.Players.NoobPlayer;
 
@@ -89,7 +90,8 @@ public class TetrisScraper {
             }
 
             System.out.println("Loading NoobPlayer..");
-            NoobPlayer noobPlayer = (NoobPlayer) loadObject("src/out/Tetris/player_Tanh_2.dat");
+            BoardEvaluationFunction evaluationFunction = (BoardEvaluationFunction) loadObject("src/out/Tetris/Player_Brain_Tanh.dat");
+            NoobPlayer noobPlayer = new NoobPlayer(evaluationFunction);
             System.out.println("NoobPlayer loaded");
 
             System.out.println("Creating Board...");

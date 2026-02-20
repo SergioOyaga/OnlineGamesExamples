@@ -7,6 +7,8 @@ import org.soyaga.examples.Tetris.GA.CrossoverPolicy.TetrisCrossoverPolicy;
 import org.soyaga.examples.Tetris.GA.Initializer.TetrisInitializer;
 import org.soyaga.examples.Tetris.GA.Mutations.TetrisBrownianMovement;
 import org.soyaga.examples.Tetris.Player.BoardEvaluationFunction.LinearBoardEvaluationFunction;
+import org.soyaga.examples.Tetris.Player.BoardEvaluationFunction.LinearSoftBoardEvaluationFunction;
+import org.soyaga.examples.Tetris.Player.BoardEvaluationFunction.TanhBoardEvaluationFunction;
 import org.soyaga.examples.Tetris.Player.Players.NoobPlayer;
 import org.soyaga.ga.CrossoverPolicy.ParentSelection.BlockWheelSelection;
 import org.soyaga.ga.ElitismPolicy.FixedElitismPolicy;
@@ -55,7 +57,7 @@ public class TetrisGA extends StatsGeneticAlgorithm {
                 new FixedNewbornPolicy((int)(populationSize*0.1)),
                 new TetrisInitializer(
                         new NoobPlayer(
-                                new LinearBoardEvaluationFunction()
+                                new TanhBoardEvaluationFunction()
                         )
 
                 ),
