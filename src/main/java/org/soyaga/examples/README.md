@@ -19,7 +19,7 @@ This repository contains various online games optimization problems solved using
 | 14 | [SlitherLink](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/SlitherLink)       | 3                     | Online SlitherLink/ loop-puzzle https://www.puzzle-loop.com using Ant Colony Optimization.                             |
 | 15 | [Minesweeper](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Minesweeper)       | 2                     | Online Minesweeper https://minesweeper.online using Mathematical Modeling, Constrained Programming and SAT solver.     |
 | 16 | [Bridges](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Bridges)               | 3                     | Online Bridges https://www.puzzle-bridges.com/ using Mathematical Modeling, Constrained Programming and SAT solver.    |
-| 17 | [Tetris](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Tetris)                 | 5                     | Online Tetris https://play.tetris.com/ using Genetic Algorithm to train a player.                                      |
+| 17 | [Tetris](https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/Tetris)                 | 4                     | Online Tetris https://play.tetris.com/ using Genetic Algorithm to train a player.                                      |
 
 The difficulty level ranges from a minimum of (1) to a maximum of (5) in this repository.
 
