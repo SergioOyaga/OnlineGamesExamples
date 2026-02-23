@@ -48,7 +48,10 @@ flowchart LR
 This representation is a simple map of the weight name and value. We can then load those values into the players BoardEvaluationFunction and evaluate how good are to play Tetris.
 
 ## Test
-We also have a test script that allow us to run different players to evaluate which one plays better.
+We also have a test script that allow us to run different players to evaluate which one plays better. It tis designed to test NoobPlayers. Best performing brains for noob players will also perform better for intermediate and expert players. The difference between a noob, intermediate and expert player is basically how many moves ahead computes to evaluate the board.
+- NoobPlayer: only the current piece.
+- IntermediatePlayer: the current and next pieces.
+- ExpertPlayer: current, next and one more pieces.
 
 ## Scraper
 In this phase we just load the best player we have, and play the Tetris online.
@@ -78,9 +81,12 @@ This folder contains one class and a packages that define the structures require
 5. [ParentCross](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Tetris/GA/CrossoverPolicy/ParentCross/): Folder that contains two ParentCross classes. One that averages the parent values for the child, and other that randomly selects the chromosomes from the parents.
 7. [TetrisInitializer](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Tetris/GA/Initializer/TetrisInitializer.java): Class that initializes an individual.
 8. [TetrisBrownianMovement](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Tetris/GA/Mutations/TetrisBrownianMovement.java): Class that mutates a genome applying a brownian movement to random genes of the genome.
-9. [Player](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Tetris/Player/Player.java): Player class that is able to evaluate all possible moves in a board. Implements Serializable.
+9. [Player](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Tetris/Player/): Player class that is able to evaluate all possible moves in a board. We created three players:
+    1. NoobPlayer: Player that only evaluates the board configuration after moving just the next piece.
+   2. IntermediatePlayer: Player that evaluates the board configuration after moving the next two pieces.
+   3. ExpertPlayer: Player that evaluates the board configuration after moving the next three pieces.
 10. [Movement](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Tetris/Player/Movement.java): The decision a player makes over a board.
-11. [BoardEvaluationFunction](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Tetris/Player/BoardEvaluationFunction/BoardEvaluationFunction.java): The "brain" of the player, evaluates a board. This class is implemented by 4 classes:
+11. [BoardEvaluationFunction](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/Tetris/Player/BoardEvaluationFunction/BoardEvaluationFunction.java): The "brain" of the player, evaluates a board. This class is implemented by 4 classes (implements Serializable):
     - Linear $Eval = $:
 
       $W_{MH1} \cdot MeanHeight +$
