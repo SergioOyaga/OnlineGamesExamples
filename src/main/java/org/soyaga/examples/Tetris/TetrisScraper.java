@@ -11,6 +11,8 @@ import org.soyaga.examples.Tetris.Board.Board;
 import org.soyaga.examples.Tetris.Board.Pieces.*;
 import org.soyaga.examples.Tetris.Player.BoardEvaluationFunction.BoardEvaluationFunction;
 import org.soyaga.examples.Tetris.Player.Movement;
+import org.soyaga.examples.Tetris.Player.Players.ExpertPlayer;
+import org.soyaga.examples.Tetris.Player.Players.IntermediatePlayer;
 import org.soyaga.examples.Tetris.Player.Players.NoobPlayer;
 
 import java.awt.Color;
@@ -29,6 +31,7 @@ import static org.soyaga.examples.Tetris.Utils.loadObject;
 public class TetrisScraper {
 
     private static final HashMap<Color, Piece> piecesMap = new HashMap<>(){{
+        put(new Color(-16720398),new IPiece());
         put(new Color(-16743022),new IPiece());
         put(new Color(-16749826),new JPiece());
         put(new Color(-98560),new LPiece());
@@ -91,7 +94,9 @@ public class TetrisScraper {
 
             System.out.println("Loading NoobPlayer..");
             BoardEvaluationFunction evaluationFunction = (BoardEvaluationFunction) loadObject("src/out/Tetris/Player_Brain_Tanh.dat");
-            NoobPlayer noobPlayer = new NoobPlayer(evaluationFunction);
+            //NoobPlayer player = new NoobPlayer(evaluationFunction); // Noob player
+            //IntermediatePlayer player = new IntermediatePlayer(evaluationFunction); // Intermediate player
+            ExpertPlayer player = new ExpertPlayer(evaluationFunction); // Expert player
             System.out.println("NoobPlayer loaded");
 
             System.out.println("Creating Board...");
@@ -154,17 +159,23 @@ public class TetrisScraper {
 
             System.out.println("Retrieving first piece...");
             Thread.sleep(2850);
-            Color pieceColor = robot.getPixelColor(440,270);
-            Color nextPieceColor = robot.getPixelColor(440,320);
-            Color nextSecondPieceColor = robot.getPixelColor(440,370);
-            Piece piece = piecesMap.get(pieceColor);
-            Piece firstPiece = piecesMap.get(pieceColor);
-            ArrayList<Piece> pieces = new ArrayList<>(){{add(firstPiece);}};
+            Color firstPieceColor = robot.getPixelColor(440,270);
+            Color secondPieceColor = robot.getPixelColor(440,317);
+            Color thirdPieceColor = robot.getPixelColor(440,365);
+            Piece piece = piecesMap.get(firstPieceColor);
+            Piece firstPiece = piecesMap.get(firstPieceColor);
+            Piece secondPiece = piecesMap.get(secondPieceColor);
+            Piece thirdPiece = piecesMap.get(thirdPieceColor);
+            ArrayList<Piece> pieces = new ArrayList<>(){{
+                add(firstPiece);
+                add(secondPiece);
+                add(thirdPiece);
+            }};
             System.out.println("First piece retrieved");
 
             System.out.println("Solving first move..");
             System.out.println(board);
-            Movement move = noobPlayer.movePiece(board,pieces);
+            Movement move = player.movePiece(board,pieces);
             System.out.println("First move solved");
 
             System.out.println(board);
@@ -173,25 +184,25 @@ public class TetrisScraper {
                 Thread.sleep(pause);
                 boolean hasToClear = board.getLastClearedLinesNumber()>0;
                 System.out.println("Retrieving next piece...");
-                pieceColor = robot.getPixelColor(440,270);
-                if(nextPieceColor!=pieceColor){
+                firstPieceColor = robot.getPixelColor(440,270);
+                if(secondPieceColor!=firstPieceColor){
                     Thread.sleep(pause);
-                    pieceColor = robot.getPixelColor(440,270);
+                    firstPieceColor = robot.getPixelColor(440,270);
                 }
-                nextPieceColor = robot.getPixelColor(440,320);
-                nextSecondPieceColor = robot.getPixelColor(440,370);
-                Piece nextPiece = piecesMap.get(pieceColor);
-                Piece nextSecondPiece = piecesMap.get(nextPieceColor);
-                Piece nextThirdPiece = piecesMap.get(nextSecondPieceColor);
+                secondPieceColor = robot.getPixelColor(440,317);
+                thirdPieceColor = robot.getPixelColor(440,365);
+                Piece nextFirstPiece = piecesMap.get(firstPieceColor);
+                Piece nextSecondPiece = piecesMap.get(secondPieceColor);
+                Piece nextThirdPiece = piecesMap.get(thirdPieceColor);
                 ArrayList<Piece> nextPieces = new ArrayList<>(){{
-                    add(nextPiece);
+                    add(nextFirstPiece);
                     add(nextSecondPiece);
                     add(nextThirdPiece);
                 }};
                 System.out.println("Next piece retrieved");
 
                 System.out.println("Solving next move...");
-                Movement nextMove = noobPlayer.movePiece(board,nextPieces);
+                Movement nextMove = player.movePiece(board,nextPieces);
                 System.out.println("Next move solved");
 
                 System.out.println("Introducing move...");
@@ -202,7 +213,7 @@ public class TetrisScraper {
                 }
                 System.out.println(board);
                 move = nextMove;
-                piece = nextPiece;
+                piece = nextFirstPiece;
                 System.out.println("Move introduced");
                 iter++;
             }
