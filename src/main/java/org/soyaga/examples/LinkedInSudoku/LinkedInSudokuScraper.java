@@ -1,6 +1,7 @@
 package org.soyaga.examples.LinkedInSudoku;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,7 +21,7 @@ public class LinkedInSudokuScraper {
         String linkedInUser ="Your_LinkedIn_mail@example.com";
         String linkedInPassword ="Your_LinkedIn_password";
         //Selenium driver path
-        String seleniumPath = "src\\main\\resources\\edgedriver_win64\\msedgedriver.exe";
+        String seleniumPath = "src\\main\\resources\\edgedriver_win32\\msedgedriver.exe";
         // dimensions
         int rows = 0;
         int cols = 0;
@@ -39,25 +40,35 @@ public class LinkedInSudokuScraper {
 
         try {
             // Waiter
-            WebDriverWait longWait = new WebDriverWait(driver, Duration.ofMillis(2000));
-            WebDriverWait sortWait = new WebDriverWait(driver, Duration.ofMillis(10));
+            WebDriverWait longWait = new WebDriverWait(driver, Duration.ofMillis(4000));
 
             // Go to LinkedIn login
+            System.out.println("Loading https://www.linkedin.com/: ...");
             driver.get("https://www.linkedin.com/login");
+            System.out.println("Loaded.");
+
+            // Get all window handles
+            Set<String> windowHandles = driver.getWindowHandles();
+            ArrayList<String> tabs = new ArrayList<>(windowHandles);
+
+            // Switch to the new tab (assuming it's the second tab)
+            driver.switchTo().window(tabs.get(tabs.size() - 1));
+
+            System.out.println("Refreshing in case it did not load...");
+            driver.manage().window().setSize(new org.openqa.selenium.Dimension(600, 800));
+            driver.manage().window().setPosition(new Point(0,0));
+            System.out.println("Refreshed.");
 
             // Login
             WebElement username = driver.findElement(By.id("username"));
             WebElement password = driver.findElement(By.id("password"));
             username.sendKeys(linkedInUser);
             password.sendKeys(linkedInPassword);
-            WebElement loggingButton = longWait.until(
-                    ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']"))
-            );
-            loggingButton.click();
-
-            System.out.println("Loading sudoku: ...");
+            longWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']"))).click();
             // Wait/load, then navigate to the game
             Thread.sleep(2000);
+
+            System.out.println("Loading sudoku: ...");
             driver.get("https://www.linkedin.com/games/mini-sudoku/");
             longWait.until(ExpectedConditions.urlToBe("https://www.linkedin.com/games/mini-sudoku/"));
             System.out.println("Loaded.");
@@ -66,7 +77,7 @@ public class LinkedInSudokuScraper {
             // try to run directly the optimization
             try {
                 // Wait for the grid to appear
-                WebElement grid =sortWait.until(
+                WebElement grid =longWait.until(
                         ExpectedConditions.presenceOfElementLocated(
                             By.xpath("//div[contains(@class,'sudoku-grid') and contains(@class,'grid-game-board')]")
                         )
@@ -96,7 +107,7 @@ public class LinkedInSudokuScraper {
 
                 List<WebElement> allInputButtons = driver.findElements(By.cssSelector("button.sudoku-input-button"));
                 for (WebElement inputButton : allInputButtons) {
-                    inputMap.put(inputButton.getText().trim(), inputButton);
+                    inputMap.put(inputButton.getAttribute("data-number").trim(), inputButton);
                 }
                 // Get all buttons inside the grid
                 List<WebElement> allButtons = grid.findElements(By.cssSelector(".sudoku-cell"));
@@ -122,7 +133,7 @@ public class LinkedInSudokuScraper {
             if (rows==0) {
                 // Bypass the human test
                 try {
-                    WebElement checkButton = sortWait.until(
+                    WebElement checkButton = longWait.until(
                             ExpectedConditions.elementToBeClickable(By.xpath("//button[text()='Start Puzzle']"))
                     );
                     checkButton.click();
@@ -229,7 +240,7 @@ public class LinkedInSudokuScraper {
 
                     List<WebElement> allInputButtons = driver.findElements(By.cssSelector("button.sudoku-input-button"));
                     for (WebElement inputButton : allInputButtons) {
-                        inputMap.put(inputButton.getText().trim(), inputButton);
+                        inputMap.put(inputButton.getAttribute("data-number").trim(), inputButton);
                     }
                     // Get all buttons inside the grid
                     List<WebElement> allButtons = grid.findElements(By.cssSelector(".sudoku-cell"));
@@ -253,7 +264,6 @@ public class LinkedInSudokuScraper {
                     System.out.println("Grid not found.");
                 }
             }
-
 
             System.out.println("Building MathModel...");
             SudokuMathModel model = new SudokuMathModel("SudokuModel", gridNumbers,rows, cols, rowGroup, colGroup);

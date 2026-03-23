@@ -1,6 +1,7 @@
 package org.soyaga.examples.LinkedInQueens;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -10,10 +11,8 @@ import org.soyaga.examples.LinkedInQueens.MathModel.QueensMathModel;
 
 import java.awt.*;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.Comparator;
+import java.util.*;
 import java.util.List;
-import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -42,7 +41,7 @@ public class LinkedInQueensScraper {
         String linkedInUser ="Your_LinkedIn_mail@example.com";
         String linkedInPassword ="Your_LinkedIn_password";
         //Selenium driver path
-        String seleniumPath = "src\\main\\resources\\edgedriver_win64\\msedgedriver.exe";
+        String seleniumPath = "src\\main\\resources\\edgedriver_win32\\msedgedriver.exe";
         // dimensions
         int rows = 0;
         int cols = 0;
@@ -59,41 +58,58 @@ public class LinkedInQueensScraper {
 
         try {
             // Waiter
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(10));
+            WebDriverWait longWait = new WebDriverWait(driver, Duration.ofMillis(4000));
 
             // Go to LinkedIn login
+            System.out.println("Loading https://www.linkedin.com/: ...");
             driver.get("https://www.linkedin.com/login");
+            System.out.println("Loaded.");
 
+            // Get all window handles
+            Set<String> windowHandles = driver.getWindowHandles();
+            ArrayList<String> tabs = new ArrayList<>(windowHandles);
+
+            // Switch to the new tab (assuming it's the second tab)
+            driver.switchTo().window(tabs.get(tabs.size() - 1));
+
+            System.out.println("Refreshing in case it did not load...");
+            driver.manage().window().setSize(new org.openqa.selenium.Dimension(600, 800));
+            driver.manage().window().setPosition(new Point(0,0));
+            System.out.println("Refreshed.");
+            
             // Login
+            System.out.println("Logging-in...");
             WebElement username = driver.findElement(By.id("username"));
             WebElement password = driver.findElement(By.id("password"));
             username.sendKeys(linkedInUser);
             password.sendKeys(linkedInPassword);
-            WebElement loggingButton = wait.until(
-                    ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']"))
-            );
-            loggingButton.click();
+            longWait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']"))).click();
             Thread.sleep(2000);
+            System.out.println("Logged.");
+
             // Wait/load, then navigate to the game
+            System.out.println("Loading game...");
             driver.get("https://www.linkedin.com/games/queens/");
-            wait.until(ExpectedConditions.urlToBe("https://www.linkedin.com/games/queens/"));
+            longWait.until(ExpectedConditions.urlToBe("https://www.linkedin.com/games/queens/"));
+            System.out.println("Game loaded.");
 
             // try to run directly the optimization
             try {
                 // Wait for the grid to appear
-                WebElement grid = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("queens-grid")));
+                System.out.println("Retrieving Grid...");
+                WebElement grid = longWait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[data-testid='interactive-grid']")));
 
                 //Compute the dimensions
-                String style = grid.getAttribute("style"); // "--rows: N; --cols: N"
-                Pattern pattern = Pattern.compile("--rows:\\s*(\\d+);\\s*--cols:\\s*(\\d+)");
-                Matcher matcher = pattern.matcher(style);
-                if (matcher.find()) {
-                    rows = Integer.parseInt(matcher.group(1));
-                    cols = Integer.parseInt(matcher.group(2));
+                List<WebElement> allButtons = grid.findElements(By.cssSelector("[data-testid^='cell-']"));
+                String cssVar = grid.getAttribute("style").split(" ")[1].replace(";", "").trim();
+                try {
+                    cols = Integer.parseInt(cssVar);
+                } catch (NumberFormatException e) {
+                    cols= 1;
                 }
+                rows = allButtons.size()/cols;
 
                 // Get all buttons inside the grid
-                List<WebElement> allButtons = grid.findElements(By.cssSelector("div[role='button']"));
                 allButtons.sort(Comparator.comparingInt(a -> Integer.parseInt(Objects.requireNonNull(a.getAttribute("data-cell-idx")))));
                 // Parse into 2D list
                 gridButtons = new WebElement[rows][cols];
@@ -109,31 +125,36 @@ public class LinkedInQueensScraper {
                 }
             }
             catch (Exception e) {
-                System.out.println("Grid not found.");
+                System.out.println("Grid not retrieved.");
             }
             if (rows==0) {
                 // Bypass the human test
                 try {
+                    System.out.println("Detecting checkpoint...");
                     WebElement checkButton = driver.findElement(By.xpath("//button[text()='Start Puzzle']"));
                     checkButton.click();
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     System.out.println("Checkpoint not detected.");
                 }
 
                 // click the start button
                 try {
                     // First, switch to the correct iframe
-                    WebElement iframe = wait.until(
+                    System.out.println("Switching to iframe...");
+                    WebElement iframe = longWait.until(
                             ExpectedConditions.presenceOfElementLocated(By.cssSelector("iframe.game-launch-page__iframe"))
                     );
                     driver.switchTo().frame(iframe);
+                    System.out.println("Iframe switched.");
 
                     // Search the start button and click it
-                    WebElement startButton = wait.until(
+                    WebElement startButton = longWait.until(
                             ExpectedConditions.elementToBeClickable(By.id("launch-footer-start-button"))
                     );
                     startButton.click();
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     System.out.println("Start button not found.");
                 }
                 driver.switchTo().defaultContent();
@@ -141,18 +162,19 @@ public class LinkedInQueensScraper {
                 // decline cookies
                 try {
                     // Search the reject button and click it
-                    WebElement rejectBtn = wait.until(
+                    WebElement rejectBtn = longWait.until(
                             ExpectedConditions.elementToBeClickable(By.cssSelector("button[data-control-name='ga-cookie.consent.deny.v4']"))
                     );
                     rejectBtn.click();
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     System.out.println("Cookies not found.");
                 }
 
                 // skip the tutorial
                 try {
                     // First, switch to the correct iframe
-                    wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("iframe")));
+                    longWait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("iframe")));
 
                     // Now locate your specific iframe
                     WebElement iframe = driver.findElement(By.cssSelector("iframe[title='games']"));
@@ -161,13 +183,14 @@ public class LinkedInQueensScraper {
                     driver.switchTo().frame(iframe);
 
                     // Wait for the Dismiss button inside the iframe
-                    WebElement dismissButton = wait.until(ExpectedConditions.elementToBeClickable(
+                    WebElement dismissButton = longWait.until(ExpectedConditions.elementToBeClickable(
                             By.cssSelector("button.artdeco-modal__dismiss[aria-label='Dismiss']")
                     ));
 
                     // Click the button
                     dismissButton.click();
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     System.out.println("Tutorial not found.");
                 }
                 driver.switchTo().defaultContent();
@@ -175,20 +198,23 @@ public class LinkedInQueensScraper {
                 // switch to correct iframe
                 try {
                     // Move to the correct iframe
-                    WebElement iframe = wait.until(ExpectedConditions.presenceOfElementLocated(
+                    WebElement iframe = longWait.until(ExpectedConditions.presenceOfElementLocated(
                             By.cssSelector("iframe[title='games']")
                     ));
                     driver.switchTo().frame(iframe);
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     System.out.println("Iframe not found.");
                 }
 
-                // search the grid
                 try {
                     // Wait for the grid to appear
-                    WebElement grid = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("queens-grid")));
+                    WebElement grid = longWait.until(ExpectedConditions.presenceOfElementLocated(By.id("queens-grid")));
 
                     //Compute the dimensions
+                    List<WebElement> allButtons = grid.findElements(By.cssSelector("div[role='button']"));
+                    allButtons.sort(Comparator.comparingInt(a -> Integer.parseInt(Objects.requireNonNull(a.getAttribute("data-cell-idx")))));
+
                     String style = grid.getAttribute("style"); // "--rows: N; --cols: N"
                     Pattern pattern = Pattern.compile("--rows:\\s*(\\d+);\\s*--cols:\\s*(\\d+)");
                     Matcher matcher = pattern.matcher(style);
@@ -196,9 +222,9 @@ public class LinkedInQueensScraper {
                         rows = Integer.parseInt(matcher.group(1));
                         cols = Integer.parseInt(matcher.group(2));
                     }
+                    rows = allButtons.size()/cols;
 
                     // Get all buttons inside the grid
-                    List<WebElement> allButtons = grid.findElements(By.cssSelector("div[role='button']"));
                     allButtons.sort(Comparator.comparingInt(a -> Integer.parseInt(Objects.requireNonNull(a.getAttribute("data-cell-idx")))));
                     // Parse into 2D list
                     gridButtons = new WebElement[rows][cols];
@@ -214,7 +240,7 @@ public class LinkedInQueensScraper {
                     }
                 }
                 catch (Exception e) {
-                    System.out.println("Grid not found.");
+                    System.out.println("Grid not retrieved.");
                 }
             }
 

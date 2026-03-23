@@ -81,7 +81,7 @@ public class MaxSolFitnessProportionalGlobalBestAddPheromonePolicy implements Ad
      *
      * @param fitness Double.
      * @param world world with the PheromoneContainer.
-     * @param node Node from where the edge originates.
+     * @param node Rule from where the edge originates.
      * @param edge Edge to which pheromone is intended to be added.
      * @param pheromoneQuantity  Double with the amount of pheromone, this ant can deposit in all the path.
      * @return Double representing the new pheromone value.

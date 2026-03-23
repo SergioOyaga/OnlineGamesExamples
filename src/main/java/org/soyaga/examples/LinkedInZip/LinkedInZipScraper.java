@@ -1,8 +1,6 @@
 package org.soyaga.examples.LinkedInZip;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -33,7 +31,7 @@ public class LinkedInZipScraper {
         String linkedInUser ="Your_LinkedIn_mail@example.com";
         String linkedInPassword ="Your_LinkedIn_password";
         //Selenium driver path
-        String seleniumPath = "src\\main\\resources\\edgedriver_win64\\msedgedriver.exe";
+        String seleniumPath = "src\\main\\resources\\edgedriver_win32\\msedgedriver.exe";
         // dimensions
         int rows = 0;
         int cols = 0;
@@ -57,46 +55,60 @@ public class LinkedInZipScraper {
         System.setProperty("webdriver.edge.driver", seleniumPath);
 
         WebDriver driver = new EdgeDriver();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
 
         try {
             // Waiter
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(100));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(4000));
 
             // Go to LinkedIn login
+            System.out.println("Loading https://www.linkedin.com/: ...");
             driver.get("https://www.linkedin.com/login");
+            System.out.println("Loaded.");
+
+            // Get all window handles
+            Set<String> windowHandles = driver.getWindowHandles();
+            ArrayList<String> tabs = new ArrayList<>(windowHandles);
+
+            // Switch to the new tab (assuming it's the second tab)
+            driver.switchTo().window(tabs.get(tabs.size() - 1));
+
+            System.out.println("Refreshing in case it did not load...");
+            driver.manage().window().setSize(new org.openqa.selenium.Dimension(600, 800));
+            driver.manage().window().setPosition(new Point(0,0));
+            System.out.println("Refreshed.");
 
             // Login
             WebElement username = driver.findElement(By.id("username"));
             WebElement password = driver.findElement(By.id("password"));
             username.sendKeys(linkedInUser);
             password.sendKeys(linkedInPassword);
-            WebElement loggingButton = wait.until(
-                    ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']"))
-            );
-            loggingButton.click();
+            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button[@type='submit']"))).click();
             Thread.sleep(2000);
+
             // Wait/load, then navigate to the game
+            System.out.println("Loading game...");
             driver.get("https://www.linkedin.com/games/zip/");
             wait.until(ExpectedConditions.urlToBe("https://www.linkedin.com/games/zip/"));
+            System.out.println("Game loaded.");
 
             // search the grid
             try {
                 // Wait for the grid to appear
-                WebElement grid = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("div.trail-grid.grid-game-board.gil__grid")));
+                WebElement grid = wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[data-testid='interactive-grid']")));
 
                 //Compute the dimensions
-                String style = grid.getAttribute("style"); // "--rows: N; --cols: N"
-                Pattern pattern = Pattern.compile("--rows:\\s*(\\d+);\\s*--cols:\\s*(\\d+)");
-                assert style != null;
-                Matcher matcher = pattern.matcher(style);
-                if (matcher.find()) {
-                    rows = Integer.parseInt(matcher.group(1));
-                    cols = Integer.parseInt(matcher.group(2));
+                List<WebElement> allButtons = grid.findElements(By.cssSelector("[data-testid^='cell-']"));
+                String cssVar = grid.getAttribute("style").split(" ")[1].replace(";", "").trim();
+                try {
+                    cols = Integer.parseInt(cssVar);
+                } catch (NumberFormatException e) {
+                    cols= 1;
                 }
+                rows = allButtons.size()/cols;
+
 
                 // Get all buttons inside the grid
-
-                List<WebElement> allButtons = grid.findElements(By.cssSelector(".trail-cell"));
                 allButtons.sort(Comparator.comparingInt(a -> Integer.parseInt(Objects.requireNonNull(a.getAttribute("data-cell-idx")))));
                 // Parse into 2D list
                 gridButtons = new WebElement[rows][cols];
@@ -117,30 +129,89 @@ public class LinkedInZipScraper {
                     for (int j = 0; j < cols; j++) {
                         int index = i * cols + j;
                         WebElement cell = allButtons.get(index);
-                        if (!cell.findElements(By.cssSelector(".trail-cell-content")).isEmpty()){
-                            int cellNumber = Integer.parseInt(Objects.requireNonNull(cell.findElement(By.cssSelector(".trail-cell-content")).getAttribute("outerText")));
-                            gridNumbers[i][j] = cellNumber;
+                        boolean northWall = false;
+                        boolean eastWall = false;
+                        boolean southWall = false;
+                        boolean westWall = false;
+                        List<WebElement> divs = cell.findElements(By.tagName("div"));
+                        divs.remove(0); //remove container empty div
+                        for(WebElement child :divs){
+                            //Retrieve Number and continue
+                            if (!child.getText().trim().isEmpty()) {
+                                int cellNumber = Integer.parseInt(cell.getText().trim());
+                                gridNumbers[i][j] = cellNumber;
+                                continue;
+                            }
+                            //North
+                            String borderWidthStrNorth = (String) js.executeScript(
+                                    "return window.getComputedStyle(arguments[0],'::after').getPropertyValue('border-top-width');",
+                                    child);
+                            double borderWidthNorth = 0;
+                            if (borderWidthStrNorth != null && borderWidthStrNorth.endsWith("px")) {
+                                try {
+                                    borderWidthNorth = Double.parseDouble(borderWidthStrNorth.replace("px", "").trim());
+                                } catch (NumberFormatException e) {
+                                    borderWidthNorth = 0;
+                                }
+                            }
+                            northWall = borderWidthNorth > 0 || northWall;
+                            //East
+                            String borderWidthStrEast = (String) js.executeScript(
+                                    "return window.getComputedStyle(arguments[0],'::after').getPropertyValue('border-right-width');",
+                                    child);
+                            double borderWidthEast = 0;
+                            if (borderWidthStrEast != null && borderWidthStrEast.endsWith("px")) {
+                                try {
+                                    borderWidthEast = Double.parseDouble(borderWidthStrEast.replace("px", "").trim());
+                                } catch (NumberFormatException e) {
+                                    borderWidthEast = 0;
+                                }
+                            }
+                            eastWall = borderWidthEast>0 || eastWall;
+                            //South
+                            String borderWidthStrSouth = (String) js.executeScript(
+                                    "return window.getComputedStyle(arguments[0],'::after').getPropertyValue('border-bottom-width');",
+                                    child);
+                            double borderWidthSouth = 0;
+                            if (borderWidthStrSouth != null && borderWidthStrSouth.endsWith("px")) {
+                                try {
+                                    borderWidthSouth = Double.parseDouble(borderWidthStrSouth.replace("px", "").trim());
+                                } catch (NumberFormatException e) {
+                                    borderWidthSouth = 0;
+                                }
+                            }
+                            southWall = borderWidthSouth>0 || southWall;
+                            //West
+                            String borderWidthStrWest = (String) js.executeScript(
+                                    "return window.getComputedStyle(arguments[0],'::after').getPropertyValue('border-left-width');",
+                                    child);
+                            double borderWidthWest = 0;
+                            if (borderWidthStrWest != null && borderWidthStrWest.endsWith("px")) {
+                                try {
+                                    borderWidthWest = Double.parseDouble(borderWidthStrWest.replace("px", "").trim());
+                                } catch (NumberFormatException e) {
+                                    borderWidthWest = 0;
+                                }
+                            }
+                            westWall = borderWidthWest>0 || westWall;
                         }
-                        List<WebElement> edgeDivs = cell.findElements(By.cssSelector("div.trail-cell-wall"));
-                        for(WebElement edgeDiv:edgeDivs) {
-                            if(Objects.requireNonNull(edgeDiv.getAttribute("class")).contains("--up")) {
-                                northConnection[i][j] = false;
-                                southConnection[i-1][j] = false;
-                            }
-                            else if (Objects.requireNonNull(edgeDiv.getAttribute("class")).contains("--down")) {
-                                northConnection[i+1][j] = false;
-                                southConnection[i][j] = false;
-                            }
-                            else if (Objects.requireNonNull(edgeDiv.getAttribute("class")).contains("--right")) {
-                                eastConnection[i][j] = false;
-                                westConnection[i][j+1] = false;
-                            }
-                            else if (Objects.requireNonNull(edgeDiv.getAttribute("class")).contains("--left")) {
-                                eastConnection[i][j-1] = false;
-                                westConnection[i][j] = false;
-                            }
+                        if(northWall) {
+                            northConnection[i][j] = false;
+                            southConnection[i-1][j] = false;
                         }
-                        gridButtons[i][j]= cell;
+                        if (southWall) {
+                            northConnection[i+1][j] = false;
+                            southConnection[i][j] = false;
+                        }
+                        if (eastWall) {
+                            eastConnection[i][j] = false;
+                            westConnection[i][j+1] = false;
+                        }
+                        if (westWall) {
+                            eastConnection[i][j-1] = false;
+                            westConnection[i][j] = false;
+                        }
+                        gridButtons[i][j] = cell;
                     }
                 }
             }
@@ -153,7 +224,8 @@ public class LinkedInZipScraper {
                 try {
                     WebElement checkButton = driver.findElement(By.xpath("//button[text()='Start Puzzle']"));
                     checkButton.click();
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     System.out.println("Checkpoint not detected.");
                 }
 
@@ -170,7 +242,8 @@ public class LinkedInZipScraper {
                             ExpectedConditions.elementToBeClickable(By.id("launch-footer-start-button"))
                     );
                     startButton.click();
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     System.out.println("Start button not found.");
                 }
                 driver.switchTo().defaultContent();
@@ -182,7 +255,8 @@ public class LinkedInZipScraper {
                             ExpectedConditions.elementToBeClickable(By.cssSelector("button[data-control-name='ga-cookie.consent.deny.v4']"))
                     );
                     rejectBtn.click();
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     System.out.println("Cookies not found.");
                 }
 
@@ -204,7 +278,8 @@ public class LinkedInZipScraper {
 
                     // Click the button
                     dismissButton.click();
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     System.out.println("Tutorial not found.");
                 }
                 driver.switchTo().defaultContent();
@@ -216,7 +291,8 @@ public class LinkedInZipScraper {
                             By.cssSelector("iframe[title='games']")
                     ));
                     driver.switchTo().frame(iframe);
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     System.out.println("Iframe not found.");
                 }
 
@@ -284,7 +360,8 @@ public class LinkedInZipScraper {
                             gridButtons[i][j] = cell;
                         }
                     }
-                } catch (Exception e) {
+                }
+                catch (Exception e) {
                     System.out.println("Grid not found.");
                 }
             }
@@ -343,8 +420,8 @@ public class LinkedInZipScraper {
                                             1.,
                                             rows*cols,
                                             new AllNodesLineBuilderEvaluator(           //Solution evaluator
-                                                    startNode,                          //Start Node
-                                                    endNode,                            //End Node
+                                                    startNode,                          //Start Rule
+                                                    endNode,                            //End Rule
                                                     nodesToVisit                        //Nodes to visit (all nodes)
                                             )
                                     ),
@@ -384,7 +461,8 @@ public class LinkedInZipScraper {
                     buttonToClick.click();
                 }
                 System.out.println("ACO optimal introduced.");
-            } else if ("MM".equals(results[0])) {
+            }
+            else if ("MM".equals(results[0])) {
                 HashMap<Integer, Integer[]> result = (HashMap<Integer, Integer[]>) results[1];
                 for(int i =1; i<= result.size(); i++){
                     Integer[] rowCol = result.get(i);
