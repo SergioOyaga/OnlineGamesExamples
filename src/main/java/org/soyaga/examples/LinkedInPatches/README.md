@@ -18,6 +18,7 @@ We have to represent the problem using lineal mathematical expressions.
             <li>$\textcolor{blue}{C} =$ Columns.</li>
             <li>$\textcolor{blue}{Cl} =$ Colors.
                 <ul>
+                    <li>$\textcolor{blue}{Cl_n} =$ colors with a number associated</li>
                     <li>$\textcolor{blue}{Cl_s} =$ colors with square shape</li>
                     <li>$\textcolor{blue}{Cl_vr} =$ colors with vertical-rectangle shape</li>
                     <li>$\textcolor{blue}{Cl_hr} =$ colors with horizontal-rectangle shape</li>
@@ -78,8 +79,8 @@ We have to represent the problem using lineal mathematical expressions.
   </tr>
   <tr>
     <td><b>ColorSize</b></td>
-    <td>$$\displaystyle\sum_{\substack{r \in \color{blue}{R} \\ c \in \color{blue}{C}}}ClB_{cl,r,c} = \textcolor{magenta}{ClN_{cl}}, \; \forall cl \in \textcolor{blue}{Cl}$$</td>
-    <td> $|\textcolor{blue}{Cl}|$ </td>
+    <td>$$\displaystyle\sum_{\substack{r \in \color{blue}{R} \\ c \in \color{blue}{Cl_n}}}ClB_{cl,r,c} = \textcolor{magenta}{ClN_{cl}}, \; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td> $|\textcolor{blue}{Cl_n}|$ </td>
     <td> Forces color size.</td>
   </tr>
   <tr>
