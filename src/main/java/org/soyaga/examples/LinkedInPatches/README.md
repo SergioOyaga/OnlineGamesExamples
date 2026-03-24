@@ -67,37 +67,37 @@ We have to represent the problem using lineal mathematical expressions.
   </tr>
   <tr>
     <td><b>ColorRowRangeLimit</b></td>
-    <td>$$1 \leq \displaystyle\sum_{\begin{matrix} r \in \color{blue}{R} \end{matrix}}ClRR_{cl,r} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td>$$1 \leq \displaystyle\sum_{\substack{ r \in \color{blue}{R} }}ClRR_{cl,r} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
     <td> $|\sum_{cl \in \textcolor{blue}{Cl}}|$ </td>
     <td> Forces Color Row range to be 1 or 2. 1: start and end the same position, 2: start and end separated.</td>
   </tr> 
   <tr>
     <td><b>ColorColRangeLimit</b></td>
-    <td>$$1 \leq \displaystyle\sum_{\begin{matrix} c \in \color{blue}{C} \end{matrix}}ClCR_{cl,c} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td>$$1 \leq \displaystyle\sum_{\substack{ c \in \color{blue}{C} }}ClCR_{cl,c} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
     <td> $|\sum_{cl \in \textcolor{blue}{Cl}}|$ </td>
     <td> Forces Color Column range to be 1 or 2. 1: start and end the same position, 2: start and end separated.</td>
   </tr> 
   <tr>
     <td><b>ColorBoardRowLowerBoundRelation</b></td>
-    <td>$$0 \leq \displaystyle\sum_{\begin{matrix} r_i \in \{ 0,r\}\end{matrix}}ClRR_{cl,r_i} - ClB_{cl,r,c} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
+    <td>$$0 \leq \displaystyle\sum_{\substack{ r_i \in \{ 0,r\}}}ClRR_{cl,r_i} - ClB_{cl,r,c} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
     <td> $|\textcolor{blue}{Cl}| \cdot |\textcolor{blue}{R}| \cdot |\textcolor{blue}{C}|$ </td>
     <td> Forces Board to be 0 when the range has not started.</td>
   </tr> 
   <tr>
     <td><b>ColorBoardRowUpperBoundRelation</b></td>
-    <td>$$0 \leq \displaystyle\sum_{\begin{matrix} r_i \in \{ r,\textcolor{blue}{R}\}\end{matrix}}ClRR_{cl,r_i} - ClB_{cl,r,c} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
+    <td>$$0 \leq \displaystyle\sum_{\substack{ r_i \in \{ r,\textcolor{blue}{R}\}}}ClRR_{cl,r_i} - ClB_{cl,r,c} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
     <td> $|\textcolor{blue}{Cl}| \cdot |\textcolor{blue}{R}| \cdot |\textcolor{blue}{C}|$ </td>
     <td> Forces Board to be 0 when the range has ended.</td>
   </tr> 
   <tr>
     <td><b>ColorBoardColLowerBoundRelation</b></td>
-    <td>$$0 \leq \displaystyle\sum_{\begin{matrix} c_i \in \{ 0,c\}\end{matrix}}ClCR_{cl,c_i} - ClB_{cl,r,c} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
+    <td>$$0 \leq \displaystyle\sum_{\substack{ c_i \in \{ 0,c\}}}ClCR_{cl,c_i} - ClB_{cl,r,c} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
     <td> $|\textcolor{blue}{Cl}| \cdot |\textcolor{blue}{R}| \cdot |\textcolor{blue}{C}|$ </td>
     <td> Forces Board to be 0 when the range has not started.</td>
   </tr> 
   <tr>
     <td><b>ColorBoardColUpperBoundRelation</b></td>
-    <td>$$0 \leq \displaystyle\sum_{\begin{matrix} c_i \in \{ c,\textcolor{blue}{C}\}\end{matrix}}ClCR_{cl,c_i} - ClB_{cl,r,c} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
+    <td>$$0 \leq \displaystyle\sum_{\substack{ c_i \in \{ c,\textcolor{blue}{C}\}}}ClCR_{cl,c_i} - ClB_{cl,r,c} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
     <td> $|\textcolor{blue}{Cl}| \cdot |\textcolor{blue}{R}| \cdot |\textcolor{blue}{C}|$ </td>
     <td> Forces Board to be 0 when the range has ended.</td>
   </tr> 
