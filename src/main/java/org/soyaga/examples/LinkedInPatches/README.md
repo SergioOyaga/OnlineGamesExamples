@@ -121,9 +121,9 @@ We have to represent the problem using lineal mathematical expressions.
   </tr> 
   <tr>
     <td><b>ColorBoardRangeRelation</b></td>
-    <td>$$0 \leq \displaystyle(\sum_{\substack{r_i \in \{ 0,r\}}}ClRS_{cl,r_i} + \sum_{\substack{c_i \in \{ 0,c\}}}ClCS_{cl,c_i}) - (\sum_{\substack{r_i \in \{ 0,r\}}}ClRS_{cl,r_i} + \sum_{\substack{c_i \in \{ c,\textcolor{blue}{C}\}}}ClCE_{cl,c_i}) - 2 \cdot ClB_{cl,r,c} \leq 1 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
+    <td>$$0 \leq \displaystyle(\sum_{\substack{r_i \in \{ 0,r\}}}ClRS_{cl,r_i} + \sum_{\substack{c_i \in \{ 0,c\}}}ClCS_{cl,c_i}) - (\sum_{\substack{r_i \in \{ 0,r-1\}}}ClRE_{cl,r_i} + \sum_{\substack{c_i \in \{ 0,c-1\}}}ClCE_{cl,c_i}) - 2 \cdot ClB_{cl,r,c} \leq 1 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
     <td> $|\textcolor{blue}{Cl}| \cdot |\textcolor{blue}{R}| \cdot |\textcolor{blue}{C}|$ </td>
-    <td> Forces Board to be 1 when in the range.</td>
+    <td> Forces Board to be 1 when in the range. For r,c = 0 only left side applies.</td>
   </tr> 
   <tr>
     <td><b>ColorBoardRowLowerBoundRelation</b></td>
