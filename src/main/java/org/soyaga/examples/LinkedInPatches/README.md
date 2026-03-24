@@ -103,13 +103,13 @@ We have to represent the problem using lineal mathematical expressions.
   </tr> 
   <tr>
     <td><b>ColorColStartUnique</b></td>
-    <td>$$\displaystyle\sum_{\substack{ c \in \color{blue}{C} }}ClCS_{cl,c} = 0 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td>$$\displaystyle\sum_{\substack{ c \in \color{blue}{C} }}ClCS_{cl,c} = 1 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
     <td> $|\sum_{cl \in \textcolor{blue}{Cl}}|$ </td>
     <td> Forces to only be one start.</td>
   </tr> 
   <tr>
     <td><b>ColorColEndUnique</b></td>
-    <td>$$\displaystyle\sum_{\substack{ c \in \color{blue}{C} }}ClCE_{cl,c} = 0 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td>$$\displaystyle\sum_{\substack{ c \in \color{blue}{C} }}ClCE_{cl,c} = 1 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
     <td> $|\sum_{cl \in \textcolor{blue}{Cl}}|$ </td>
     <td> Forces to only be one end.</td>
   </tr> 
@@ -118,6 +118,12 @@ We have to represent the problem using lineal mathematical expressions.
     <td>$$0 \leq \displaystyle\sum_{ c \in \textcolor{blue}{C}} c \cdot (ClCE_{cl,c} - ClCS_{cl,c}) \leq |\textcolor{blue}{C}|,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
     <td> $|\textcolor{blue}{Cl}|$ </td>
     <td> Col Start-End precedence.</td>
+  </tr> 
+  <tr>
+    <td><b>ColorBoardRangeRelation</b></td>
+    <td>$$0 \leq \displaystyle(\sum_{\substack{r_i \in \{ 0,r\}}}ClRS_{cl,r_i} + \sum_{\substack{c_i \in \{ 0,c\}}}ClCS_{cl,c_i}) - (\sum_{\substack{r_i \in \{ 0,r\}}}ClRS_{cl,r_i} + \sum_{\substack{c_i \in \{ c,\textcolor{blue}{C}\}}}ClCE_{cl,c_i}) - 2 \cdot ClB_{cl,r,c} \leq 1 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
+    <td> $|\textcolor{blue}{Cl}| \cdot |\textcolor{blue}{R}| \cdot |\textcolor{blue}{C}|$ </td>
+    <td> Forces Board to be 1 when in the range.</td>
   </tr> 
   <tr>
     <td><b>ColorBoardRowLowerBoundRelation</b></td>
