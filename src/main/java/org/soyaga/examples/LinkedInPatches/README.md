@@ -79,7 +79,7 @@ We have to represent the problem using lineal mathematical expressions.
   </tr>
   <tr>
     <td><b>ColorSize</b></td>
-    <td>$$\displaystyle\sum_{\substack{r \in \color{blue}{R} \\ c \in \color{blue}{Cl_n}}}ClB_{cl,r,c} = \textcolor{magenta}{ClN_{cl}}, \; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td>$$\displaystyle\sum_{\substack{r \in \color{blue}{R} \\ c \in \color{blue}{Cl_n}}}ClB_{cl,r,c} = \textcolor{magenta}{ClN_{cl}}, \; \forall cl \in \textcolor{blue}{Cl_n}$$</td>
     <td> $|\textcolor{blue}{Cl_n}|$ </td>
     <td> Forces color size.</td>
   </tr>
@@ -97,7 +97,7 @@ We have to represent the problem using lineal mathematical expressions.
   </tr> 
   <tr>
     <td><b>RowStartEndPrecedence</b></td>
-    <td>$$0 \leq \displaystyle\sum_{ c \in \textcolor{blue}{C}} c \cdot (ClCE_{cl,c} - ClCS_{cl,c}) \leq |\textcolor{blue}{C}|,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td>$$0 \leq \displaystyle\sum_{ r \in \textcolor{blue}{R}} r \cdot (ClRE_{cl,r} - ClRS_{cl,r}) \leq |\textcolor{blue}{R}|,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
     <td> $|\textcolor{blue}{Cl}|$ </td>
     <td> Row Start-End precedence.</td>
   </tr> 
@@ -115,7 +115,7 @@ We have to represent the problem using lineal mathematical expressions.
   </tr> 
   <tr>
     <td><b>ColStartEndPrecedence</b></td>
-    <td>$$0 \leq \displaystyle\sum_{ r \in \textcolor{blue}{R}} r \cdot (ClRE_{cl,r} - ClRS_{cl,r}) \leq |\textcolor{blue}{R}|,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td>$$0 \leq \displaystyle\sum_{ c \in \textcolor{blue}{C}} c \cdot (ClCE_{cl,c} - ClCS_{cl,c}) \leq |\textcolor{blue}{C}|,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
     <td> $|\textcolor{blue}{Cl}|$ </td>
     <td> Col Start-End precedence.</td>
   </tr> 
