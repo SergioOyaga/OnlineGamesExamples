@@ -155,6 +155,24 @@ We have to represent the problem using lineal mathematical expressions.
     <td> $|\textcolor{blue}{Cl}|$ </td>
     <td> Color width computation.</td>
   </tr> 
+  <tr>
+    <td><b>ColorSquareRule</b></td>
+    <td>$$ClW_{cl} - ClH_{cl} = 0 ,\; \forall cl \in \textcolor{blue}{Cl_s}$$</td>
+    <td> $|\textcolor{blue}{Cl_s}|$ </td>
+    <td> Color square rule.</td>
+  </tr> 
+  <tr>
+    <td><b>ColorVerticalRectangleRule</b></td>
+    <td>$$ClH_{cl} - ClW_{cl} \geq 0 ,\; \forall cl \in \textcolor{blue}{Cl_vr}$$</td>
+    <td> $|\textcolor{blue}{Cl_s}|$ </td>
+    <td> Color vertical rectangle rule.</td>
+  </tr> 
+  <tr>
+    <td><b>ColorHorizontalRectangleRule</b></td>
+    <td>$$ClW_{cl} - ClH_{cl} \geq 0 ,\; \forall cl \in \textcolor{blue}{Cl_hr}$$</td>
+    <td> $|\textcolor{blue}{Cl_s}|$ </td>
+    <td> Color horizontal rectangle rule.</td>
+  </tr> 
 </table>
 
 ## In this folder:
