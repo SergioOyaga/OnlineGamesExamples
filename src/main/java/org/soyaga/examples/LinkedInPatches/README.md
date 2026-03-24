@@ -55,7 +55,7 @@ We have to represent the problem using lineal mathematical expressions.
   </tr>
   <tr>
     <td><b>ColorSize</b></td>
-    <td>$$\displaystyle\sum_{\begin{matrix} r \in \color{blue}{R} \\ c \in \color{blue}{C} \end{matrix}}ClB_{cl,r,c} = \textcolor{magenta}{ClN_{cl}} ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td>$$\sum_{\begin{matrix} r \in \color{blue}{R} \\ c \in \color{blue}{C} \end{matrix}}ClB_{cl,r,c} = \textcolor{magenta}{ClN_{cl}} ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
     <td> $|\textcolor{blue}{Cl}|$ </td>
     <td> Forces color size.</td>
   </tr>
