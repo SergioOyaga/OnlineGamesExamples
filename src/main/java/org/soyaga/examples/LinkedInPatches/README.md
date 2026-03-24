@@ -73,7 +73,7 @@ We have to represent the problem using lineal mathematical expressions.
   </tr>
   <tr>
     <td><b>BoardColorUnique</b></td>
-    <td>$$\displaystyle\sum_{cl \in \color{blue}{Cl}}ClB_{cl,r,c} = 1 ,\; \forall  r \in \color{blue}{R}, \; c \in \color{blue}{C}$$</td>
+    <td>$$\displaystyle\sum_{cl \in \color{blue}{Cl}}ClB_{cl,r,c} = 1 ,\; \forall r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
     <td> $|\textcolor{blue}{R}| \cdot |\textcolor{blue}{C}|$ </td>
     <td> Forces color to assign one and only one color to each cell.</td>
   </tr>
