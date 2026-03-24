@@ -16,7 +16,14 @@ We have to represent the problem using lineal mathematical expressions.
          <ul>
             <li>$\textcolor{blue}{R} =$ Rows.</li>
             <li>$\textcolor{blue}{C} =$ Columns.</li>
-            <li>$\textcolor{blue}{Cl} =$ Colors.</li>
+            <li>$\textcolor{blue}{Cl} =$ Colors.
+                <ul>
+                    <li>$\textcolor{blue}{Cl_s} =$ colors with square shape</li>
+                    <li>$\textcolor{blue}{Cl_vr} =$ colors with vertical-rectangle shape</li>
+                    <li>$\textcolor{blue}{Cl_hr} =$ colors with horizontal-rectangle shape</li>
+                    <li>$\textcolor{blue}{Cl_u} =$ colors with unknown shape</li>
+                </ul>
+            </li>
          </ul>
       </td>
       <td>
@@ -38,8 +45,12 @@ We have to represent the problem using lineal mathematical expressions.
       <td>
         <ul>
            <li>$ClB_{cl,r,c} \in \{0,1\}, \; \forall cl \in \textcolor{blue}{Cl}, \;r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}=$ (ColorBoard) Board by color.</li>
-           <li>$ClRR_{cl,r} \in \{0,1\}, \; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}=$ (ColorRowRange) Row range bay color as boolean, determines lower and upper bound of the range.</li>
-           <li>$ClCR_{cl,c} \in \{0,1\}, \; \forall cl \in \textcolor{blue}{Cl}, \; c \in \textcolor{blue}{c}=$ (ColorColumnRange) Column range bay color as boolean, determines lower and upper bound of the range.</li>
+           <li>$ClRS_{cl,r} \in \{0,1\}, \; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}=$ (ColorRowStart) Row range start by color as boolean.</li>
+           <li>$ClRE_{cl,r} \in \{0,1\}, \; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}=$ (ColorRowEnd) Row range end by color as boolean.</li>
+           <li>$ClCS_{cl,c} \in \{0,1\}, \; \forall cl \in \textcolor{blue}{Cl}, \; c \in \textcolor{blue}{c}=$ (ColorColumnStart) Column range start by color as boolean.</li>
+           <li>$ClCE_{cl,c} \in \{0,1\}, \; \forall cl \in \textcolor{blue}{Cl}, \; c \in \textcolor{blue}{c}=$ (ColorColumnEnd) Column range end by color as boolean.</li>
+           <li>$ClH_{cl} \in , \textcolor{blue}{R}\; \forall cl \in \textcolor{blue}{Cl} =$ (ColorHeight) Shape height by color.</li>
+           <li>$ClW_{cl} \in , \textcolor{blue}{C}\; \forall cl \in \textcolor{blue}{Cl} =$ (ColorWidth) Shape width by color.</li>
         </ul>
       </td>
    </tr>
@@ -66,38 +77,62 @@ We have to represent the problem using lineal mathematical expressions.
     <td> Forces color hint position.</td>
   </tr>
   <tr>
-    <td><b>ColorRowRangeLimit</b></td>
-    <td>$$1 \leq \displaystyle\sum_{\substack{ r \in \color{blue}{R} }}ClRR_{cl,r} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td><b>ColorRowStartUnique</b></td>
+    <td>$$\displaystyle\sum_{\substack{ r \in \color{blue}{R} }}ClRS_{cl,r} = 1 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
     <td> $|\sum_{cl \in \textcolor{blue}{Cl}}|$ </td>
-    <td> Forces Color Row range to be 1 or 2. 1: start and end the same position, 2: start and end separated.</td>
+    <td> Forces to only be one start.</td>
   </tr> 
   <tr>
-    <td><b>ColorColRangeLimit</b></td>
-    <td>$$1 \leq \displaystyle\sum_{\substack{ c \in \color{blue}{C} }}ClCR_{cl,c} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td><b>ColorRowEndUnique</b></td>
+    <td>$$\displaystyle\sum_{\substack{ r \in \color{blue}{R} }}ClRE_{cl,r} = 1 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
     <td> $|\sum_{cl \in \textcolor{blue}{Cl}}|$ </td>
-    <td> Forces Color Column range to be 1 or 2. 1: start and end the same position, 2: start and end separated.</td>
+    <td> Forces to only be one end.</td>
+  </tr> 
+  <tr>
+    <td><b>RowStartEndPrecedence</b></td>
+    <td>$$0 \leq \displaystyle\sum_{ c \in \textcolor{blue}{C}} c \cdot (ClCE_{cl,c} - ClCS_{cl,c}) \leq |\textcolor{blue}{C}|,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td> $|\textcolor{blue}{Cl}|$ </td>
+    <td> Row Start-End precedence.</td>
+  </tr> 
+  <tr>
+    <td><b>ColorColStartUnique</b></td>
+    <td>$$\displaystyle\sum_{\substack{ c \in \color{blue}{C} }}ClCS_{cl,c} = 0 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td> $|\sum_{cl \in \textcolor{blue}{Cl}}|$ </td>
+    <td> Forces to only be one start.</td>
+  </tr> 
+  <tr>
+    <td><b>ColorColEndUnique</b></td>
+    <td>$$\displaystyle\sum_{\substack{ c \in \color{blue}{C} }}ClCE_{cl,c} = 0 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td> $|\sum_{cl \in \textcolor{blue}{Cl}}|$ </td>
+    <td> Forces to only be one end.</td>
+  </tr> 
+  <tr>
+    <td><b>ColStartEndPrecedence</b></td>
+    <td>$$0 \leq \displaystyle\sum_{ r \in \textcolor{blue}{R}} r \cdot (ClRE_{cl,r} - ClRS_{cl,r}) \leq |\textcolor{blue}{R}|,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td> $|\textcolor{blue}{Cl}|$ </td>
+    <td> Col Start-End precedence.</td>
   </tr> 
   <tr>
     <td><b>ColorBoardRowLowerBoundRelation</b></td>
-    <td>$$0 \leq \displaystyle\sum_{\substack{ r_i \in \{ 0,r\}}}ClRR_{cl,r_i} - ClB_{cl,r,c} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
+    <td>$$0 \leq \displaystyle\sum_{\substack{ r_i \in \{ 0,r\}}}ClRS_{cl,r_i} - ClB_{cl,r,c} \leq 1 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
     <td> $|\textcolor{blue}{Cl}| \cdot |\textcolor{blue}{R}| \cdot |\textcolor{blue}{C}|$ </td>
     <td> Forces Board to be 0 when the range has not started.</td>
   </tr> 
   <tr>
     <td><b>ColorBoardRowUpperBoundRelation</b></td>
-    <td>$$0 \leq \displaystyle\sum_{\substack{ r_i \in \{ r,\textcolor{blue}{R}\}}}ClRR_{cl,r_i} - ClB_{cl,r,c} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
+    <td>$$0 \leq \displaystyle\sum_{\substack{ r_i \in \{ r,\textcolor{blue}{R}\}}}ClRE_{cl,r_i} - ClB_{cl,r,c} \leq 1 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
     <td> $|\textcolor{blue}{Cl}| \cdot |\textcolor{blue}{R}| \cdot |\textcolor{blue}{C}|$ </td>
     <td> Forces Board to be 0 when the range has ended.</td>
   </tr> 
   <tr>
     <td><b>ColorBoardColLowerBoundRelation</b></td>
-    <td>$$0 \leq \displaystyle\sum_{\substack{ c_i \in \{ 0,c\}}}ClCR_{cl,c_i} - ClB_{cl,r,c} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
+    <td>$$0 \leq \displaystyle\sum_{\substack{ c_i \in \{ 0,c\}}}ClCS_{cl,c_i} - ClB_{cl,r,c} \leq 1 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
     <td> $|\textcolor{blue}{Cl}| \cdot |\textcolor{blue}{R}| \cdot |\textcolor{blue}{C}|$ </td>
     <td> Forces Board to be 0 when the range has not started.</td>
   </tr> 
   <tr>
     <td><b>ColorBoardColUpperBoundRelation</b></td>
-    <td>$$0 \leq \displaystyle\sum_{\substack{ c_i \in \{ c,\textcolor{blue}{C}\}}}ClCR_{cl,c_i} - ClB_{cl,r,c} \leq 2 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
+    <td>$$0 \leq \displaystyle\sum_{\substack{ c_i \in \{ c,\textcolor{blue}{C}\}}}ClCE_{cl,c_i} - ClB_{cl,r,c} \leq 1 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
     <td> $|\textcolor{blue}{Cl}| \cdot |\textcolor{blue}{R}| \cdot |\textcolor{blue}{C}|$ </td>
     <td> Forces Board to be 0 when the range has ended.</td>
   </tr> 
