@@ -65,16 +65,22 @@ We have to represent the problem using lineal mathematical expressions.
     <th>Description</th>
   </tr>
   <tr>
-    <td><b>ColorSize</b></td>
-    <td>$$\displaystyle\sum_{\substack{r \in \color{blue}{R} \\ c \in \color{blue}{C}}}ClB_{cl,r,c} = \textcolor{magenta}{ClN_{cl}}, \; \forall cl \in \textcolor{blue}{Cl}$$</td>
-    <td> $|\textcolor{blue}{Cl}|$ </td>
-    <td> Forces color size.</td>
-  </tr>
-  <tr>
     <td><b>ColorHintPosition</b></td>
     <td>$$ClB_{cl,\textcolor{magenta}{ClR_{cl}},\textcolor{magenta}{ClC_{cl}}} = 1 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
     <td> $|\textcolor{blue}{Cl}|$ </td>
     <td> Forces color hint position.</td>
+  </tr>
+  <tr>
+    <td><b>BoardColorUnique</b></td>
+    <td>$$\displaystyle\sum_{cl \in \color{blue}{Cl}}ClB_{cl,r,c} = 1 ,\; \forall  r \in \color{blue}{R}, \; c \in \color{blue}{C}$$</td>
+    <td> $|\textcolor{blue}{R}| \cdot |\textcolor{blue}{C}|$ </td>
+    <td> Forces color to assign one and only one color to each cell.</td>
+  </tr>
+  <tr>
+    <td><b>ColorSize</b></td>
+    <td>$$\displaystyle\sum_{\substack{r \in \color{blue}{R} \\ c \in \color{blue}{C}}}ClB_{cl,r,c} = \textcolor{magenta}{ClN_{cl}}, \; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td> $|\textcolor{blue}{Cl}|$ </td>
+    <td> Forces color size.</td>
   </tr>
   <tr>
     <td><b>ColorRowStartUnique</b></td>
