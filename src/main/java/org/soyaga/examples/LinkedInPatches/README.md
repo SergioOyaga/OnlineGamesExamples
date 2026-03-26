@@ -126,30 +126,6 @@ We have to represent the problem using lineal mathematical expressions.
     <td> Forces Board to be 1 when in the range. For r,c = 0 only left side applies.</td>
   </tr> 
   <tr>
-    <td><b>ColorBoardRowLowerBoundRelation</b></td>
-    <td>$$0 \leq \displaystyle\sum_{\substack{ r_i \in \{ 0,r\}}}ClRS_{cl,r_i} - ClB_{cl,r,c} \leq 1 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
-    <td> $|\textcolor{blue}{Cl}| \cdot |\textcolor{blue}{R}| \cdot |\textcolor{blue}{C}|$ </td>
-    <td> Forces Board to be 0 when the range has not started.</td>
-  </tr> 
-  <tr>
-    <td><b>ColorBoardRowUpperBoundRelation</b></td>
-    <td>$$0 \leq \displaystyle\sum_{\substack{ r_i \in \{ r,\textcolor{blue}{R}\}}}ClRE_{cl,r_i} - ClB_{cl,r,c} \leq 1 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
-    <td> $|\textcolor{blue}{Cl}| \cdot |\textcolor{blue}{R}| \cdot |\textcolor{blue}{C}|$ </td>
-    <td> Forces Board to be 0 when the range has ended.</td>
-  </tr> 
-  <tr>
-    <td><b>ColorBoardColLowerBoundRelation</b></td>
-    <td>$$0 \leq \displaystyle\sum_{\substack{ c_i \in \{ 0,c\}}}ClCS_{cl,c_i} - ClB_{cl,r,c} \leq 1 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
-    <td> $|\textcolor{blue}{Cl}| \cdot |\textcolor{blue}{R}| \cdot |\textcolor{blue}{C}|$ </td>
-    <td> Forces Board to be 0 when the range has not started.</td>
-  </tr> 
-  <tr>
-    <td><b>ColorBoardColUpperBoundRelation</b></td>
-    <td>$$0 \leq \displaystyle\sum_{\substack{ c_i \in \{ c,\textcolor{blue}{C}\}}}ClCE_{cl,c_i} - ClB_{cl,r,c} \leq 1 ,\; \forall cl \in \textcolor{blue}{Cl}, \; r \in \textcolor{blue}{R}, \; c \in \textcolor{blue}{C}$$</td>
-    <td> $|\textcolor{blue}{Cl}| \cdot |\textcolor{blue}{R}| \cdot |\textcolor{blue}{C}|$ </td>
-    <td> Forces Board to be 0 when the range has ended.</td>
-  </tr> 
-  <tr>
     <td><b>ColorHeightComputation</b></td>
     <td>$$\displaystyle\sum_{\substack{r \in \textcolor{blue}{R}}}(ClRE_{cl,r} - ClRS_{cl,r}) - ClH_{cl} = 0 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
     <td> $|\textcolor{blue}{Cl}|$ </td>
