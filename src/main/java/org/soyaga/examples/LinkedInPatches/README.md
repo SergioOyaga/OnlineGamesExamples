@@ -127,13 +127,13 @@ We have to represent the problem using lineal mathematical expressions.
   </tr> 
   <tr>
     <td><b>ColorHeightComputation</b></td>
-    <td>$$\displaystyle\sum_{\substack{r \in \textcolor{blue}{R}}}(ClRE_{cl,r} - ClRS_{cl,r}) - ClH_{cl} = 0 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td>$$\displaystyle\sum_{\substack{r \in \textcolor{blue}{R}}}r\cdot(ClRE_{cl,r} - ClRS_{cl,r}) - ClH_{cl} = 0 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
     <td> $|\textcolor{blue}{Cl}|$ </td>
     <td> Color height computation.</td>
   </tr> 
   <tr>
     <td><b>ColorWidthComputation</b></td>
-    <td>$$\displaystyle\sum_{\substack{c \in \textcolor{blue}{C}}}(ClCE_{cl,c} - ClCS_{cl,c}) - ClW_{cl} = 0 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
+    <td>$$\displaystyle\sum_{\substack{c \in \textcolor{blue}{C}}}c\cdot(ClCE_{cl,c} - ClCS_{cl,c}) - ClW_{cl} = 0 ,\; \forall cl \in \textcolor{blue}{Cl}$$</td>
     <td> $|\textcolor{blue}{Cl}|$ </td>
     <td> Color width computation.</td>
   </tr> 
