@@ -167,7 +167,7 @@ This folder contains one class and a packages that define the structures require
     - Introduces the solution in the web app.
 2. [LinkedInPatchesMathModel](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/LinkedInPatches/MathModel/LinkedInPatchesMathModel.java): Class that implements the required OptimizationLib interface and represents a Constraint Programming Mathematical Modeling Optimization program.
     - Instantiates all its components.
-3. [LinkedInPatchesMMInitializer](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/LinkedInPatches/MathModel/Initializer/LinkedInPatchesMMInitializer.java): Initializes the Mathematical Model:
+3. [LinkedInPatchesMMInitializer](https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/main/java/org/soyaga/examples/LinkedInPatches/MathModel/LinkedInPatchesMMInitializer.java): Initializes the Mathematical Model:
     - Creates Variables.
     - Creates constraints.
 
