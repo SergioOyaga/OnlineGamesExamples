@@ -177,7 +177,212 @@ For the MathModel, the set of parameters used are in the LinkedInPatchesMathMode
 
 The output looks like:
 `````
-TODO
+Loading https://www.linkedin.com/: ...
+Loaded.
+Refreshing in case it did not load...
+Refreshed.
+Logging-in...
+Logged.
+Loading game...
+Game loaded.
+Retrieving Grid...
+
+Starting CP-SAT solver v9.7.2996
+Parameters: max_time_in_seconds: 600 log_search_progress: true log_to_stdout: true
+Setting number of workers to 16
+
+Initial satisfaction model 'PatchesMMModelProto': (model_fingerprint: 0x8fe41a7eb4611679)
+#Variables: 496
+  - 480 Booleans in [0,1]
+  - 16 in [0,5]
+#kLinear1: 8
+#kLinear3: 8
+#kLinearN: 384 (#terms: 4'744)
+
+Starting presolve at 0.00s
+[ExtractEncodingFromLinear] #potential_supersets=60 #potential_subsets=0 #at_most_one_encodings=0 #exactly_one_encodings=0 #unique_terms=0 #multiple_terms=0 #literals=0 time=1.89e-05s
+[Symmetry] Graph for symmetry has 1488 nodes and 5184 arcs.
+[Symmetry] Symmetry computation done. time: 0.0003318 dtime: 0.00073083
+[SAT presolve] num removable Booleans: 80 / 496
+[SAT presolve] num trivial clauses: 0
+[SAT presolve] [0s] clauses:32 literals:96 vars:24 one_side_vars:0 simple_definition:8 singleton_clauses:0
+[SAT presolve] [2.17e-05s] clauses:24 literals:56 vars:24 one_side_vars:0 simple_definition:24 singleton_clauses:0
+[SAT presolve] [4.18e-05s] clauses:24 literals:56 vars:24 one_side_vars:0 simple_definition:24 singleton_clauses:0
+[Probing] implications and bool_or (work_done=6867).
+[DetectDuplicateConstraints] #duplicates=33 #without_enforcements=0 time=0.0003219s
+[DetectDominatedLinearConstraints] #relevant_constraints=239 #work_done=29092 #num_inclusions=692 #num_redundant=1 time=0.0018213s
+[ProcessSetPPC] #relevant_constraints=318 #num_inclusions=118 work=8825 time=0.0010789s
+[FindBigHorizontalLinearOverlap] #blocks=0 #saved_nz=0 #linears=202 #work_done=2100/1e+09 time=6.94e-05s
+[FindBigVerticalLinearOverlap] #blocks=27 #nz_reduction=802 #work_done=31087 time=0.000547s
+[MergeClauses] #num_collisions=4 #num_merges=4 #num_saved_literals=8 work=87/100000000 time=2.26e-05s
+[Symmetry] Graph for symmetry has 1024 nodes and 1330 arcs.
+[Symmetry] Symmetry computation done. time: 0.0001353 dtime: 0.00020856
+[SAT presolve] num removable Booleans: 365 / 524
+[SAT presolve] num trivial clauses: 0
+[SAT presolve] [0s] clauses:239 literals:652 vars:112 one_side_vars:17 simple_definition:60 singleton_clauses:0
+[SAT presolve] [3.2e-05s] clauses:171 literals:376 vars:109 one_side_vars:22 simple_definition:57 singleton_clauses:8
+[SAT presolve] [7.47e-05s] clauses:171 literals:376 vars:109 one_side_vars:22 simple_definition:57 singleton_clauses:8
+[Probing] implications and bool_or (work_done=184).
+[MaxClique] Merged 136(278 literals) into 130(263 literals) at_most_ones. time=0.0001213s
+[DetectDuplicateConstraints] #duplicates=0 #without_enforcements=0 time=3.9e-06s
+[DetectDominatedLinearConstraints] #relevant_constraints=0 #work_done=0 #num_inclusions=0 #num_redundant=0 time=1e-06s
+[ProcessSetPPC] #relevant_constraints=0 #num_inclusions=0 work=0 time=2.1e-06s
+[FindBigHorizontalLinearOverlap] #blocks=0 #saved_nz=0 #linears=0 #work_done=0/1e+09 time=1.2e-06s
+[FindBigVerticalLinearOverlap] #blocks=0 #nz_reduction=0 #work_done=0 time=9e-06s
+[MergeClauses] #num_collisions=0 #num_merges=0 #num_saved_literals=0 work=0/100000000 time=1.6e-06s
+[Symmetry] Graph for symmetry has 524 nodes and 0 arcs.
+[Symmetry] Symmetry computation done. time: 1.48e-05 dtime: 3.144e-05
+[DetectDuplicateConstraints] #duplicates=0 #without_enforcements=0 time=3e-06s
+[DetectDominatedLinearConstraints] #relevant_constraints=0 #work_done=0 #num_inclusions=0 #num_redundant=0 time=9e-07s
+[ProcessSetPPC] #relevant_constraints=0 #num_inclusions=0 work=0 time=1.8e-06s
+[FindBigHorizontalLinearOverlap] #blocks=0 #saved_nz=0 #linears=0 #work_done=0/1e+09 time=1e-06s
+[FindBigVerticalLinearOverlap] #blocks=0 #nz_reduction=0 #work_done=0 time=6.3e-06s
+[MergeClauses] #num_collisions=0 #num_merges=0 #num_saved_literals=0 work=0/100000000 time=1.5e-06s
+
+Presolve summary:
+  - 20 affine relations were detected.
+  - rule 'TODO dual: only one blocking constraint?' was applied 17 times.
+  - rule 'TODO linear2: contains a Boolean.' was applied 82 times.
+  - rule 'affine: new relation' was applied 20 times.
+  - rule 'at_most_one: empty or all false' was applied 32 times.
+  - rule 'at_most_one: removed literals' was applied 45 times.
+  - rule 'at_most_one: satisfied' was applied 102 times.
+  - rule 'at_most_one: size one' was applied 10 times.
+  - rule 'at_most_one: transformed into max clique.' was applied 1 time.
+  - rule 'bool_and: always false' was applied 1 time.
+  - rule 'bool_and: x => x' was applied 3 times.
+  - rule 'bool_or: always true' was applied 84 times.
+  - rule 'bool_or: fixed literals' was applied 3 times.
+  - rule 'bool_or: implications' was applied 76 times.
+  - rule 'bool_or: only one literal' was applied 8 times.
+  - rule 'bool_or: removed enforcement literal' was applied 10 times.
+  - rule 'deductions: 18 stored' was applied 1 time.
+  - rule 'duplicate: merged rhs of linear constraint' was applied 13 times.
+  - rule 'duplicate: removed constraint' was applied 33 times.
+  - rule 'enforcement: can never be true' was applied 3 times.
+  - rule 'enforcement: false literal' was applied 10 times.
+  - rule 'enforcement: true literal' was applied 18 times.
+  - rule 'exactly_one: removed literals' was applied 108 times.
+  - rule 'exactly_one: satisfied' was applied 55 times.
+  - rule 'exactly_one: singleton' was applied 2 times.
+  - rule 'exactly_one: size one' was applied 3 times.
+  - rule 'exactly_one: size two' was applied 4 times.
+  - rule 'exactly_one: x and not(x)' was applied 21 times.
+  - rule 'linear + amo: advanced infeasible linear constraint' was applied 9 times.
+  - rule 'linear + amo: detect hidden AMO' was applied 1 time.
+  - rule 'linear + amo: extracted enforcement literal' was applied 50 times.
+  - rule 'linear + amo: fixed literal' was applied 41 times.
+  - rule 'linear + amo: trivial linear constraint' was applied 2 times.
+  - rule 'linear inclusion: redundant containing constraint' was applied 1 time.
+  - rule 'linear matrix: common vertical rectangle' was applied 27 times.
+  - rule 'linear1: is boolean implication' was applied 13 times.
+  - rule 'linear1: transformed to implication' was applied 1 time.
+  - rule 'linear1: without enforcement' was applied 21 times.
+  - rule 'linear2: contains a Boolean.' was applied 20 times.
+  - rule 'linear2: implied ax + by = cte has only one solution' was applied 1 time.
+  - rule 'linear: always true' was applied 114 times.
+  - rule 'linear: divide by GCD' was applied 15 times.
+  - rule 'linear: empty' was applied 36 times.
+  - rule 'linear: enforcement literal in expression' was applied 1 time.
+  - rule 'linear: fixed or dup variables' was applied 698 times.
+  - rule 'linear: infeasible' was applied 8 times.
+  - rule 'linear: negative at most one' was applied 14 times.
+  - rule 'linear: negative clause' was applied 21 times.
+  - rule 'linear: negative equal one' was applied 1 time.
+  - rule 'linear: positive at most one' was applied 13 times.
+  - rule 'linear: positive clause' was applied 9 times.
+  - rule 'linear: positive equal one' was applied 68 times.
+  - rule 'linear: reduced variable domains' was applied 76 times.
+  - rule 'linear: reduced variable domains in derived constraint' was applied 33 times.
+  - rule 'linear: remapped using affine relations' was applied 135 times.
+  - rule 'linear: simplified rhs' was applied 12 times.
+  - rule 'linear: singleton column' was applied 16 times.
+  - rule 'linear: small Boolean expression' was applied 78 times.
+  - rule 'linear: variable substitution 2' was applied 1 time.
+  - rule 'presolve: 485 unused variables removed.' was applied 1 time.
+  - rule 'presolve: iteration' was applied 3 times.
+  - rule 'probing: bool_or reduced to implication' was applied 9 times.
+  - rule 'setppc: bool_or in at_most_one.' was applied 3 times.
+  - rule 'setppc: exactly_one included in linear' was applied 80 times.
+  - rule 'setppc: fixed variables' was applied 3 times.
+  - rule 'setppc: reduced linear coefficients' was applied 75 times.
+  - rule 'setppc: removed dominated constraints' was applied 3 times.
+  - rule 'setppc: removed infeasible linear constraint' was applied 2 times.
+  - rule 'setppc: removed trivial linear constraint' was applied 3 times.
+  - rule 'variables with 2 values: create encoding literal' was applied 1 time.
+  - rule 'variables with 2 values: new affine relation' was applied 1 time.
+  - rule 'variables: detect fully reified value encoding' was applied 1 time.
+  - rule 'variables: detect half reified value encoding' was applied 8 times.
+
+Presolved satisfaction model 'PatchesMMModelProto': (model_fingerprint: 0xa5b85c5e198ed849)
+#Variables: 0
+
+
+Preloading model.
+[Symmetry] Graph for symmetry has 0 nodes and 0 arcs.
+#Model   0.02s var:0/0 constraints:0/0
+
+Starting search at 0.02s with 16 workers.
+6 full problem subsolvers: [default_lp, less_encoding, max_lp, no_lp, quick_restart, quick_restart_no_lp]
+8 first solution subsolvers: [jump, jump_decay_perturb, jump_decay_rnd_on_rst, jump_no_rst, random(2), random_quick_restart(2)]
+2 incomplete subsolvers: [feasibility_pump, rins/rens]
+2 helper subsolvers: [neighborhood_helper, synchronization_agent]
+#1       0.02s no_lp fixed_bools:0/0
+#2       0.02s default_lp fixed_bools:0/0
+#3       0.02s max_lp fixed_bools:0/0
+#4       0.02s less_encoding fixed_bools:0/0
+#5       0.02s jump(batch:1 #lin_moves:0/0 #weight_updates:1)
+#6       0.02s jump_decay_perturb(batch:1 #lin_moves:0/0 #weight_updates:1)
+#7       0.02s jump_no_rst(batch:1 #lin_moves:0/0 #weight_updates:1)
+#8       0.02s jump_decay_rnd_on_rst(batch:1 #lin_moves:0/0 #weight_updates:1)
+
+Task timing                        n [     min,      max]      avg      dev     time         n [     min,      max]      avg      dev    dtime
+  'synchronization_agent':         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+    'neighborhood_helper':         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+             'default_lp':         1 [304.30us, 304.30us] 304.30us   0.00ns 304.30us         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+          'less_encoding':         1 [396.80us, 396.80us] 396.80us   0.00ns 396.80us         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+                  'no_lp':         1 [200.00us, 200.00us] 200.00us   0.00ns 200.00us         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+                 'max_lp':         1 [206.90us, 206.90us] 206.90us   0.00ns 206.90us         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+          'quick_restart':         1 [ 33.70us,  33.70us]  33.70us   0.00ns  33.70us         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+    'quick_restart_no_lp':         1 [ 26.30us,  26.30us]  26.30us   0.00ns  26.30us         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+       'feasibility_pump':         1 [  3.40us,   3.40us]   3.40us   0.00ns   3.40us         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+              'rins/rens':         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns         0 [  0.00ns,   0.00ns]   0.00ns   0.00ns   0.00ns
+
+Search stats              Bools  Conflicts  Branches  Restarts  BoolPropag  IntegerPropag
+           'default_lp':      0          0         0         0           0              0
+        'less_encoding':      0          0         0         0           0              0
+                'no_lp':      0          0         0         0           0              0
+               'max_lp':      0          0         0         0           0              0
+        'quick_restart':      0          0         0         0           0              0
+  'quick_restart_no_lp':      0          0         0         0           0              0
+
+LNS stats       Improv/Calls  Closed  Difficulty  TimeLimit
+  'rins/rens':           0/0      0%        0.50       0.10
+
+Solution repositories    Added  Queried  Ignored  Synchro
+  'feasible solutions':      8        0        0        8
+        'lp solutions':      0        0        0        0
+                'pump':      0        0
+
+CpSolverResponse summary:
+status: OPTIMAL
+objective: NA
+best_bound: NA
+integers: 0
+booleans: 0
+conflicts: 0
+branches: 0
+propagations: 0
+integer_propagations: 0
+restarts: 0
+lp_iterations: 0
+walltime: 0.0322135
+usertime: 0.0322136
+deterministic_time: 0.00235217
+gap_integral: 0
+solution_fingerprint: 0xad22056893c1b877
+
+CP solution introduced.
 `````
 As you see in the output example, the MathModel finds the solution pretty fast.
 
