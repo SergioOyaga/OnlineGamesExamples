@@ -131,6 +131,13 @@ This repository contains various Web-games optimization problems solved using th
       <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/Tetris/Tetris.gif" title="Tetris example" alt="Tetris example"/></td>
       <td>Tetris using a Player trained using GA.</td>
     </tr>
+    <tr>
+      <td>18</td>
+      <td><a href="https://github.com/SergioOyaga/OnlineGamesExamples/tree/master/src/main/java/org/soyaga/examples/LinkedInPatches/">LinkedInPatches</a></td>
+      <td>2</td>
+      <td><img src="https://github.com/SergioOyaga/OnlineGamesExamples/blob/master/src/out/LinkedInPatches/LinkedInPatches.gif" title="LinkedInPatches example" alt="LinkedInPatches example"/></td>
+      <td>LinkedInPatches using Constrained Programming SAT.</td>
+    </tr>
   </tbody>
 </table>
 
