@@ -41,8 +41,6 @@ public class LinkedInPatchesScraper {
         //Credentials for LinkedIn
         String linkedInUser ="Your_LinkedIn_mail@example.com";
         String linkedInPassword ="Your_LinkedIn_password";
-        //String linkedInUser ="Your_LinkedIn_mail@example.com";
-        //String linkedInPassword ="Your_LinkedIn_password";
         //Selenium driver path
         String seleniumPath = "src\\main\\resources\\edgedriver_win32\\msedgedriver.exe";
         // dimensions
