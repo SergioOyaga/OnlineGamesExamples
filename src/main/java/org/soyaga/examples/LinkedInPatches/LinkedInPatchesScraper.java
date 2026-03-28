@@ -39,8 +39,8 @@ public class LinkedInPatchesScraper {
 
     public static void main(String[] args) {
         //Credentials for LinkedIn
-        String linkedInUser ="oyaga.sergio@gmail.com";
-        String linkedInPassword ="s002294843";
+        String linkedInUser ="Your_LinkedIn_mail@example.com";
+        String linkedInPassword ="Your_LinkedIn_password";
         //String linkedInUser ="Your_LinkedIn_mail@example.com";
         //String linkedInPassword ="Your_LinkedIn_password";
         //Selenium driver path
